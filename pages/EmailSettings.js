@@ -2,7 +2,6 @@ import {H1, H2} from '../components/atoms/ui/Typography';
 import {FormButtons, FormPair, FormStyled, Input} from '../components/atoms/ui/FormStyled';
 import {Label} from '../components/atoms/ui/FormStyled';
 import Button from '../components/atoms/Button';
-import Box from '../components/atoms/ui/Box';
 
 const formFields = [
   {
@@ -22,9 +21,9 @@ const formFields = [
 const EmailSettings = () => {
   return (
     <>
-      <Box margin='0 1em'>
+      <div style={{margin:'0 1em'}}>
       <H1>Email Settings</H1>
-      <H2>Select which communicates you'd like to receive:</H2>
+      <H2>Select which communicates you&rsquo;d like to receive:</H2>
       <FormStyled>
         <FormPair>
           <Input type='checkbox'/>
@@ -36,7 +35,7 @@ const EmailSettings = () => {
           <Button>Submit</Button>
         </FormButtons>
       </FormStyled>
-      </Box>
+      </div>
     </>
   )
 }
