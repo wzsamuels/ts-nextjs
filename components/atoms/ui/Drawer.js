@@ -72,6 +72,10 @@ const DrawerHeader = styled.div`
   top: 0;
   width: 100%;
   height: ${props => props.theme.layout.navBarHeight};
+  
+  * {
+    cursor: pointer;
+  }
 
   a {
     display: block;

@@ -37,6 +37,7 @@ const TopNav = styled.nav`
   .logo {
     position: fixed;
     margin-right: 2em;
+    cursor: pointer;
   }
   
   .menu {

@@ -79,20 +79,28 @@ export default function NavBar({links}) {
           <DrawerHeader>
             <button><Icon height={18} icon="ic:baseline-menu" /></button>
             <Link
-              href='/pages'
+              href='/'
               passHref
               style={{height: '50px', padding: '0'}}
             >
-              <Flex style={{height:'100%'}}>
-                <Image style={{height: '50px', padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
+              <Flex style={{height:'100%', padding: '2px 1em'}}>
+                <Image src={tsImage} alt='Twin Silver Logo'/>
               </Flex>
             </Link>
           </DrawerHeader>
           {
-            links.map((link, i) =>
-              <DrawerItem key={i} to={link.url}>
-                {link.text}
-              </DrawerItem> )
+            links.map(link =>
+              <Link
+                href={link.url}
+                passHref
+                style={{height: '50px', padding: '0'}}
+                key={link.text}
+              >
+                <DrawerItem>
+                  {link.text}
+                </DrawerItem>
+              </Link>
+            )
           }
           <DrawerFooter>
             <div>© 2022 Twin Silver Web Design LLC</div>
