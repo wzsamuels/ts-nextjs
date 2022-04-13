@@ -55,14 +55,14 @@ export default function NavBar({links}) {
       <TopNav>
         <Flex>
           <button onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
-          <Link href='/' passHref className='logo' style={{height: '50px', padding: '0'}}>
-            <Flex height='100%'>
+          <Link href='/' passHref style={{height: '50px', padding: '0'}}>
+            <Flex className='logo' height='100%'>
               <Image height={50} width={150} style={{padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
             </Flex>
           </Link>
         </Flex>
         <div className ='hide'>
-          <Flex flexWrap='no-wrap'>
+          <Flex style={{flexWrap:'no-wrap'}}>
             {
               links.map((link, i) =>
                 <Link key={i} href={link.url}>{link.text}</Link>)
@@ -83,7 +83,7 @@ export default function NavBar({links}) {
               passHref
               style={{height: '50px', padding: '0'}}
             >
-              <Flex height='100%'>
+              <Flex style={{height:'100%'}}>
                 <Image style={{height: '50px', padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
               </Flex>
             </Link>
