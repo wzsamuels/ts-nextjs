@@ -243,7 +243,7 @@ export default function Home() {
     <>
       <HeroWrapper>
         <HeroBackgroundImage>
-          <Image objectFit='cover' layout="fill" src={heroImage} alt="Happy man at laptop"/>
+          <Image priority objectFit='cover' layout="fill" src={heroImage} alt="Happy man at laptop"/>
         </HeroBackgroundImage>
         <HeroBlack/>
         <HeroText>
@@ -284,7 +284,7 @@ export default function Home() {
           <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
         </Flex>
         <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
-          <ImageStyled style={{width: '100%', height: 'auto'}} src={artImage2} alt="Paint"/>
+          <ImageStyled src={artImage2} alt="Paint"/>
         </Flex>
       </HomeCard>
 
@@ -294,7 +294,7 @@ export default function Home() {
           <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
         </Flex>
         <Flex>
-          <ImageStyled style={{width: '100%', height: 'auto'}} src={optimizeImage} width='1920' height='1280' alt="Person holding phone"/>
+          <ImageStyled src={optimizeImage} alt="Person holding phone"/>
         </Flex>
       </HomeCard>
 
@@ -304,7 +304,7 @@ export default function Home() {
           <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
         </Flex>
         <Flex>
-          <ImageStyled style={{width: '100%', height: 'auto'}} src={secureImage} alt="Locked electronics"/>
+          <ImageStyled src={secureImage} alt="Locked electronics"/>
         </Flex>
       </HomeCard>
 
@@ -314,7 +314,7 @@ export default function Home() {
           <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
         </Flex>
         <Flex flex='1'>
-          <ImageStyled style={{width: '100%', height: 'auto'}} src={businessImage} width='1920' height='1280' alt="Business meeting"/>
+          <ImageStyled src={businessImage} alt="Business meeting"/>
         </Flex>
       </HomeCard>
 

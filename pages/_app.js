@@ -17,9 +17,9 @@ import Head from 'next/head';
 Amplify.configure({...awsconfig, ssr: true});
 
 const links = [
-  {text: 'Get Started', url: 'getstarted'},
-  {text: 'Features', url: 'features'},
-  {text: 'Contact', url: 'contact'},
+  {text: 'Get Started', url: '/getstarted'},
+  {text: 'Features', url: '/features'},
+  {text: 'Contact', url: '/contact'},
 ]
 
 const startAnalytics = () => {
@@ -61,11 +61,18 @@ function MyApp({ Component, pageProps }) {
     setCookiePopup(false)
   }
 
-
   return (
     <>
       <Head>
         <title>Twin Silver Web Design</title>
+        <meta charSet="utf-8"/>
+        <link rel="icon" href="/assets/images/logos/ts_icon.svg"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="theme-color" content="#000000"/>
+        <meta
+          name="description"
+          content="Full Service Website Design and Development"
+        />
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-217800713-1"
