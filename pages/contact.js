@@ -5,6 +5,7 @@ import Form from '../components/atoms/ui/Form';
 import {Card} from '../components/atoms/Card';
 import {emailForm} from '../lib/emailForm';
 import Alert from '../components/atoms/ui/Alert';
+import Head from 'next/head';
 
 const formFields = [
   {
@@ -41,23 +42,29 @@ const Contact = () => {
   }
 
   return (
-    <FlexColumn className='center'>
-      <H1>We&rsquo;d Love to Hear From You</H1>
-      <Card style={{margin: '0 0 1em 0', maxWidth: '500px'}}>
-        <Flex className='align-center'>
-          { message ?
-            <Alert>{message}</Alert>
-            :
-            <Form handleSubmit={handleSubmit} style={{width:'500px'}} formFields={formFields}/>
-          }
-        </Flex>
-      </Card>
-      <H2>Reach Out Directly</H2>
-      <address>
-        <p style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
-        <p>Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
-      </address>
-    </FlexColumn>
+    <>
+      <Head>
+        <title>Contact | Twin Silver</title>
+      </Head>
+
+      <FlexColumn className='center'>
+        <H1>We&rsquo;d Love to Hear From You</H1>
+        <Card style={{margin: '0 0 1em 0', maxWidth: '500px'}}>
+          <Flex className='align-center'>
+            { message ?
+              <Alert>{message}</Alert>
+              :
+              <Form handleSubmit={handleSubmit} style={{width:'500px'}} formFields={formFields}/>
+            }
+          </Flex>
+        </Card>
+        <H2>Reach Out Directly</H2>
+        <address>
+          <p style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
+          <p>Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
+        </address>
+      </FlexColumn>
+    </>
   )
 }
 

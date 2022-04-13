@@ -1,13 +1,19 @@
 import {H1, H2} from '../components/atoms/ui/Typography';
-import Flex, {FlexColumn} from '../components/atoms/Flex';
+import {FlexColumn} from '../components/atoms/Flex';
+import Head from 'next/head';
 
 const About = () => {
   return (
-    <FlexColumn className='center'>
-      <H1>About Us</H1>
-      <H2>A Local Triangle Business with World Wide</H2>
-      <p></p>
-    </FlexColumn>
+    <>
+      <Head>
+        <title>About Us | Twin Silver</title>
+      </Head>
+      <FlexColumn className='center'>
+        <H1>About Us</H1>
+        <H2>A Local Triangle Business with World Wide</H2>
+        <p></p>
+      </FlexColumn>
+    </>
   )
 }
 

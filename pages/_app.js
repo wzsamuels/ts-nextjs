@@ -12,6 +12,7 @@ import {useEffect, useState} from 'react';
 import CookiePopup from '../components/atoms/ui/CookiePopup';
 import {useCookies} from 'react-cookie';
 import Script from 'next/script';
+import Head from 'next/head';
 
 Amplify.configure({...awsconfig, ssr: true});
 
@@ -63,6 +64,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <title>Twin Silver Web Design</title>
+      </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-217800713-1"
         strategy="afterInteractive"
@@ -85,6 +89,10 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
     </>
   )
+}
+
+export function reportWebVitals(metric) {
+  console.log(metric)
 }
 
 export default MyApp

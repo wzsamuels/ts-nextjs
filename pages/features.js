@@ -1,7 +1,6 @@
 import React from 'react';
 import Flex from "../components/atoms/Flex";
 import {Card} from '../components/atoms/Card';
-import Image from 'next/image'
 import styled from 'styled-components';
 import {H1, H2} from '../components/atoms/ui/Typography';
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'
@@ -17,10 +16,14 @@ import accountImg from '../public/assets/images/features/accounts_icon.svg'
 import securityImg from '../public/assets/images/features/security_icon.svg'
 import chatbotImg from '../public/assets/images/features/chatbot_icon.svg'
 import ImageStyled from '../components/atoms/ui/Image';
+import Head from 'next/head';
 
 const Features = () => {
   return (
     <>
+      <Head>
+        <title>Features | Twin Silver</title>
+      </Head>
       <H1 style={{textAlign: 'center'}}>
         What can we do for you?
       </H1>
