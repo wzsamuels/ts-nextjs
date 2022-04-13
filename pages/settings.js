@@ -3,7 +3,6 @@ import {FormButtons, FormPair, FormStyled, Input} from '../components/atoms/ui/F
 import {Label} from '../components/atoms/ui/FormStyled';
 import Button from '../components/atoms/Button';
 import Head from 'next/head';
-import React from '@types/react';
 
 const formFields = [
   {

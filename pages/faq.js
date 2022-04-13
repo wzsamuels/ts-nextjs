@@ -1,7 +1,6 @@
 import Flex from '../components/atoms/Flex';
 import {H1} from '../components/atoms/ui/Typography';
 import Head from 'next/head';
-import React from '@types/react';
 
 const Faq = () => {
   return (
