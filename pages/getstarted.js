@@ -10,7 +10,6 @@ import Alert from "../components/atoms/ui/Alert";
 import Image, {ImageWrapper} from "../components/atoms/ui/Image";
 import getStartedImg from '../public/assets/images/getStartedImg2-01.svg'
 import Head from 'next/head';
-import React from '@types/react';
 
 const emptyNewForm = {name: '', email: '', url: ''}
 const emptyOldForm = {name: '', email: '', url: ''}
