@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import Flex from '../components/atoms/Flex';
-import {Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerItem} from '../components/atoms/ui/Drawer';
+import Flex from './atoms/Flex';
+import {Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerItem} from './atoms/ui/Drawer';
 import {Icon} from '@iconify/react';
 import {Auth, Hub} from "aws-amplify";
 import tsImage from '../public/assets/images/logos/ts-text.svg'
-import TopNav from '../components/atoms/ui/TopNav';
+import TopNav from './atoms/ui/TopNav';
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -55,7 +55,7 @@ export default function NavBar({links}) {
       <TopNav>
         <Flex>
           <button onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
-          <Link href='/' passHref style={{height: '50px', padding: '0'}}>
+          <Link href='/pages' passHref style={{height: '50px', padding: '0'}}>
             <Flex className='logo' height='100%'>
               <Image height={50} width={150} style={{padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
             </Flex>
@@ -79,7 +79,7 @@ export default function NavBar({links}) {
           <DrawerHeader>
             <button><Icon height={18} icon="ic:baseline-menu" /></button>
             <Link
-              href='/'
+              href='/pages'
               passHref
               style={{height: '50px', padding: '0'}}
             >

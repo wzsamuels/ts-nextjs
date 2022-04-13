@@ -1,12 +1,12 @@
-import Flex, {FlexColumn} from '../components/atoms/Flex';
-import Footer from '../components/atoms/ui/Footer';
+import Flex, {FlexColumn} from './atoms/Flex';
+import Footer from './atoms/ui/Footer';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import fbLogoImg from '../public/assets/images/logos/facebook.svg'
 import twitterLogoImg from '../public/assets/images/logos/twitter.svg'
 import instaLogoImg from '../public/assets/images/logos/instagram.png'
-import {Input} from '../components/atoms/ui/FormStyled';
-import Button from '../components/atoms/Button';
+import {Input} from './atoms/ui/FormStyled';
+import Button from './atoms/Button';
 import {API, graphqlOperation} from 'aws-amplify';
 import * as mutations from '../graphql/mutations';
 import Image from 'next/image'
@@ -89,7 +89,7 @@ const FooterContent = ({links}) => {
             <SocialIcons>
               <a href='https://www.facebook.com/twinsilverdesign'><Image height={20} width={20} src={fbLogoImg} alt='Facebook logo'/></a>
               <a href='https://twitter.com/twinsilverweb'><Image height={20} width={20} src={twitterLogoImg} alt='Twitter logo'/></a>
-              <a href='https://www.instagram.com/twinsilverdesign/'><Image height={20} width={20} src={instaLogoImg} alt='Instagram logo'/></a>
+              <a href='components/FooterContent'><Image height={20} width={20} src={instaLogoImg} alt='Instagram logo'/></a>
             </SocialIcons>
           </FooterColumn>
           <FooterColumn>

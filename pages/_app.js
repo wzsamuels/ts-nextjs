@@ -3,9 +3,8 @@ import darkTheme from '../styles/darkTheme';
 import GlobalStyles from '../components/atoms/ui/GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import PageContainer from '../components/atoms/ui/PageContainer';
-import NavBar from './NavBar';
-import Footer from '../components/atoms/ui/Footer';
-import FooterContent from './FooterContent';
+import NavBar from '../components/NavBar';
+import FooterContent from '../components/FooterContent';
 import ContentContainer from '../components/atoms/ui/ContentContainer';
 
 const links = [
