@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from "../components/atoms/Flex";
 import {Card} from '../components/atoms/Card';
-import Image from '../components/atoms/ui/Image';
+import Image from 'next/image'
 import styled from 'styled-components';
 import {H1, H2} from '../components/atoms/ui/Typography';
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'
@@ -16,20 +16,21 @@ import engagementImg from '../public/assets/images/features/review_icon.svg'
 import accountImg from '../public/assets/images/features/accounts_icon.svg'
 import securityImg from '../public/assets/images/features/security_icon.svg'
 import chatbotImg from '../public/assets/images/features/chatbot_icon.svg'
+import ImageStyled from '../components/atoms/ui/Image';
 
 const Features = () => {
   return (
     <>
-      <H1 textAlign='center'>
+      <H1 style={{textAlign: 'center'}}>
         What can we do for you?
       </H1>
-      <Flex justifyContent='center'>
+      <Flex style={{justifyContent:'center'}}>
         { featureList.map(feature =>
           <FeatureCard key={feature.title}>
-            <Flex alignItems='center'>
-              <Image margin='0' src={feature.img} alt={feature.title}/>
+            <Flex>
+              <ImageStyled style={{flex: 1}} width={150} height={150} src={feature.img} alt={feature.title}/>
             </Flex>
-            <div>
+            <div style={{flex: 1}}>
               <H2>{feature.title}</H2>
               <p>{feature.text}</p>
             </div>
@@ -59,21 +60,8 @@ const FeatureCard = styled(Card)`
     padding: 1em;
   }
   
-  div:first-child {
-    justify-content: center;
-    max-width: 50%;
-  }
-  
   div:last-child {
     flex: auto;
-  }
-  
-  img {
-    width: 150px;
-    height: 150px;
-   // background-color: ${props => props.theme.colors.text};
-    background-color: transparent;
-    border-radius: 50%;
   }
 
   // Separate 

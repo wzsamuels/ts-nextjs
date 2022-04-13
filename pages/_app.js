@@ -6,6 +6,10 @@ import PageContainer from '../components/atoms/ui/PageContainer';
 import NavBar from '../components/NavBar';
 import FooterContent from '../components/FooterContent';
 import ContentContainer from '../components/atoms/ui/ContentContainer';
+import {Amplify} from 'aws-amplify';
+import awsconfig from '../src/aws-exports'
+
+Amplify.configure({...awsconfig, ssr: true});
 
 const links = [
   {text: 'Get Started', url: 'getstarted'},

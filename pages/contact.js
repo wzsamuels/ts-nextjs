@@ -1,4 +1,4 @@
-import Flex from '../components/atoms/Flex';
+import Flex, {FlexColumn} from '../components/atoms/Flex';
 import {H1, H2} from '../components/atoms/ui/Typography';
 import React, {useState} from 'react';
 import Form from '../components/atoms/ui/Form';
@@ -41,7 +41,7 @@ const Contact = () => {
   }
 
   return (
-    <Flex className='align-center column'>
+    <FlexColumn className='center'>
       <H1>We&rsquo;d Love to Hear From You</H1>
       <Card style={{margin: '0 0 1em 0', maxWidth: '500px'}}>
         <Flex className='align-center'>
@@ -57,7 +57,7 @@ const Contact = () => {
         <p style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
         <p>Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
       </address>
-    </Flex>
+    </FlexColumn>
   )
 }
 
