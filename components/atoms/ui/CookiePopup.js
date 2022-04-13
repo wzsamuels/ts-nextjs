@@ -5,8 +5,8 @@ import ButtonGroup from './ButtonGroup';
 
 const CookiePopup = ({children, onAccept = f => f, onDecline = f => f, props}) => {
   return (
-    <BannerPopup time='1s' width='800px'>
-      <Flex justifyContent='space-between'>
+    <BannerPopup time='1s' style={{width:'800px'}} bp='800px' {...props}>
+      <Flex style={{justifyContent:'space-between'}}>
         <div style={{margin:'1em 1em 0 1em'}}>
           {children}
         </div>

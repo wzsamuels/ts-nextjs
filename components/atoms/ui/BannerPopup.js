@@ -22,7 +22,7 @@ const BannerPopupStyled = styled.div`
   animation: ${props => props.time} ${riseUp} ease-in;
   
   // Center the banner if a custom width prop is given
-  @media screen and (min-width: ${props => props.width}) {
+  @media screen and (min-width: ${props => props.bp}) {
     left: 50%;
     transform: translate(-50%, 0);
   }

@@ -8,6 +8,10 @@ import FooterContent from '../components/FooterContent';
 import ContentContainer from '../components/atoms/ui/ContentContainer';
 import {Amplify} from 'aws-amplify';
 import awsconfig from '../src/aws-exports'
+import {useEffect, useState} from 'react';
+import CookiePopup from '../components/atoms/ui/CookiePopup';
+import {useCookies} from 'react-cookie';
+import Script from 'next/script';
 
 Amplify.configure({...awsconfig, ssr: true});
 
@@ -17,18 +21,67 @@ const links = [
   {text: 'Contact', url: 'contact'},
 ]
 
+const startAnalytics = () => {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-217800713-1');
+}
+
 function MyApp({ Component, pageProps }) {
+  const [signUpModal, setSignUpModal] = useState(false)
+  const [modalForm, setModalForm] = useState('')
+  const [cookies, setCookie] = useCookies(["ccm_accepted", "cookie_settings"])
+  const [cookiePopup, setCookiePopup] = useState(() => {
+    return cookies.ccm_accepted !== "true";
+  })
+  //const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  useEffect(() => {
+    if(!cookiePopup) {
+      const settings = cookies.cookie_settings //JSON.parse(getCookie("cookie_settings"))
+      console.log(settings)
+      if(settings.analytics === 'true') {
+        startAnalytics()
+      }
+    }
+  }, [cookiePopup, cookies.cookie_settings])
+
+  const handleAccept = () => {
+    setCookie("ccm_accepted", "true", {path: '/'})
+    setCookie("cookie_settings", '{"analytics": "true"}', {path: '/'})
+    startAnalytics()
+    setCookiePopup(false)
+  }
+
+  const handleDecline = () => {
+    setCookie("ccm_accepted", "true", {path: '/'})
+    setCookie("cookie_settings", '{"analytics": "false"}', {path: '/'})
+    setCookiePopup(false)
+  }
+
+
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-217800713-1"
+        strategy="afterInteractive"
+      />
       <ThemeProvider theme={darkTheme}>
         <GlobalStyles/>
         <PageContainer>
           <ContentContainer>
             <NavBar links={links}/>
             <Component {...pageProps} />
+
           </ContentContainer>
           <FooterContent links={links}/>
         </PageContainer>
+        { cookiePopup &&
+          <CookiePopup onAccept={handleAccept} onDecline={handleDecline}>
+            We use cookies to provide an improved user experience and better understand our customers.
+          </CookiePopup>
+        }
       </ThemeProvider>
     </>
   )
