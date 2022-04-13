@@ -25,6 +25,10 @@ import logoImage from '../public/assets/images/logos/twinsilver.svg'
 import Divider from "../components/atoms/ui/Divider";
 import Modal from '../components/atoms/ui/Modal';
 import ButtonGroup from '../components/atoms/ui/ButtonGroup';
+import {Amplify} from 'aws-amplify';
+import awsconfig from '../src/aws-exports'
+
+Amplify.configure({...awsconfig, ssr: true});
 
 const HomeCard = styled(Card)`
   display: flex;
