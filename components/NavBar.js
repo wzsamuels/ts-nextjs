@@ -55,7 +55,7 @@ export default function NavBar({links}) {
       <TopNav>
         <Flex>
           <button onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
-          <Link href='/pages' passHref style={{height: '50px', padding: '0'}}>
+          <Link href='/' passHref style={{height: '50px', padding: '0'}}>
             <Flex className='logo' height='100%'>
               <Image height={50} width={150} style={{padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
             </Flex>

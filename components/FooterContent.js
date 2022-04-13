@@ -1,5 +1,5 @@
 import Flex, {FlexColumn} from './atoms/Flex';
-import Footer from './atoms/ui/Footer';
+import Footer from './atoms/Footer/Footer';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import fbLogoImg from '../public/assets/images/logos/facebook.svg'
