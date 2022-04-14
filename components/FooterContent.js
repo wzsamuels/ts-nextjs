@@ -103,17 +103,17 @@ const FooterContent = ({links}) => {
             <p><a href='https://www.termsfeed.com/live/caf8a38e-a6e6-4a73-abc8-02b9957ab594'>Privacy Policy</a></p>
           </FooterColumn>
           <FooterColumn>
-            <FooterHeader marginBottom='0'>Sign Up for Updates</FooterHeader>
+            <FooterHeader style={{marginBottom:'0'}}>Sign Up for Updates</FooterHeader>
             <form onSubmit={handleSubmit}>
-              <Flex className='center-on-mobile' flexDirection='column'>
+              <FlexColumn className='center-on-mobile'>
               <InputStyled
                 type='email'
                 placeholder='Please enter your email'
                 value={emailForm}
                 onChange={e => setEmailForm(e.target.value)}
               />
-                <Button type='submit' margin='1em 0 0 0'>Sign Up</Button>
-              </Flex>
+                <Button type='submit' style={{margin:'1em 0 0 0'}}>Sign Up</Button>
+              </FlexColumn>
             </form>
           </FooterColumn>
         </FootWrapper>
