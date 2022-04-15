@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Button from "../atoms/Button";
-import Modal from "../atoms/ui/Modal";
-import ButtonGroup from '../atoms/ui/ButtonGroup';
+import Modal from "../molecules/Modal";
+import GroupContainer from '../atoms/GroupContainer';
 
 const ErrorDialog = (props) => {
   const [width, setWidth] = useState(100)
@@ -46,7 +46,7 @@ const ErrorDialog = (props) => {
         }}
         value={stringError}
       />
-      <ButtonGroup>
+      <GroupContainer>
         <Button
           onClick={() => {
             const copyText = document.getElementById(
@@ -60,7 +60,7 @@ const ErrorDialog = (props) => {
           Copy Error
         </Button>
         <Button onClick={() => props.onClose()}>Close</Button>
-      </ButtonGroup>
+      </GroupContainer>
     </Modal>
   )
 }

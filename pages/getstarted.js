@@ -1,15 +1,20 @@
-import {H1, H2, P} from '../components/atoms/ui/Typography';
+import {H1, H2, P} from '../components/atoms/Typography';
 import {Card} from '../components/atoms/Card';
-import {FormButtons, FormPair, FormStyled, Input, TextArea, Label} from '../components/atoms/ui/FormStyled';
+import InputLabelContainer from '../components/atoms/InputLabelContainer';
+import GroupContainer from '../components/atoms/GroupContainer';
+import Form from '../components/atoms/Form';
+import Input from '../components/atoms/Input';
+import TextArea from '../components/atoms/TextArea';
 import Button from "../components/atoms/Button";
 import {useState} from "react";
-import {FlexColumn} from '../components/atoms/Flex';
+import FlexColumn from '../components/atoms/FlexColumn';
 import {emailForm} from "../lib/emailForm";
 import styled, {useTheme} from 'styled-components';
-import Alert from "../components/atoms/ui/Alert";
-import Image, {ImageWrapper} from "../components/atoms/ui/Image";
+import Alert from "../components/molecules/Alert";
+import Image, {ImageWrapper} from "../components/atoms/ImageStyled";
 import getStartedImg from '../public/assets/images/getStartedImg2-01.svg'
 import Head from 'next/head';
+import Label from '../components/atoms/Label';
 
 const emptyNewForm = {name: '', email: '', url: ''}
 const emptyOldForm = {name: '', email: '', url: ''}
@@ -172,9 +177,9 @@ const Getstarted = ({initialFormType}) => {
           <Card style={{margin:'0 0 1em 0', maxWidth:'850px'}}>
             { form.formType === newForm }
             <P>{form.formDescription}</P>
-            <FormStyled onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               { form.formType.map((field) =>
-                  <FormPair key={field.key}>
+                  <InputLabelContainer key={field.key}>
                     <Label>{field.label} {field.required ? '' : <small>(optional)</small>}</Label>
                     { field.type === 'textarea' ?
                       <TextArea
@@ -192,13 +197,13 @@ const Getstarted = ({initialFormType}) => {
                         required={field.required}
                       />
                     }
-                  </FormPair>
+                  </InputLabelContainer>
                 )
               }
-              <FormButtons>
+              <GroupContainer>
                 <Button>Submit</Button>
-              </FormButtons>
-            </FormStyled>
+              </GroupContainer>
+            </Form>
             { message &&
               <Alert style={{marginTop:'2em'}}>{message}</Alert>
             }
