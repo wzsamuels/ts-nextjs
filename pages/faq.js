@@ -1,5 +1,5 @@
-import Flex from '../components/atoms/Flex';
-import {H1} from '../components/atoms/ui/Typography';
+import Flex from '../components/atoms/FlexColumn';
+import {H1} from '../components/atoms/Typography';
 import Head from 'next/head';
 
 const Faq = () => {

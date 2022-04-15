@@ -3,11 +3,11 @@ import Link from 'next/link'
 import styled from 'styled-components';
 import {Card} from '../components/atoms/Card';
 import Button, {ButtonLink} from '../components/atoms/Button';
-import Flex from '../components/atoms/Flex';
-import ImageStyled, {ImageWrapper} from '../components/atoms/ui/Image';
-import {BackgroundImage} from '../components/atoms/ui/BackgroundImage';
+import Flex from '../components/atoms/FlexColumn';
+import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
+import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
-import {H1, H2} from '../components/atoms/ui/Typography';
+import {H1, H2} from '../components/atoms/Typography';
 import medical from '../public/assets/images/medical_screenshot.png'
 import pizza from '../public/assets/images/pizza_screenshot.png'
 import shop from '../public/assets/images/shop_screenshot.png'
@@ -21,9 +21,9 @@ import changePlatformImg from '../public/assets/images/changePlatformsImg.svg'
 import newSiteImg from '../public/assets/images/newSiteImg2.svg'
 import refineSiteImg from '../public/assets/images/refineImg.svg'
 import logoImage from '../public/assets/images/logos/twinsilver.svg'
-import Divider from "../components/atoms/ui/Divider";
-import Modal from '../components/atoms/ui/Modal';
-import ButtonGroup from '../components/atoms/ui/ButtonGroup';
+import Divider from "../components/atoms/Divider";
+import Modal from '../components/molecules/Modal';
+import GroupContainer from '../components/atoms/GroupContainer';
 
 const HomeCard = styled(Card)`
   display: flex;
@@ -104,15 +104,6 @@ const HeroBlack = styled.div`
   height: 100%;
   width: 100%;
   z-index: 1;
-`
-
-const HeroBackgroundImage = styled(BackgroundImage)`
-  position: relative;
-  top: 0;
-  left: 0;
-  height:100%;
-  width: 100%;
-  z-index: 0;
 `
 
 const HeroText = styled.header`
@@ -242,9 +233,9 @@ export default function Home() {
   return (
     <>
       <HeroWrapper>
-        <HeroBackgroundImage>
-          <Image priority objectFit='cover' layout="fill" src={heroImage} alt="Happy man at laptop"/>
-        </HeroBackgroundImage>
+        <BackgroundImage>
+          <Image priority objectFit='cover' placeholder="blur" layout="fill" src={heroImage} alt="Happy man at laptop"/>
+        </BackgroundImage>
         <HeroBlack/>
         <HeroText>
           <H1 margin='0'>Go Beyond the Basic</H1>
@@ -284,7 +275,7 @@ export default function Home() {
           <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
         </Flex>
         <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
-          <ImageStyled src={artImage2} alt="Paint"/>
+          <ImageStyled src={artImage2} placeholder="blur" alt="Paint"/>
         </Flex>
       </HomeCard>
 
@@ -294,7 +285,7 @@ export default function Home() {
           <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
         </Flex>
         <Flex>
-          <ImageStyled src={optimizeImage} alt="Person holding phone"/>
+          <ImageStyled src={optimizeImage} placeholder="blur" alt="Person holding phone"/>
         </Flex>
       </HomeCard>
 
@@ -304,7 +295,7 @@ export default function Home() {
           <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
         </Flex>
         <Flex>
-          <ImageStyled src={secureImage} alt="Locked electronics"/>
+          <ImageStyled src={secureImage} placeholder="blur" alt="Locked electronics"/>
         </Flex>
       </HomeCard>
 
@@ -314,7 +305,7 @@ export default function Home() {
           <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
         </Flex>
         <Flex flex='1'>
-          <ImageStyled src={businessImage} alt="Business meeting"/>
+          <ImageStyled src={businessImage} placeholder="blur" alt="Business meeting"/>
         </Flex>
       </HomeCard>
 
@@ -323,10 +314,10 @@ export default function Home() {
       </HomePageDivider>
 
       <Flex>
-        <ImageWrapper><a href='https://medical.twinsilverdesign.com'><ImageStyled layout="responsive" src={medical}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://pizza.twinsilverdesign.com'><ImageStyled layout="responsive" src={pizza}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://shop.twinsilverdesign.com'><ImageStyled layout="responsive" src={shop}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://law.twinsilverdesign.com'><ImageStyled layout="responsive" src={law}/></a></ImageWrapper>
+        <ImageWrapper><a href='https://medical.twinsilverdesign.com'><ImageStyled  placeholder="blur" layout="responsive" src={medical}/></a></ImageWrapper>
+        <ImageWrapper><a href='https://pizza.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={pizza}/></a></ImageWrapper>
+        <ImageWrapper><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
+        <ImageWrapper><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
       </Flex>
       { newSiteModal &&
         <Modal style={{maxWidth:'800px'}} animate={true} onClose={() => setNewSiteModal(false)} title={"Build from Scratch"}>
@@ -342,9 +333,9 @@ export default function Home() {
             </ImageWrapper>
           </PopupContent>
           <small>*<a href='https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf'>https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf</a></small>
-          <ButtonGroup>
+          <GroupContainer>
             <Link href='/getstarted' passHref><ButtonLink>Get Started</ButtonLink></Link>
-          </ButtonGroup>
+          </GroupContainer>
         </Modal>
       }
       { refineModal &&
@@ -360,9 +351,9 @@ export default function Home() {
               <Image style={{margin: '0 auto'}} src={refineSiteImg} alt='People painting wall'/>
             </ImageWrapper>
           </PopupContent>
-          <ButtonGroup>
+          <GroupContainer>
             <Link href='/getstarted' passHref><ButtonLink>Get Started</ButtonLink></Link>
-          </ButtonGroup>
+          </GroupContainer>
         </Modal>
       }
       { changeModal &&
@@ -379,9 +370,9 @@ export default function Home() {
               <Image style={{margin: '0 auto'}} src={changePlatformImg} alt='Woman at crossroads'/>
             </ImageWrapper>
           </PopupContent>
-          <ButtonGroup>
+          <GroupContainer>
             <Link href='/getstarted' passHref><ButtonLink>Get Started</ButtonLink></Link>
-          </ButtonGroup>
+          </GroupContainer>
         </Modal>
       }
       </>

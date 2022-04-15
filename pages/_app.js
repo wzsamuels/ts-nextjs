@@ -1,15 +1,15 @@
 import '../styles/normalize.css'
 import darkTheme from '../styles/darkTheme';
-import GlobalStyles from '../components/atoms/ui/GlobalStyles';
+import GlobalStyles from '../styles/GlobalStyles';
 import {ThemeProvider} from 'styled-components';
-import PageContainer from '../components/atoms/ui/PageContainer';
-import NavBar from '../components/NavBar';
-import FooterContent from '../components/FooterContent';
-import ContentContainer from '../components/atoms/ui/ContentContainer';
+import PageWrapper from '../components/atoms/PageContainer';
+import NavBar from '../components/templates/NavBar';
+import FooterContent from '../components/templates/FooterContent';
+import ContentWrapper from '../components/atoms/ContentContainer';
 import {Amplify} from 'aws-amplify';
 import awsconfig from '../src/aws-exports'
 import {useEffect, useState} from 'react';
-import CookiePopup from '../components/atoms/ui/CookiePopup';
+import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
 import Script from 'next/script';
 import Head from 'next/head';
@@ -80,14 +80,14 @@ function MyApp({ Component, pageProps }) {
       />
       <ThemeProvider theme={darkTheme}>
         <GlobalStyles/>
-        <PageContainer>
-          <ContentContainer>
-            <NavBar links={links}/>
+        <PageWrapper>
+          <ContentWrapper>
+            <NavBar position="top" links={links}/>
             <Component {...pageProps} />
 
-          </ContentContainer>
+          </ContentWrapper>
           <FooterContent links={links}/>
-        </PageContainer>
+        </PageWrapper>
         { cookiePopup &&
           <CookiePopup onAccept={handleAccept} onDecline={handleDecline}>
             We use cookies to provide an improved user experience and better understand our customers.

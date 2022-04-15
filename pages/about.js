@@ -1,5 +1,5 @@
-import {H1, H2} from '../components/atoms/ui/Typography';
-import {FlexColumn} from '../components/atoms/Flex';
+import {H1, H2} from '../components/atoms/Typography';
+import FlexColumn from '../components/atoms/FlexColumn';
 import Head from 'next/head';
 
 const About = () => {

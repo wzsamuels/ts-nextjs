@@ -2,7 +2,7 @@ import React from 'react';
 import Flex from "../components/atoms/Flex";
 import {Card} from '../components/atoms/Card';
 import styled from 'styled-components';
-import {H1, H2} from '../components/atoms/ui/Typography';
+import {H1, H2} from '../components/atoms/Typography';
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'
 import copywriteImg from '../public/assets/images/features/content_icon.svg'
 import navigationImg from '../public/assets/images/features/navigation_icon.svg'
@@ -15,7 +15,7 @@ import engagementImg from '../public/assets/images/features/review_icon.svg'
 import accountImg from '../public/assets/images/features/accounts_icon.svg'
 import securityImg from '../public/assets/images/features/security_icon.svg'
 import chatbotImg from '../public/assets/images/features/chatbot_icon.svg'
-import ImageStyled from '../components/atoms/ui/Image';
+import ImageStyled from '../components/atoms/ImageStyled';
 import Head from 'next/head';
 
 const Features = () => {
