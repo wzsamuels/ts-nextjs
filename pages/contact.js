@@ -3,7 +3,7 @@ import Flex from '../components/atoms/Flex';
 import {H1, H2} from '../components/atoms/Typography';
 import React, {useState} from 'react';
 import Form from '../components/templates/FormTemplate';
-import {Card} from '../components/atoms/Card';
+import Card from '../components/atoms/Card';
 import {emailForm} from '../lib/emailForm';
 import Alert from '../components/molecules/Alert';
 import Head from 'next/head';

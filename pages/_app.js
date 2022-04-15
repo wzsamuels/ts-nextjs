@@ -1,19 +1,19 @@
+import Script from 'next/script';
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import '../styles/normalize.css'
 import darkTheme from '../styles/darkTheme';
 import GlobalStyles from '../styles/GlobalStyles';
 import {ThemeProvider} from 'styled-components';
 import PageWrapper from '../components/atoms/PageContainer';
-import NavBar from '../components/templates/NavBar';
-import FooterContent from '../components/templates/FooterContent';
 import ContentWrapper from '../components/atoms/ContentContainer';
-import {Amplify} from 'aws-amplify';
-import awsconfig from '../src/aws-exports'
+const NavBar = dynamic(() => import('../components/templates/NavBar'))
+const FooterContent = dynamic(() => import('../components/templates/FooterContent'))
 import {useEffect, useState} from 'react';
 import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
-import Script from 'next/script';
-import Head from 'next/head';
-
+import {Amplify} from 'aws-amplify';
+import awsconfig from '../src/aws-exports'
 Amplify.configure({...awsconfig, ssr: true});
 
 const links = [
@@ -30,13 +30,10 @@ const startAnalytics = () => {
 }
 
 function MyApp({ Component, pageProps }) {
-  const [signUpModal, setSignUpModal] = useState(false)
-  const [modalForm, setModalForm] = useState('')
   const [cookies, setCookie] = useCookies(["ccm_accepted", "cookie_settings"])
   const [cookiePopup, setCookiePopup] = useState(() => {
     return cookies.ccm_accepted !== "true";
   })
-  //const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   useEffect(() => {
     if(!cookiePopup) {
@@ -76,7 +73,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-217800713-1"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <ThemeProvider theme={darkTheme}>
         <GlobalStyles/>
@@ -84,7 +81,6 @@ function MyApp({ Component, pageProps }) {
           <ContentWrapper>
             <NavBar position="top" links={links}/>
             <Component {...pageProps} />
-
           </ContentWrapper>
           <FooterContent links={links}/>
         </PageWrapper>
@@ -96,10 +92,6 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
     </>
   )
-}
-
-export function reportWebVitals(metric) {
-  console.log(metric)
 }
 
 export default MyApp
