@@ -14,10 +14,6 @@ const ImageWrapper = styled.div`
   margin: 1em auto;
 `
 
-ImageStyled.defaultProps = {
-  placeholder: "blur"
-}
-
 export {ImageWrapper}
 
 export default ImageStyled
