@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components';
-import {Card} from '../components/atoms/Card';
+import Card from '../components/atoms/Card';
 import Button, {ButtonLink} from '../components/atoms/Button';
 import Flex from '../components/atoms/FlexColumn';
 import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';

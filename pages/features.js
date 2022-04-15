@@ -1,6 +1,6 @@
 import React from 'react';
 import Flex from "../components/atoms/Flex";
-import {Card} from '../components/atoms/Card';
+import Card from '../components/atoms/Card';
 import styled from 'styled-components';
 import {H1, H2} from '../components/atoms/Typography';
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+const Card = styled.div`
   color: ${props => props.theme.colors.cardText};
   background-color: ${props => props.theme.colors.cardBackground};
   
   overflow-wrap: break-word;
-  
   padding: 1em;
   margin: 1em 1em;
   width: 95%;
@@ -24,3 +23,5 @@ export const Card = styled.div`
     opacity: 50%;
   }
 `
+
+export default Card

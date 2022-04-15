@@ -1,5 +1,5 @@
 import {H1, H2, P} from '../components/atoms/Typography';
-import {Card} from '../components/atoms/Card';
+import Card from '../components/atoms/Card';
 import InputLabelContainer from '../components/atoms/InputLabelContainer';
 import GroupContainer from '../components/atoms/GroupContainer';
 import Form from '../components/atoms/Form';
