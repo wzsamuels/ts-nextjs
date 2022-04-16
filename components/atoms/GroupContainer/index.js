@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Flex from '../FlexColumn';
+import Flex from '../Flex';
 
 const GroupContainer = styled(Flex)`
   display: flex;
