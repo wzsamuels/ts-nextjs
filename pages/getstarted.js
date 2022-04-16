@@ -12,7 +12,7 @@ import {emailForm} from "../lib/emailForm";
 import styled, {useTheme} from 'styled-components';
 import Alert from "../components/molecules/Alert";
 import Image, {ImageWrapper} from "../components/atoms/ImageStyled";
-import getStartedImg from '../public/assets/images/getStartedImg2-01.svg'
+import getStartedImg from '../public/assets/images/getstarted.svg'
 import Head from 'next/head';
 import Label from '../components/atoms/Label';
 
