@@ -54,7 +54,7 @@ export default function NavBar({links, position}) {
     <>
       <TopNav position={position}>
         <Flex>
-          <button onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
+          <button aria-label="Open Menu" onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
           <Link href='/' passHref style={{height: '50px', padding: '0'}}>
             <Flex className='logo' height='100%'>
               <Image height={50} width={150} style={{padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
@@ -77,7 +77,7 @@ export default function NavBar({links, position}) {
                        className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
                        onAnimationEnd={callback()}>
           <DrawerHeader>
-            <button><Icon height={18} icon="ic:baseline-menu" /></button>
+            <button aria-label="Close Menu"><Icon height={18} icon="ic:baseline-menu" /></button>
             <Link
               href='/'
               passHref
