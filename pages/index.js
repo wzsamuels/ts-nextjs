@@ -328,7 +328,7 @@ export default function Home() {
                 build community. Take advantage of the rapid growth of online sales: the percentage of retail sales
                 coming from e-commerce has tripled over the past ten years, reaching over 200 billion dollars in the US in 2021<sup>*</sup>.</p>
             </div>
-            <ImageWrapper flex='1'>
+            <ImageWrapper style={{flex:'1'}}>
               <Image style={{margin: '0 auto'}} src={newSiteImg} alt='Building being constructed'/>
             </ImageWrapper>
           </PopupContent>
@@ -347,7 +347,7 @@ export default function Home() {
               <p>But don&rsquo;t stop with a simple redesign. Consider the features that your site is missing that users want:
                 comments, user accounts, and social interaction.</p>
             </div>
-            <ImageWrapper flex='1'>
+            <ImageWrapper style={{flex:'1'}}>
               <Image style={{margin: '0 auto'}} src={refineSiteImg} alt='People painting wall'/>
             </ImageWrapper>
           </PopupContent>
@@ -366,7 +366,7 @@ export default function Home() {
                 Once you&rsquo;re ready, let us take care of your move.
               </p>
             </div>
-            <ImageWrapper flex='1'>
+            <ImageWrapper style={{flex:'1'}}>
               <Image style={{margin: '0 auto'}} src={changePlatformImg} alt='Woman at crossroads'/>
             </ImageWrapper>
           </PopupContent>
