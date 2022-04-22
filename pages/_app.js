@@ -12,9 +12,6 @@ const FooterContent = dynamic(() => import('../components/templates/FooterConten
 import {useEffect, useState} from 'react';
 import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
-import Amplify from '@aws-amplify/core';
-import awsconfig from '../src/aws-exports'
-Amplify.configure({...awsconfig, ssr: true});
 
 const links = [
   {text: 'Get Started', url: '/getstarted'},

@@ -5,8 +5,6 @@ import fbLogoImg from '../../public/assets/images/logos/facebook.svg'
 import twitterLogoImg from '../../public/assets/images/logos/twitter.svg'
 import instaLogoImg from '../../public/assets/images/logos/instagram.png'
 import Button from '../atoms/Button';
-import {API, graphqlOperation} from 'aws-amplify';
-import * as mutations from '../../graphql/mutations';
 import Image from 'next/image'
 import FlexColumn from '../atoms/FlexColumn';
 import Flex from '../atoms/Flex';
@@ -77,8 +75,8 @@ const FooterContent = ({links}) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const response = await API.graphql(graphqlOperation(mutations.createEmail, {input: {email: emailForm, marketing: true, sales: true, newsletter: true}}))
-    window.alert(JSON.stringify(response.data.createEmail))
+   // const response = await API.graphql(graphqlOperation(mutations.createEmail, {input: {email: emailForm, marketing: true, sales: true, newsletter: true}}))
+  //  window.alert(JSON.stringify(response.data.createEmail))
   }
 
   return (
