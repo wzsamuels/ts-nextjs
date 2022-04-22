@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Flex from '../atoms/Flex';
 import {Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerItem} from '../organisms/Drawer';
 import {Icon} from '@iconify/react';
-import {Auth, Hub} from "aws-amplify";
 import tsImage from '../../public/assets/images/logos/ts-text.svg'
 import TopNav from '../organisms/NavBar';
 import Link from 'next/link'
@@ -12,35 +11,6 @@ export default function NavBar({links, position}) {
   const [drawerClosing, setDrawerClosing] = useState(false);
   const [drawerOpen, setDrawer] = useState(false);
   const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    Hub.listen('auth', ({ payload: { event, data } }) => {
-      switch (event) {
-        case 'signIn':
-        case 'cognitoHostedUI':
-          getUser().then(userData => setUser(userData));
-          break;
-        case 'signOut':
-          setUser(null);
-          break;
-        case 'signIn_failure':
-        case 'cognitoHostedUI_failure':
-          console.log('Sign in failure', data);
-          break;
-        default:
-          console.log(`Unexpected Hub event: ${JSON.stringify(event)}`)
-      }
-    });
-
-    getUser().then(userData => setUser(userData));
-  }, []);
-
-  function getUser() {
-    return Auth.currentAuthenticatedUser()
-      .then(userData => userData)
-      .catch(() => console.log('Not signed in'));
-  }
-
 
   const toggleDrawer = () => { setDrawer(!drawerOpen) };
   const callback = () => e => {
