@@ -106,7 +106,7 @@ const FooterContent = ({links}) => {
           <FooterColumn>
             <FooterHeader style={{marginBottom:'0'}}>Sign Up for Updates</FooterHeader>
             <form onSubmit={handleSubmit}>
-              <Flex className='center-on-mobile' flexDirection='column'>
+              <FlexColumn className='center-on-mobile'>
               <InputStyled
                 type='email'
                 placeholder='Please enter your email'
@@ -114,7 +114,7 @@ const FooterContent = ({links}) => {
                 onChange={e => setEmailForm(e.target.value)}
               />
                 <Button type='submit' style={{margin:'1em 0 0 0'}}>Sign Up</Button>
-              </Flex>
+              </FlexColumn>
             </form>
           </FooterColumn>
         </FootWrapper>
