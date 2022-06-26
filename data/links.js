@@ -24,7 +24,8 @@ const links = [
         url: 'https://surly-squirrel.com/'
       },
       {
-        text: 'Hemp Generation'
+        text: 'Hemp Generation',
+        url: 'https://hempgeneration.com/'
       }
     ]
   },
