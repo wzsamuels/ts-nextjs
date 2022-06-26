@@ -52,7 +52,7 @@ export default function NavBar({links, position}) {
                       {link.text}
                       <DropDownMenu>
                         {link.urls.map((dlink, di) =>
-                          <DropDownItem  key={di}><a  href={dlink.url}>{dlink.text}</a></DropDownItem>
+                          <DropDownItem key={di}><a href={dlink.url}>{dlink.text}</a></DropDownItem>
                         )}
                       </DropDownMenu>
                     </div>
@@ -69,11 +69,11 @@ export default function NavBar({links, position}) {
       </TopNav>
 
       <Drawer onClick={() => setDrawerClosing(true)} open={drawerOpen} closing={drawerClosing}>
-        <DrawerContent onClick={() => setDrawerClosing(true)}
+        <DrawerContent onClick={e => e.stopPropagation()}
                        className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
                        onAnimationEnd={callback()}>
           <DrawerHeader>
-            <button aria-label="Close Menu"><Icon height={18} icon="ic:baseline-menu" /></button>
+            <button onClick={() => setDrawerClosing(true)} aria-label="Close Menu"><Icon height={18} icon="ic:baseline-menu" /></button>
             <Link
               href='/'
               passHref
@@ -91,7 +91,7 @@ export default function NavBar({links, position}) {
                   {link.text}
                   <DrawerDropdownMenu>
                     {link.urls.map((dlink, di) =>
-                        <DrawerItem key={di} href={dlink.url}  style={{height: '50px', padding: '0'}} className="ml-4 pl-4 flex items-center">
+                        <DrawerItem key={di} href={dlink.url}  style={{height: '50px'}} className="ml-4 pl-4 flex items-center">
                           {dlink.text}
                         </DrawerItem>
                     )}

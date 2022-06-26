@@ -30,6 +30,7 @@ export const DrawerContent = styled.ul`
   width:  ${props => props.theme.layout.drawerWidth};
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: all 1s ease;
 
   //animation-fill-mode: forwards;
 
@@ -124,8 +125,8 @@ const DrawerDropdown  = styled.div`
   width:100%;
   padding: 14px 16px;
   cursor: pointer;
-  
-  
+
+  transition: all 0.5s ease;
   &:hover {
     ul {
       display: flex;
