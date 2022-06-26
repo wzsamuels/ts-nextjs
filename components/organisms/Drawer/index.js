@@ -125,19 +125,11 @@ const DrawerDropdown  = styled.div`
   width:100%;
   padding: 14px 16px;
   cursor: pointer;
-
   transition: all 0.5s ease;
-  &:hover {
-    ul {
-      display: flex;
-        opacity: 1;
-    }
-  }
 `
 
 export const DrawerDropdownMenu = styled.ul`
-  display: none;
-  opacity: 0;
+  display: flex;
   transition: all 0.5s ease;
   margin-top: 1rem;
   padding: 0;
