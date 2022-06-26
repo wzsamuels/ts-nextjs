@@ -17,7 +17,8 @@ export const Drawer = styled.div`
   background-color: ${props => props.closing ? 'transparent' : 'rgba(0,0,0,0.4)'}; 
 `
 
-export const DrawerContent = styled.div`
+export const DrawerContent = styled.ul`
+  padding: 0;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -102,7 +103,8 @@ const DrawerItem = styled.a`
   width:100%;
   padding: 14px 16px;
   text-decoration:none;
-
+  cursor: pointer;
+  
   &:hover {
     color: ${props => props.theme.colors.drawerHoverText} !important;
     background-color: ${props => props.theme.colors.drawerHover} !important;
@@ -122,10 +124,27 @@ const DrawerDropdown  = styled.div`
   width:100%;
   padding: 14px 16px;
   cursor: pointer;
-
+  
+  
   &:hover {
-    color: ${props => props.theme.colors.textOnDark} !important;
-    background-color: ${props => props.theme.colors.navBarHover} !important;
+    ul {
+      display: flex;
+        opacity: 1;
+    }
+  }
+`
+
+export const DrawerDropdownMenu = styled.ul`
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+  background-color: ${(props) => props.theme.colors.navBar};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export {DrawerItem, DrawerFooter, DrawerDropdown, DrawerHeader}

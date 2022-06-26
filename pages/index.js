@@ -8,7 +8,7 @@ import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
 import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
 import {H1, H2} from '../components/atoms/Typography';
-import medical from '../public/assets/images/medical_screenshot.png'
+import medical from '../public/assets/images/medical.png'
 import pizza from '../public/assets/images/pizza_screenshot.png'
 import shop from '../public/assets/images/shop_screenshot.png'
 import law from '../public/assets/images/law_screenshot.png'

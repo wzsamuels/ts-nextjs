@@ -2,6 +2,7 @@ import Script from 'next/script';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import '../styles/normalize.css'
+import '../styles/globals.css'
 import darkTheme from '../styles/darkTheme';
 import GlobalStyles from '../styles/GlobalStyles';
 import {ThemeProvider} from 'styled-components';
@@ -12,12 +13,7 @@ const FooterContent = dynamic(() => import('../components/templates/FooterConten
 import {useEffect, useState} from 'react';
 import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
-
-const links = [
-  {text: 'Get Started', url: '/getstarted'},
-  {text: 'Features', url: '/features'},
-  {text: 'Contact', url: '/contact'},
-]
+import links from '../data/links';
 
 const startAnalytics = () => {
   window.dataLayer = window.dataLayer || [];

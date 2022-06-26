@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+const DividerContainer = styled.div`
+  font-size: .70em;
+
+  @media screen and (min-width: 400px) {
+    font-size: .8em;
+  }
+  
+  @media screen and (min-width: 500px) {
+    font-size: 1em;
+  }
+`
+
 const DividerWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,5 +62,7 @@ const Divider = ({children}) => {
     </DividerWrapper>
   )
 }
+
+export {DividerContainer}
 
 export default Divider
