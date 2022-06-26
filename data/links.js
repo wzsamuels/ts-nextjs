@@ -1,0 +1,33 @@
+const links = [
+  {
+    text: 'Get Started',
+    url: '/getstarted'
+  },
+  {
+    text: 'Features',
+    url: '/features'
+  },
+  {
+    text: 'Contact',
+    url: '/contact'
+  },
+  {
+    text: 'Clients',
+    dropdown: true,
+    urls: [
+      {
+        text: 'Martin Woodworks',
+        url: 'https://www.martinwoodworksnc.com/'
+      },
+      {
+        text: 'Surly Squirrel',
+        url: 'https://surly-squirrel.com/'
+      },
+      {
+        text: 'Hemp Generation'
+      }
+    ]
+  },
+]
+
+export default  links
