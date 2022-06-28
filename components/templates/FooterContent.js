@@ -94,7 +94,8 @@ const FooterContent = ({links}) => {
           <FooterColumn>
             <FooterHeader>Site</FooterHeader>
             {links.map(link =>
-              <p key={link.text}><a href={link.url}>{link.text}</a></p>)}
+              <>{!link.dropdown && <p key={link.text}><a href={link.url}>{link.text}</a></p>}</>
+            )}
           </FooterColumn>
           <FooterColumn>
             <FooterHeader>Legal</FooterHeader>
