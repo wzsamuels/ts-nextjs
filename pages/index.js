@@ -8,10 +8,10 @@ import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
 import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
 import {H1, H2} from '../components/atoms/Typography';
-import medical from '../public/assets/images/medical.png'
-import pizza from '../public/assets/images/pizza_screenshot.png'
-import shop from '../public/assets/images/shop_screenshot.png'
-import law from '../public/assets/images/law_screenshot.png'
+import medical from '../public/assets/images/medical2_screenshot.png'
+import pizza from '../public/assets/images/pizza3_screenshot.png'
+import shop from '../public/assets/images/shop2_screenshot.png'
+import law from '../public/assets/images/law2_screenshot.png'
 import artImage2 from '../public/assets/images/art.jpeg'
 import businessImage from '../public/assets/images/business.jpg'
 import secureImage from '../public/assets/images/secure.jpg'
