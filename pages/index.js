@@ -276,8 +276,8 @@ export default function Home() {
 
       <Fade direction="left" triggerOnce="true">
         <HomeCard>
-          <Flex>
-            <H1>Personalized</H1>
+          <Flex center>
+            <H1 className="mb-4">Personalized</H1>
             <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
           </Flex>
           <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
@@ -288,8 +288,8 @@ export default function Home() {
 
       <Fade direction="right" triggerOnce="true">
         <HomeCard>
-          <Flex>
-            <H1>Optimized Everywhere</H1>
+          <Flex center>
+            <H1 className="mb-4">Optimized Everywhere</H1>
             <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
           </Flex>
           <Flex>
@@ -300,8 +300,8 @@ export default function Home() {
 
       <Fade direction="left" triggerOnce="true">
         <HomeCard>
-          <Flex>
-            <H1>Secure</H1>
+          <Flex center>
+            <H1 className="mb-4">Secure</H1>
             <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
           </Flex>
           <Flex>
@@ -312,8 +312,8 @@ export default function Home() {
 
       <Fade direction="right" triggerOnce="true">
         <HomeCard>
-          <Flex>
-            <H1>Business Focused</H1>
+          <Flex center>
+            <H1 className="mb-4">Business Focused</H1>
             <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
           </Flex>
           <Flex flex='1'>
@@ -329,23 +329,23 @@ export default function Home() {
       <Flex className="justify-center">
         <Fade className="w-full">
           <a href='https://medical.twinsilverdesign.com'>
-            <ImageWrapper>
+            <ImageWrapper className="my-4 mx-auto">
               <ImageStyled placeholder="blur" layout="responsive" src={medical}/>
             </ImageWrapper>
           </a>
         </Fade>
         <Fade className="w-full">
-          <ImageWrapper>
+          <ImageWrapper className="my-4 mx-auto">
             <a href='https://pizza.twinsilverdesign.com'>
               <ImageStyled placeholder="blur" layout="responsive"  src={pizza}/>
             </a>
           </ImageWrapper>
         </Fade>
         <Fade className="w-full">
-          <ImageWrapper><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
+          <ImageWrapper className="my-4 mx-auto"><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
         </Fade>
         <Fade className="w-full">
-          <ImageWrapper><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
+          <ImageWrapper className="my-4 mx-auto"><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
         </Fade>
       </Flex>
       { newSiteModal &&
