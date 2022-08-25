@@ -96,7 +96,6 @@ const FormSwitcherWrapper = styled.div`
   grid-template-rows: 1fr;
   justify-items: center;
   align-items: center;
-  margin: .5em;
   
   & ${Card} {
     flex: 1;
@@ -112,7 +111,6 @@ const FormWrapper = styled.div`
   justify-items: center;
   align-items: center;
   width: 100%;
-  margin: 0;
 `
 
 const Getstarted = ({initialFormType}) => {
@@ -157,14 +155,14 @@ const Getstarted = ({initialFormType}) => {
         <title>Get Started | Twin Silver</title>
       </Head>
       <FlexColumn className='center'>
-        <H1>Get Started Today</H1>
-        <ImageWrapper style={{width: '500px', maxWidth:'95vw'}}>
+        <h1 className="my-8 header-largest">Get Started Today</h1>
+        <ImageWrapper className="my-4"  style={{width: '500px', maxWidth:'95vw'}}>
           <Image src={getStartedImg} alt="Rocket launch"/>
         </ImageWrapper>
-        <Card style={{margin:0, backgroundColor: theme.colors.accordion}}>
+        <Card className="my-4" style={{backgroundColor: theme.colors.accordion}}>
           <H2 textAlign='center'>Special pricing available for small businesses and non-profits in the NC triangle area!</H2>
         </Card>
-        <FormSwitcherWrapper>
+        <FormSwitcherWrapper className="my-4">
           <Card onClick={() => switchForm('newForm')} className={form.formType === newForm ? 'active' : 'not-active' }>
             <H2 textAlign='center'>I need a new website</H2>
           </Card>
@@ -173,7 +171,7 @@ const Getstarted = ({initialFormType}) => {
             <H2 textAlign='center'>I already have a website</H2>
           </Card>
         </FormSwitcherWrapper>
-        <FormWrapper>
+        <FormWrapper className="my-4">
           <Card style={{margin:'0 0 1em 0', maxWidth:'850px'}}>
             { form.formType === newForm }
             <P>{form.formDescription}</P>
