@@ -6,7 +6,7 @@ const ContentContainer = styled.div`
   padding-bottom: 300px;
   
   @media screen and (min-width: 550px) {
-    padding-bottom: 184px;
+    padding-bottom: 229px;
   }
   width: 100%;
 `
