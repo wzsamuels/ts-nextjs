@@ -24,6 +24,7 @@ import logoImage from '../public/assets/images/logos/twinsilver.svg'
 import Divider from "../components/atoms/Divider";
 import Modal from '../components/molecules/Modal';
 import GroupContainer from '../components/atoms/GroupContainer';
+import {Fade} from 'react-awesome-reveal';
 
 const HomeCard = styled(Card)`
   display: flex;
@@ -225,6 +226,10 @@ const LogoWrapper = styled.div`
   margin: 0;
 `
 
+const homeCardData = [
+
+]
+
 export default function Home() {
   const [newSiteModal, setNewSiteModal] = useState(false)
   const [refineModal, setRefineModal] = useState(false)
@@ -269,55 +274,79 @@ export default function Home() {
         <Divider>Four Reasons to Build With Us</Divider>
       </HomePageDivider>
 
-      <HomeCard>
-        <Flex>
-          <H1>Personalized</H1>
-          <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
-        </Flex>
-        <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
-          <ImageStyled src={artImage2} placeholder="blur" alt="Paint"/>
-        </Flex>
-      </HomeCard>
+      <Fade direction="left" triggerOnce="true">
+        <HomeCard>
+          <Flex>
+            <H1>Personalized</H1>
+            <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
+          </Flex>
+          <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
+            <ImageStyled src={artImage2} placeholder="blur" alt="Paint"/>
+          </Flex>
+        </HomeCard>
+      </Fade>
 
-      <HomeCard>
-        <Flex>
-          <H1>Optimized Everywhere</H1>
-          <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
-        </Flex>
-        <Flex>
-          <ImageStyled src={optimizeImage} placeholder="blur" alt="Person holding phone"/>
-        </Flex>
-      </HomeCard>
+      <Fade direction="right" triggerOnce="true">
+        <HomeCard>
+          <Flex>
+            <H1>Optimized Everywhere</H1>
+            <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
+          </Flex>
+          <Flex>
+            <ImageStyled src={optimizeImage} placeholder="blur" alt="Person holding phone"/>
+          </Flex>
+        </HomeCard>
+      </Fade>
 
-      <HomeCard>
-        <Flex>
-          <H1>Secure</H1>
-          <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
-        </Flex>
-        <Flex>
-          <ImageStyled src={secureImage} placeholder="blur" alt="Locked electronics"/>
-        </Flex>
-      </HomeCard>
+      <Fade direction="left" triggerOnce="true">
+        <HomeCard>
+          <Flex>
+            <H1>Secure</H1>
+            <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
+          </Flex>
+          <Flex>
+            <ImageStyled src={secureImage} placeholder="blur" alt="Locked electronics"/>
+          </Flex>
+        </HomeCard>
+      </Fade>
 
-      <HomeCard>
-        <Flex>
-          <H1>Business Focused</H1>
-          <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
-        </Flex>
-        <Flex flex='1'>
-          <ImageStyled src={businessImage} placeholder="blur" alt="Business meeting"/>
-        </Flex>
-      </HomeCard>
+      <Fade direction="right" triggerOnce="true">
+        <HomeCard>
+          <Flex>
+            <H1>Business Focused</H1>
+            <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
+          </Flex>
+          <Flex flex='1'>
+            <ImageStyled src={businessImage} placeholder="blur" alt="Business meeting"/>
+          </Flex>
+        </HomeCard>
+      </Fade>
 
       <HomePageDivider>
         <Divider>Explore Our Demo Websites</Divider>
       </HomePageDivider>
 
-      <Flex>
-        <ImageWrapper><a href='https://medical.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={medical}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://pizza.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={pizza}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
-        <ImageWrapper><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
+      <Flex className="justify-center">
+        <Fade className="w-full">
+          <a href='https://medical.twinsilverdesign.com'>
+            <ImageWrapper>
+              <ImageStyled placeholder="blur" layout="responsive" src={medical}/>
+            </ImageWrapper>
+          </a>
+        </Fade>
+        <Fade className="w-full">
+          <ImageWrapper>
+            <a href='https://pizza.twinsilverdesign.com'>
+              <ImageStyled placeholder="blur" layout="responsive"  src={pizza}/>
+            </a>
+          </ImageWrapper>
+        </Fade>
+        <Fade className="w-full">
+          <ImageWrapper><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
+        </Fade>
+        <Fade className="w-full">
+          <ImageWrapper><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
+        </Fade>
       </Flex>
       { newSiteModal &&
         <Modal style={{maxWidth:'800px'}} animate={true} onClose={() => setNewSiteModal(false)} title={"Build from Scratch"}>

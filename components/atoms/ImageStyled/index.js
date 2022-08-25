@@ -9,9 +9,9 @@ const ImageStyled = styled(Image)`
 `
 
 const ImageWrapper = styled.div`
-  width: calc(100% - 1em);
   max-width: 800px;
   margin: 1em auto;
+  width: 100%;
 `
 
 export {ImageWrapper}

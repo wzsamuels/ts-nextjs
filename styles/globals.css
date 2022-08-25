@@ -1,2 +1,7 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-extra-large {
+  @apply text-2xl lg:text-3xl
+}
