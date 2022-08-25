@@ -3,11 +3,17 @@ import styled from 'styled-components'
 // TODO: switch from px to em
 const ContentContainer = styled.div`
   padding-top: 3.125rem;
-  padding-bottom: 300px;
+  padding-bottom: 23rem;
+
+  @media screen and (min-width: 499px) {
+    padding-bottom: 17rem;
+  }
   
   @media screen and (min-width: 550px) {
-    padding-bottom: 229px;
+    padding-bottom: 16rem;
   }
+
+
   width: 100%;
 `
 

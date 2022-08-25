@@ -15,6 +15,18 @@ const FooterHeader = styled.div`
   margin-bottom: 1em;
 `
 
+const InputStyled = styled(Input)`
+  margin: 1em 0 0 0;
+  border-color: ${props => props.theme.colors.text};
+  border-width: 0 0 1px 0;
+  box-shadow: none;
+  
+  &:focus {
+    outline: none !important;
+    border-color: ${props => props.theme.colors.text};
+  }
+`
+
 const FooterColumn = styled(Flex)`
   flex: 1;
   flex-direction: column;
@@ -29,28 +41,32 @@ const FooterColumn = styled(Flex)`
 
   .center-on-mobile {
     align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  ${Button} {
+    margin: 1em;
+  }
+
+  ${InputStyled} {
+    margin: 1em;
   }
   
   @media screen and (min-width: 550px) {  
     align-items: normal;
     text-align: left;
     .center-on-mobile {
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      ${InputStyled} {
+        margin: 1em 0;
+      }
     }
   }
 `
 
-const InputStyled = styled(Input)`
-  margin: 1em 0 0 0;
-  border-color: ${props => props.theme.colors.text};
-  border-width: 0 0 1px 0;
-  box-shadow: none;
-  
-  &:focus {
-    outline: none !important;
-    border-color: ${props => props.theme.colors.text};
-  }
-`
+
 
 const SocialIcons = styled(Flex) `
   * + * {
@@ -106,13 +122,13 @@ const FooterContent = ({links}) => {
             <FooterHeader style={{marginBottom:'0'}}>Sign Up for Updates</FooterHeader>
             <form onSubmit={handleSubmit}>
               <FlexColumn className='center-on-mobile'>
-              <InputStyled
-                type='email'
-                placeholder='Please enter your email'
-                value={emailForm}
-                onChange={e => setEmailForm(e.target.value)}
-              />
-                <Button type='submit' style={{margin:'1em 0 0 0'}}>Sign Up</Button>
+                <InputStyled
+                  type='email'
+                  placeholder='Please enter your email'
+                  value={emailForm}
+                  onChange={e => setEmailForm(e.target.value)}
+                />
+                <Button type='submit'>Sign Up</Button>
               </FlexColumn>
             </form>
           </FooterColumn>
