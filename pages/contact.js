@@ -48,9 +48,9 @@ const Contact = () => {
         <title>Contact | Twin Silver</title>
       </Head>
 
-      <FlexColumn className='center'>
-        <H1>We&rsquo;d Love to Hear From You</H1>
-        <Card style={{margin: '0 0 1em 0', maxWidth: '500px'}}>
+      <FlexColumn className='center h-full'>
+        <h1 className="my-8 header-largest">We&rsquo;d Love to Hear From You</h1>
+        <Card className="my-4" style={{maxWidth: '500px'}}>
           <Flex className='align-center'>
             { message ?
               <Alert>{message}</Alert>
@@ -60,9 +60,9 @@ const Contact = () => {
           </Flex>
         </Card>
         <H2>Reach Out Directly</H2>
-        <address>
-          <p style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
-          <p>Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
+        <address className="flex flex-col h-full ">
+          <p className="my-4" style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
+          <p className="my-4">Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
         </address>
       </FlexColumn>
     </>

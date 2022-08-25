@@ -10,7 +10,7 @@ const ImageStyled = styled(Image)`
 
 const ImageWrapper = styled.div`
   max-width: 800px;
-  margin: 1em auto;
+ // margin: 1em auto;
   width: 100%;
 `
 

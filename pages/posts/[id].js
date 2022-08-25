@@ -3,6 +3,8 @@ import Head from "next/head";
 import Date from "../../components/atoms/Date";
 import styles from "../../styles/post.module.scss"
 import ImageStyled, {ImageWrapper} from "../../components/atoms/ImageStyled";
+import styled from "styled-components";
+import FlexColumn from "../../components/atoms/FlexColumn";
 
 export async function getStaticProps({ params }) {
 
@@ -22,19 +24,37 @@ export async function getStaticPaths() {
   };
 }
 
+const PostGrid = styled.div`
+  display: grid;
+  @media (min-width: 1024px) {
+    grid-template-columns: 3fr 1fr;
+    justify-content: center;  
+  }
+  grid-auto-columns: auto;
+`
+
 export default function Post({ postData }) {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <FlexColumn center>
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <h1 className="text-4xl md:text-5xl py-4">{postData.title}</h1>
-      <Date dateString={postData.date} />
-      <ImageWrapper>
-        <ImageStyled width={1200} height={800} src={postData.image}/>
-      </ImageWrapper>
-      <article className="prose-invert prose-lg md:prose-xl prose-list-style: inside px-4"
-        dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </div>
+      <div className="flex flex-col lg:flex-row items-center justify-center w-full mx-auto">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-3xl md:text-4xl lg:text-[40px] my-6 text-center">{postData.title}</h1>
+          <Date className="my-6 text-center" dateString={postData.date} />
+        </div>
+        <ImageWrapper className="my-6 flex justify-center">
+          <ImageStyled width={600} height={400} src={postData.image}/>
+        </ImageWrapper>
+      </div>
+          <PostGrid>
+        <article className="prose-invert prose-lg md:prose-xl prose-list-style:inside prose-h2:text-center px-4 lg:pl-[130px] lg:pr-4"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+            <div className="justify-self-center">
+              Prev
+            </div>
+      </PostGrid>
+    </FlexColumn>
   );
 }

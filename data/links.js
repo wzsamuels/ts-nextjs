@@ -12,6 +12,10 @@ const links = [
     url: '/contact'
   },
   {
+    text: 'Blog',
+    url: '/posts'
+  },
+  {
     text: 'Clients',
     dropdown: true,
     urls: [

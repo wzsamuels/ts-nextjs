@@ -17,30 +17,34 @@ import securityImg from '../public/assets/images/features/security_icon.svg'
 import chatbotImg from '../public/assets/images/features/chatbot_icon.svg'
 import ImageStyled from '../components/atoms/ImageStyled';
 import Head from 'next/head';
+import FlexColumn from "../components/atoms/FlexColumn";
+import {Fade} from "react-awesome-reveal";
 
 const Features = () => {
   return (
-    <>
+    <FlexColumn center>
       <Head>
         <title>Features | Twin Silver</title>
       </Head>
-      <H1 style={{textAlign: 'center'}}>
+      <h1 className="header-largest my-8">
         What can we do for you?
-      </H1>
-      <Flex style={{justifyContent:'center'}}>
-        { featureList.map(feature =>
-          <FeatureCard key={feature.title}>
-            <Flex>
-              <ImageStyled style={{flex: 1}} width={150} height={150} src={feature.img} alt={feature.title}/>
-            </Flex>
-            <div style={{flex: 1}}>
-              <H2>{feature.title}</H2>
-              <p>{feature.text}</p>
-            </div>
-          </FeatureCard>
+      </h1>
+      <Flex className="justify-center">
+        { featureList.map((feature, index) =>
+          <Fade key={feature.title} className={`flex`} direction={`${index % 2 === 0 ? "left" : "right"}`}>
+            <FeatureCard>
+              <Flex>
+                <ImageStyled style={{flex: 1}} width={150} height={150} src={feature.img} alt={feature.title}/>
+              </Flex>
+              <div style={{flex: 1}}>
+                <H2>{feature.title}</H2>
+                <p>{feature.text}</p>
+              </div>
+            </FeatureCard>
+          </Fade>
         )}
       </Flex>
-    </>
+    </FlexColumn>
   )
 }
 

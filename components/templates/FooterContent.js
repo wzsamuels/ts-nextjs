@@ -52,13 +52,17 @@ const FooterColumn = styled(Flex)`
   ${InputStyled} {
     margin: 1em;
   }
+
+  ${InputStyled}::placeholder {
+    text-align: center;
+  }
   
   @media screen and (min-width: 550px) {  
     align-items: normal;
     text-align: left;
     .center-on-mobile {
       align-items: center;
-      justify-content: center;
+      justify-content: start;
       ${InputStyled} {
         margin: 1em 0;
       }
@@ -128,7 +132,7 @@ const FooterContent = ({links}) => {
                   value={emailForm}
                   onChange={e => setEmailForm(e.target.value)}
                 />
-                <Button type='submit'>Sign Up</Button>
+                <Button className="justify-self-center" type='submit'>Sign Up</Button>
               </FlexColumn>
             </form>
           </FooterColumn>
