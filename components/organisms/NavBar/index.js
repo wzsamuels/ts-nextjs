@@ -104,7 +104,7 @@ export const DropDownMenu = styled.ul`
   opacity: 0;
   position: absolute;
   transition: all 0.5s ease;
-  margin-top: 1rem;
+  margin-top: .75rem;
   margin-left: -.5rem;
   padding: 0;
   display: none;
