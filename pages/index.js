@@ -254,19 +254,19 @@ export default function Home() {
 
       <HomeOptions style={{justifyContent:'center'}}>
         <Flex>
-          <H1>Build from Scratch</H1>
+          <H1 className="mb-4">Build from Scratch</H1>
           <p>No website? No problem. There&rsquo;s never been a better time.</p>
-          <Button onClick={() => setNewSiteModal(true)}>Learn More</Button>
+          <Button className="mt-4" onClick={() => setNewSiteModal(true)}>Learn More</Button>
         </Flex>
         <Flex>
-          <H1>Redesign or Refine</H1>
+          <H1 className="mb-4">Redesign or Refine</H1>
           <p>Give your customers a modern experience with a quick refresh or total overhaul.</p>
-          <Button onClick={() => setRefineModal(true)}>Learn More</Button>
+          <Button className="mt-4" onClick={() => setRefineModal(true)}>Learn More</Button>
         </Flex>
         <Flex>
-          <H1>Change Platforms</H1>
+          <H1 className="mb-4">Change Platforms</H1>
           <p>Not satisfied with the speed, price, or performance of your current web host? We&rsquo;ll find <i>your</i> best solution.</p>
-          <Button onClick={() => setChangeModal(true)}>Learn More</Button>
+          <Button className="mt-4" onClick={() => setChangeModal(true)}>Learn More</Button>
         </Flex>
       </HomeOptions>
 
@@ -278,7 +278,7 @@ export default function Home() {
         <HomeCard>
           <Flex center>
             <H1 className="mb-4">Personalized</H1>
-            <p>Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
+            <p className="text-center">Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
           </Flex>
           <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
             <ImageStyled src={artImage2} placeholder="blur" alt="Paint"/>
@@ -290,7 +290,7 @@ export default function Home() {
         <HomeCard>
           <Flex center>
             <H1 className="mb-4">Optimized Everywhere</H1>
-            <p>Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
+            <p className="text-center">Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
           </Flex>
           <Flex>
             <ImageStyled src={optimizeImage} placeholder="blur" alt="Person holding phone"/>
@@ -302,7 +302,7 @@ export default function Home() {
         <HomeCard>
           <Flex center>
             <H1 className="mb-4">Secure</H1>
-            <p>Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
+            <p className="text-center">Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
           </Flex>
           <Flex>
             <ImageStyled src={secureImage} placeholder="blur" alt="Locked electronics"/>
@@ -314,7 +314,7 @@ export default function Home() {
         <HomeCard>
           <Flex center>
             <H1 className="mb-4">Business Focused</H1>
-            <p>How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
+            <p className="text-center">How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
           </Flex>
           <Flex flex='1'>
             <ImageStyled src={businessImage} placeholder="blur" alt="Business meeting"/>
