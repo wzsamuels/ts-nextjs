@@ -159,8 +159,8 @@ const Getstarted = ({initialFormType}) => {
         <ImageWrapper className="my-4"  style={{width: '500px', maxWidth:'95vw'}}>
           <Image src={getStartedImg} alt="Rocket launch"/>
         </ImageWrapper>
-        <Card className="my-4" style={{backgroundColor: theme.colors.accordion}}>
-          <H2 textAlign='center'>Special pricing available for small businesses and non-profits in the NC triangle area!</H2>
+        <Card className="my-4 max-w-[500px]" style={{backgroundColor: theme.colors.accordion, padding: '2em'}}>
+          <h2 className='text-center font-bold header-large'>Special pricing available for small businesses and non-profits in the NC triangle area!</h2>
         </Card>
         <FormSwitcherWrapper className="my-4">
           <Card
