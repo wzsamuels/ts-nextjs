@@ -56,24 +56,30 @@ const PostCard = styled(Card)`
 export default function PostsIndex( {allPostsData}) {
   return (
     <FlexColumn center>
-      <h1 className="text-4xl md:text-5xl my-4">Blog</h1>
+      <h1 className="header-largest my-8">Twin Silver's Blog</h1>
       <FlexColumn center className="my-4 w-full flex-wrap">
-        {allPostsData.map(({id, date, title, image}) => (
-          <Link  key={id} href={`/posts/${id}`}>
-            <a className="py-4 w-full my-4 mx-0 flex flex-col items-center">
-              <PostCard>
-                <div className="px-4">
-                  <h2 className="text-3xl md:text-4xl my-4 ">{title}</h2>
-                  <p className="my-4"><Date dateString={date} /></p>
-                </div>
-                <div className="">
-                  <ImageWrapper className="w-[95%] my-4 mx-auto">
-                    <ImageStyled width={1200} height={800} alt="Current Image" src={image}/>
-                  </ImageWrapper>
-                </div>
-              </PostCard>
-            </a>
-          </Link>
+        <h2 className="header-large">Coming Soon!</h2>
+        {allPostsData.map(({id, date, title, image, published}) => (
+          <>
+
+            { published &&
+              <Link key={id} href={`/posts/${id}`}>
+                <a className="py-4 w-full my-4 mx-0 flex flex-col items-center">
+                  <PostCard>
+                    <div className="px-4">
+                      <h2 className="text-3xl md:text-4xl my-4 ">{title}</h2>
+                      <p className="my-4"><Date dateString={date}/></p>
+                    </div>
+                    <div className="">
+                      <ImageWrapper className="w-[95%] my-4 mx-auto">
+                        <ImageStyled width={1200} height={800} alt="Current Image" src={image}/>
+                      </ImageWrapper>
+                    </div>
+                  </PostCard>
+                </a>
+              </Link>
+            }
+          </>
         ))}
       </FlexColumn>
     </FlexColumn>

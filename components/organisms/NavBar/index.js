@@ -72,7 +72,7 @@ const TopNav = styled.nav`
   z-index: 10;
   
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 670px) {
     .logo {
       position: inherit;
     }
@@ -90,7 +90,7 @@ const TopNav = styled.nav`
     }
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 800px) {
     justify-content: left;
     .logo {
       position: inherit;

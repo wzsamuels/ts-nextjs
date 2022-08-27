@@ -2,6 +2,7 @@
 title: 'What is Web Hosting?'
 date: '2022-08-30'
 image: '/assets/images/blog/hosting.svg'
+published: false
 ---
 
 ## Thanks for Tuning In

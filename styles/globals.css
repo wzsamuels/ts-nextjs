@@ -5,3 +5,7 @@
 .header-largest {
   @apply text-3xl md:text-4xl lg:text-[40px] font-light;
 }
+
+.header-large {
+  @apply text-2xl md:text-3xl lg:text-4xl font-light;
+}
