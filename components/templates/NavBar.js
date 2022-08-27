@@ -69,7 +69,7 @@ export default function NavBar({links, position}) {
       </TopNav>
 
       <Drawer onClick={() => setDrawerClosing(true)} open={drawerOpen} closing={drawerClosing}>
-        <DrawerContent onClick={e => e.stopPropagation()}
+        <DrawerContent onClick={() => setDrawerClosing(true)}
                        className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
                        onAnimationEnd={callback()}>
           <DrawerHeader>
