@@ -2,7 +2,6 @@ import React from 'react';
 import Flex from "../components/atoms/Flex";
 import Card from '../components/atoms/Card';
 import styled from 'styled-components';
-import {H1, H2} from '../components/atoms/Typography';
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'
 import copywriteImg from '../public/assets/images/features/content_icon.svg'
 import navigationImg from '../public/assets/images/features/navigation_icon.svg'
@@ -31,17 +30,18 @@ const Features = () => {
       </h1>
       <Flex className="justify-center">
         { featureList.map((feature, index) =>
-          <Fade key={feature.title} className={`flex`} direction={`${index % 2 === 0 ? "left" : "right"}`}>
+          <div key={feature.title} className={`flex`}>
             <FeatureCard>
-              <Flex>
-                <ImageStyled style={{flex: 1}} width={150} height={150} src={feature.img} alt={feature.title}/>
+              <Flex className="m-4 relative justify-center p-4 h-full w-full max-w-[150px] max-h-[150px] min-h-[120px] md:min-h-[150px]">
+                <ImageStyled   layout='fill'
+                                 objectFit='contain'  src={feature.img} alt={feature.title}/>
               </Flex>
               <div style={{flex: 1}}>
-                <H2>{feature.title}</H2>
-                <p>{feature.text}</p>
+                <h2 className='text-center header-large'>{feature.title}</h2>
+                <p className="p-4 break-words">{feature.text}</p>
               </div>
             </FeatureCard>
-          </Fade>
+          </div>
         )}
       </Flex>
     </FlexColumn>
@@ -50,21 +50,22 @@ const Features = () => {
 
 const FeatureCard = styled(Card)`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 0 .5em;
-  width: 500px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
   margin: 1em 0;
   height: auto;
   border-radius: 0;
-
-  H2 {
-    margin: 0;
-    font-size: 1.5em;
-  }
+  
+   h2 {
+      margin-top: 0;
+    }
   
   & > * {
-    padding: 1em;
+
   }
   
   div:last-child {
@@ -75,13 +76,12 @@ const FeatureCard = styled(Card)`
   @media screen and (min-width: 500px) {
     border-radius: 6px;
     margin: 1em;
-  }
-  
-  @media screen and (min-width: 600px) {
-    H2 {
-      margin: 0;
-      font-size: 2em;
-    }
+    flex-direction: row;
+    h2 {
+          margin-top: 1em;
+          margin-bottom: 0;
+          }
+   
   }
 `
 

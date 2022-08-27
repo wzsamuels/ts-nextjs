@@ -11,10 +11,15 @@ const links = [
     text: 'Contact',
     url: '/contact'
   },
+  /*
   {
     text: 'Blog',
     url: '/posts'
   },
+  {
+    text: 'SEO',
+    url: '/seo'
+  },*/
   {
     text: 'Clients',
     dropdown: true,

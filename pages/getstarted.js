@@ -163,18 +163,22 @@ const Getstarted = ({initialFormType}) => {
           <H2 textAlign='center'>Special pricing available for small businesses and non-profits in the NC triangle area!</H2>
         </Card>
         <FormSwitcherWrapper className="my-4">
-          <Card onClick={() => switchForm('newForm')} className={form.formType === newForm ? 'active' : 'not-active' }>
-            <H2 textAlign='center'>I need a new website</H2>
+          <Card
+            onClick={() => switchForm('newForm')} className={`flex justify-center items-center ${form.formType === newForm ? 'active' : 'not-active'}`}>
+            <h2 className="header-large text-center">I need a new website</h2>
           </Card>
           <H2>⇆</H2>
-          <Card onClick={() => switchForm('oldForm')} className={form.formType === oldForm ? 'active' : 'not-active'}>
-            <H2 textAlign='center'>I already have a website</H2>
+          <Card
+            onClick={() => switchForm('oldForm')}
+            className={`flex justify-center items-center ${form.formType === oldForm ? 'active' : 'not-active'}`}
+          >
+              <h2 className="header-large text-center">I already have a website</h2>
           </Card>
         </FormSwitcherWrapper>
         <FormWrapper className="my-4">
           <Card style={{margin:'0 0 1em 0', maxWidth:'850px'}}>
             { form.formType === newForm }
-            <P>{form.formDescription}</P>
+            <p className="py-4">{form.formDescription}</p>
             <Form onSubmit={handleSubmit}>
               { form.formType.map((field) =>
                   <InputLabelContainer key={field.key}>

@@ -11,11 +11,11 @@ const ContentContainer = styled.div`
   }
 
   @media screen and (min-width: 499px) {
-    padding-bottom: 17rem;
+    padding-bottom: 25rem;
   }
   
   @media screen and (min-width: 550px) {
-    padding-bottom: 16rem;
+    padding-bottom: 18rem;
   }
 
 
