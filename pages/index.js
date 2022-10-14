@@ -7,7 +7,7 @@ import Flex from '../components/atoms/Flex';
 import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
 import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
-import {H1, H2} from '../components/atoms/Typography';
+import {H1} from '../components/atoms/Typography';
 import medical from '../public/assets/images/medical_screenshot.png'
 import pizza from '../public/assets/images/pizza_screenshot.png'
 import shop from '../public/assets/images/shop_screenshot.png'
@@ -25,6 +25,7 @@ import Divider from "../components/atoms/Divider";
 import Modal from '../components/molecules/Modal';
 import GroupContainer from '../components/atoms/GroupContainer';
 import {Fade} from 'react-awesome-reveal';
+import Head from "next/head";
 
 const HomeCard = styled(Card)`
   display: flex;
@@ -53,7 +54,7 @@ const HomeCard = styled(Card)`
   
   border-radius: 0;
   
-  H1 {
+  h1 {
     text-align: center;
   }
 
@@ -237,18 +238,23 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <meta/>
+      </Head>
       <HeroWrapper>
         <BackgroundImage>
           <Image priority objectFit='cover' placeholder="blur" layout="fill" src={heroImage} alt="Happy man at laptop"/>
         </BackgroundImage>
         <HeroBlack/>
+
         <HeroText>
-          <H1 margin='0'>Go Beyond the Basic</H1>
-          <H2 margin='0'>Building destinations, not just websites.</H2>
           <LogoWrapper>
             <Image src={logoImage} alt="Twin Silver Logo"/>
           </LogoWrapper>
+          <h1 className="font-serif text-4xl md:text-5xl m-0">Go Beyond the Basic</h1>
+
           <Link layout="fixed" href='getstarted' passHref><ButtonLink>Get Started for Free</ButtonLink></Link>
+          <h2 className="font-serif text-3xl md:text-4xl">Building destinations, not just websites.</h2>
         </HeroText>
       </HeroWrapper>
 
@@ -323,6 +329,22 @@ export default function Home() {
       </Fade>
 
       <HomePageDivider>
+        <Divider>Quality Your Business Can Depend On</Divider>
+      </HomePageDivider>
+
+      <div className="flex justify-center mt-4 [&>*]:mx-4">
+        <a href="http://upcity.com/web-design/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
+          <img src="https://upcity-marketplace.s3.amazonaws.com/badge/159/full_color/04f57ddb4230a7fe40b649702bad1893.png" width="250px" height="250px" alt="TOP WEB DESIGNER" />
+        </a>
+
+        <a href="http://upcity.com/ecommerce-development/shopify/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
+          <img src="https://upcity-marketplace.s3.amazonaws.com/badge/225/full_color/889798d7b0e8fb92e303da7efb5bfa26.png" width="250px" height="250px" alt="TOP SHOPIFY DEVELOPER" />
+        </a>
+
+        <a href="http://upcity.com/digital-marketing/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham"><img src="https://upcity-marketplace.s3.amazonaws.com/badge/167/full_color/45daf4bdf38c88b7ce8ee2b1e3346411.png" width="250px" height="250px" alt="TOP DIGITAL AGENCY" /></a>
+      </div>
+
+      <HomePageDivider>
         <Divider>Explore Our Demo Websites</Divider>
       </HomePageDivider>
 
@@ -337,7 +359,7 @@ export default function Home() {
         <Fade className="w-full">
           <ImageWrapper className="my-4 mx-auto">
             <a href='https://pizza.twinsilverdesign.com'>
-              <ImageStyled placeholder="blur" layout="responsive"  src={pizza}/>
+              <ImageStyled placeholder="blur" layout="responsive" src={pizza}/>
             </a>
           </ImageWrapper>
         </Fade>
@@ -348,6 +370,7 @@ export default function Home() {
           <ImageWrapper className="my-4 mx-auto"><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
         </Fade>
       </Flex>
+
       { newSiteModal &&
         <Modal style={{maxWidth:'800px'}} animate={true} onClose={() => setNewSiteModal(false)} title={"Build from Scratch"}>
           <PopupContent>
