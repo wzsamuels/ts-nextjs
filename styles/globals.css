@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 .header-largest {
-  @apply text-3xl md:text-4xl lg:text-[40px] font-light;
+  @apply text-3xl md:text-4xl lg:text-[40px] ;
+}
+
+.header-larger {
+  @apply text-2xl md:text-3xl lg:text-4xl;
 }
 
 .header-large {
-  @apply text-2xl md:text-3xl lg:text-4xl font-light;
+  @apply text-xl md:text-2xl lg:text-3xl;
 }

@@ -16,7 +16,7 @@ const TopNav = styled.nav`
   -webkit-box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 
-  a, .dropdown {
+  .dropdown {
     display: block;
     color: ${props => props.theme.colors.navBarText};
     text-align: center;
@@ -44,8 +44,10 @@ const TopNav = styled.nav`
   }
   
   .logo {
-    position: fixed;
-    margin-right: 2em;
+    //position: fixed;
+    //margin-right: 2em;
+    position: inherit;
+    margin-right: 1em;
     cursor: pointer;
   }
   
@@ -72,7 +74,7 @@ const TopNav = styled.nav`
   z-index: 10;
   
 
-  @media screen and (max-width: 670px) {
+  @media screen and (max-width: 800px) {
     .logo {
       position: inherit;
     }
@@ -90,8 +92,8 @@ const TopNav = styled.nav`
     }
   }
 
-  @media screen and (max-width: 800px) {
-    justify-content: left;
+  @media screen and (max-width: 1000px) {
+    //justify-content: left;
     .logo {
       position: inherit;
       margin-right: 1em;
@@ -103,9 +105,9 @@ export const DropDownMenu = styled.ul`
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  transition: all 0.5s ease;
+  transition: 0.5s;
   margin-top: .75rem;
-  margin-left: -.5rem;
+  ${props => props.right ? "margin-left: -3.25rem;" : "margin-left: -.5rem;"}
   padding: 0;
   display: none;
   list-style: none;
@@ -120,9 +122,15 @@ export const DropDownMenu = styled.ul`
 
 export const DropDownItem = styled.li`
   clear: both;
-  width: 100%;
-  a {
- //   background-color: ${(props) => props.theme.colors.navBar};
+  color: ${props => props.theme.colors.navBarText};
+  padding: .875rem 1rem;
+  text-decoration: none;
+  float: left;
+  cursor: pointer;
+  height: 50px;
+
+  &:hover {
+    color: ${props => props.theme.colors.navBarHover};
   }
 `
 

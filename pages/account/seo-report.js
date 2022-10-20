@@ -1,34 +1,14 @@
 import Script from "next/script";
 import {useEffect, useLayoutEffect, useRef, useState} from "react";
 import styled from "styled-components";
-import Flex from "../components/atoms/Flex";
-
-const SeoFormWrapper = styled.div`
-      color: red;
-  
-`
+import Flex from "../../components/atoms/Flex";
+import AccountPage from "./index";
 
 export default function SeoPage() {
   const divRef = useRef();
   const [firstUpdate, setFirstUpdate] = useState(true);
   useEffect(() => {
-    /*
-    const htmlString = `
-      <script>
-        var embedConfig = {
-          embedCode: '6cba125319972d37ee7f31d98265628ebb4fe501',
-          orientation: 'landscape',
-          frameStyle: {
-            border: '5px',
-            width: '1000px',
-            height: '660px',
-            color: 'red'
-          }
-        }
-      </script>
-      <script src="//app.optimizedmarketing.co/javascripts/embed_report_card.js"></script>`;
 
-     */
     const htmlString2 = `
     <script>
   embedConfig = {
@@ -37,7 +17,6 @@ export default function SeoPage() {
     orientation: 'landscape',
     frameStyle: {
       border: '0px',
-      width: '100%',
       height: '660px',
       color: "white"
     }
@@ -54,6 +33,9 @@ export default function SeoPage() {
 
   useLayoutEffect(() => {
     let frame = document.getElementsByTagName('iframe')[0];
+    console.log(frame);
+   // var innerDoc = frame?.contentDocument || frame?.contentWindow.document;
+   // console.log(innerDoc)
 //    let doc = frame.contentDocument;
   }, [])
 
@@ -65,8 +47,9 @@ export default function SeoPage() {
   }, [firstUpdate])
 
   return (
-    <Flex className="justify-center w-full flex-wrap bg-white">
-      <div className="prose mx-8 text-green-300" ref={divRef} />
+    <Flex className="justify-center w-full flex-wrap bg-white" ref={divRef}>
     </Flex>
   )
 }
+
+AccountPage.auth = true

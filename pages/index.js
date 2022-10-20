@@ -30,7 +30,7 @@ import Head from "next/head";
 const HomeCard = styled(Card)`
   display: flex;
   flex-direction: column;
-  padding: .5em;
+  padding: 0;
   width: 1080px;
   max-width: 100%;
   margin: 1em auto 2em;
@@ -45,31 +45,21 @@ const HomeCard = styled(Card)`
     width: 100%;
     height: auto;
   }
-  
-  ${Flex}:first-child {
-    flex-direction: column;
-    margin: 1em;
-    align-items: center;
-  }
-  
+
   border-radius: 0;
-  
+
   h1 {
     text-align: center;
   }
 
   @media screen and (min-width: 500px) {
-    p {
-      font-size: 1.25em;
-    }
+
     
     flex-direction: row;
   }
   
   @media screen and (min-width: 750px) {
-    p {
-      font-size: 1.4em;
-    }
+  
   }
 
   @media screen and (min-width: 900px) {
@@ -227,8 +217,18 @@ const LogoWrapper = styled.div`
   margin: 0;
 `
 
-const homeCardData = [
+const homeCards = [
+  {direction: "left", title: "Personalized", text: "Don't settle for templates and cookie-cutter designs. You deserve a website as unique as your business.", image: artImage2, alt: "Paint"},
+  {direction: "right", title: "Optimized Everywhere", text: "Provide users with seamless experience, whether on mobile, desktop, or tablet.", image: optimizeImage, alt: "Person holding phone"},
+  {direction: "left", title: "Secure", text: "Backed by Amazon Web Services, your users' data is protected by tested technology.", image: secureImage, alt: "Locked electronics"},
+  {direction: "right", title: "Business Driven", text: "How can we grow your business? Need better customer outreach? Help tracking inventory? We'll find the solution for you.", image: businessImage, alt: "Business meeting"},
+]
 
+const demoPages = [
+  {link: "https://medical.twinsilverdesign.com", image: medical},
+  {link: "https://pizza.twinsilverdesign.com", image: pizza},
+  {link: "https://shop.twinsilverdesign.com", image: shop},
+  {link: "https://law.twinsilverdesign.com", image: law}
 ]
 
 export default function Home() {
@@ -280,53 +280,19 @@ export default function Home() {
         <Divider>Four Reasons to Build With Us</Divider>
       </HomePageDivider>
 
-      <Fade direction="left" triggerOnce="true">
-        <HomeCard>
-          <Flex center>
-            <H1 className="mb-4">Personalized</H1>
-            <p className="text-center">Don&rsquo;t settle for templates and cookie-cutter designs. You deserve a website as unique as your business.</p>
-          </Flex>
-          <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
-            <ImageStyled src={artImage2} placeholder="blur" alt="Paint"/>
-          </Flex>
-        </HomeCard>
-      </Fade>
-
-      <Fade direction="right" triggerOnce="true">
-        <HomeCard>
-          <Flex center>
-            <H1 className="mb-4">Optimized Everywhere</H1>
-            <p className="text-center">Provide users with seamless experience, whether on mobile, desktop, or tablet.</p>
-          </Flex>
-          <Flex>
-            <ImageStyled src={optimizeImage} placeholder="blur" alt="Person holding phone"/>
-          </Flex>
-        </HomeCard>
-      </Fade>
-
-      <Fade direction="left" triggerOnce="true">
-        <HomeCard>
-          <Flex center>
-            <H1 className="mb-4">Secure</H1>
-            <p className="text-center">Backed by Amazon Web Services, your users&rsquo; data is protected by tested technology.</p>
-          </Flex>
-          <Flex>
-            <ImageStyled src={secureImage} placeholder="blur" alt="Locked electronics"/>
-          </Flex>
-        </HomeCard>
-      </Fade>
-
-      <Fade direction="right" triggerOnce="true">
-        <HomeCard>
-          <Flex center>
-            <H1 className="mb-4">Business Focused</H1>
-            <p className="text-center">How can we grow your business? Need better customer outreach? Help tracking inventory? We&rsquo;ll find the solution for you.</p>
-          </Flex>
-          <Flex flex='1'>
-            <ImageStyled src={businessImage} placeholder="blur" alt="Business meeting"/>
-          </Flex>
-        </HomeCard>
-      </Fade>
+      { homeCards.map(card =>
+        <Fade key={card.title} direction={card.direction} triggerOnce="true">
+          <HomeCard>
+            <div className="flex flex-col m-4 mb-8 justify-center items-center" >
+              <h1 className="mb-4 header-largest">{card.title}</h1>
+              <h2 className="text-center font-light header-large font-light">{card.text}</h2>
+            </div>
+            <Flex flexDirection='row' justifyContent='center' style={{flex: 1}}>
+              <ImageStyled src={card.image} placeholder="blur" alt={card.alt}/>
+            </Flex>
+          </HomeCard>
+        </Fade>
+      )}
 
       <HomePageDivider>
         <Divider>Quality Your Business Can Depend On</Divider>
@@ -336,11 +302,9 @@ export default function Home() {
         <a href="http://upcity.com/web-design/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
           <img src="https://upcity-marketplace.s3.amazonaws.com/badge/159/full_color/04f57ddb4230a7fe40b649702bad1893.png" width="250px" height="250px" alt="TOP WEB DESIGNER" />
         </a>
-
         <a href="http://upcity.com/ecommerce-development/shopify/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
           <img src="https://upcity-marketplace.s3.amazonaws.com/badge/225/full_color/889798d7b0e8fb92e303da7efb5bfa26.png" width="250px" height="250px" alt="TOP SHOPIFY DEVELOPER" />
         </a>
-
         <a href="http://upcity.com/digital-marketing/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham"><img src="https://upcity-marketplace.s3.amazonaws.com/badge/167/full_color/45daf4bdf38c88b7ce8ee2b1e3346411.png" width="250px" height="250px" alt="TOP DIGITAL AGENCY" /></a>
       </div>
 
@@ -349,26 +313,15 @@ export default function Home() {
       </HomePageDivider>
 
       <Flex className="justify-center">
-        <Fade className="w-full">
-          <a href='https://medical.twinsilverdesign.com'>
-            <ImageWrapper className="my-4 mx-auto">
-              <ImageStyled placeholder="blur" layout="responsive" src={medical}/>
-            </ImageWrapper>
-          </a>
-        </Fade>
-        <Fade className="w-full">
-          <ImageWrapper className="my-4 mx-auto">
-            <a href='https://pizza.twinsilverdesign.com'>
-              <ImageStyled placeholder="blur" layout="responsive" src={pizza}/>
+        { demoPages.map(page =>
+          <Fade key={page.link} className="w-full">
+            <a href={page.link}>
+              <ImageWrapper className="my-4 mx-auto">
+                <ImageStyled placeholder="blur" layout="responsive" src={page.image}/>
+              </ImageWrapper>
             </a>
-          </ImageWrapper>
-        </Fade>
-        <Fade className="w-full">
-          <ImageWrapper className="my-4 mx-auto"><a href='https://shop.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={shop}/></a></ImageWrapper>
-        </Fade>
-        <Fade className="w-full">
-          <ImageWrapper className="my-4 mx-auto"><a href='https://law.twinsilverdesign.com'><ImageStyled placeholder="blur" layout="responsive" src={law}/></a></ImageWrapper>
-        </Fade>
+          </Fade>
+        )}
       </Flex>
 
       { newSiteModal &&

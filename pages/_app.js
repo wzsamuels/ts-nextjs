@@ -14,6 +14,7 @@ import {useEffect, useState} from 'react';
 import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
 import links from '../data/links';
+import {SessionProvider, useSession} from "next-auth/react";
 
 const startAnalytics = () => {
   window.dataLayer = window.dataLayer || [];
@@ -22,7 +23,7 @@ const startAnalytics = () => {
   gtag('config', 'UA-217800713-1');
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps} }) {
   const [cookies, setCookie] = useCookies(["ccm_accepted", "cookie_settings"])
   const [cookiePopup, setCookiePopup] = useState(() => {
     return cookies.ccm_accepted !== "true";
@@ -54,37 +55,57 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Twin Silver Web Design</title>
+        <title>Twin Silver Web Design | Web Services for Small Businesses in the North Carolina Raleigh/Durham Area</title>
         <meta charSet="utf-8"/>
         <link rel="icon" href="/assets/images/logos/ts_icon.svg"/>
+        <link rel="stylesheet" href="https://use.typekit.net/jvh7mox.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="theme-color" content="#000000"/>
         <meta
           name="description"
-          content="Full Service Website Design and Development"
+          content="Full Service Website Design and Development for small businesses."
         />
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=UA-217800713-1"
         strategy="lazyOnload"
       />
-      <ThemeProvider theme={darkTheme}>
-        <GlobalStyles/>
-        <PageWrapper>
-          <ContentWrapper>
-            <NavBar position="top" links={links}/>
-            <Component {...pageProps} />
-          </ContentWrapper>
-          <FooterContent links={links}/>
-        </PageWrapper>
-        { cookiePopup &&
-          <CookiePopup onAccept={handleAccept} onDecline={handleDecline}>
-            We use cookies to provide an improved user experience and better understand our customers.
-          </CookiePopup>
-        }
-      </ThemeProvider>
+      <SessionProvider session={session}>
+        <ThemeProvider theme={darkTheme}>
+          <GlobalStyles/>
+          <PageWrapper>
+            <ContentWrapper>
+              <NavBar position="top" links={links}/>
+              {Component.auth ? (
+                <Auth>
+                  <Component {...pageProps} />
+                </Auth>
+              ) : (
+                <Component {...pageProps} />
+              )}
+            </ContentWrapper>
+            <FooterContent links={links}/>
+          </PageWrapper>
+          { cookiePopup &&
+            <CookiePopup onAccept={handleAccept} onDecline={handleDecline}>
+              We use cookies to provide an improved user experience and better understand our customers.
+            </CookiePopup>
+          }
+        </ThemeProvider>
+      </SessionProvider>
     </>
   )
+}
+
+function Auth({ children }) {
+  // if `{ required: true }` is supplied, `status` can only be "loading" or "authenticated"
+  const { status } = useSession({ required: true })
+
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  return children
 }
 
 export default MyApp

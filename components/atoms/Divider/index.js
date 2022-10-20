@@ -30,7 +30,12 @@ const DividerWrapper = styled.div`
 `
 
 const DividerStyled = styled.span`
+
+  max-width: 1000px;
   
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &::before, &::after {
     display: inline-block;
     vertical-align: middle;
@@ -39,6 +44,8 @@ const DividerStyled = styled.span`
     overflow: hidden;
     content: "";
     border-top: 1px solid ${props => props.theme.colors.dividerLine};
+    width: 100%;
+    max-width: 300px;
   }
   
   &::before {

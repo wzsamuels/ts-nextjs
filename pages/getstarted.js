@@ -155,24 +155,24 @@ const Getstarted = ({initialFormType}) => {
         <title>Get Started | Twin Silver</title>
       </Head>
       <FlexColumn className='center'>
-        <h1 className="my-8 header-largest">Get Started Today</h1>
+        <h1 className="my-8 header-largest font-light">Get Started Today</h1>
         <ImageWrapper className="my-4"  style={{width: '500px', maxWidth:'95vw'}}>
           <Image src={getStartedImg} alt="Rocket launch"/>
         </ImageWrapper>
         <Card className="my-4 max-w-[500px]" style={{backgroundColor: theme.colors.accordion, padding: '2em'}}>
-          <h2 className='text-center font-bold header-large'>Special pricing available for small businesses and non-profits in the NC triangle area!</h2>
+          <h2 className='text-center font-bold header-larger'>Special pricing available for small businesses and non-profits in the NC triangle area!</h2>
         </Card>
         <FormSwitcherWrapper className="my-4">
           <Card
             onClick={() => switchForm('newForm')} className={`flex justify-center items-center ${form.formType === newForm ? 'active' : 'not-active'}`}>
-            <h2 className="header-large text-center">I need a new website</h2>
+            <h2 className="header-larger text-center">I need a new website</h2>
           </Card>
           <H2>⇆</H2>
           <Card
             onClick={() => switchForm('oldForm')}
             className={`flex justify-center items-center ${form.formType === oldForm ? 'active' : 'not-active'}`}
           >
-              <h2 className="header-large text-center">I already have a website</h2>
+              <h2 className="header-larger text-center">I already have a website</h2>
           </Card>
         </FormSwitcherWrapper>
         <FormWrapper className="my-4">

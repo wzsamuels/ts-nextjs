@@ -58,7 +58,7 @@ export default function PostsIndex( {allPostsData}) {
     <FlexColumn center>
       <h1 className="header-largest my-8">Twin Silver&apos;s Blog</h1>
       <FlexColumn center className="my-4 w-full flex-wrap">
-        <h2 className="header-large">Coming Soon!</h2>
+        <h2 className="header-larger">Coming Soon!</h2>
         {allPostsData.map(({id, date, title, image, published}) => (
           <>
 

@@ -25,7 +25,7 @@ const Features = () => {
       <Head>
         <title>Features | Twin Silver</title>
       </Head>
-      <h1 className="header-largest my-8">
+      <h1 className="header-largest my-8 font-light">
         What can we do for you?
       </h1>
       <Flex className="justify-center">
@@ -33,11 +33,10 @@ const Features = () => {
           <div key={feature.title} className={`flex`}>
             <FeatureCard>
               <Flex className="m-4 relative justify-center p-4 h-full w-full max-w-[150px] max-h-[150px] min-h-[120px] md:min-h-[150px]">
-                <ImageStyled   layout='fill'
-                                 objectFit='contain'  src={feature.img} alt={feature.title}/>
+                <ImageStyled layout='fill' objectFit='contain' src={feature.img} alt={feature.title}/>
               </Flex>
               <div style={{flex: 1}}>
-                <h2 className='text-center header-large'>{feature.title}</h2>
+                <h2 className='text-center header-larger'>{feature.title}</h2>
                 <p className="p-4 break-words">{feature.text}</p>
               </div>
             </FeatureCard>

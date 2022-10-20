@@ -15,12 +15,44 @@ import TopNav, {DropDownItem, DropDownMenu} from '../organisms/NavBar';
 import Link from 'next/link'
 import Image from 'next/image'
 
+import {signIn, signOut, useSession} from "next-auth/react";
+import {ArrowPathIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
+import styled from 'styled-components';
+import ImageStyled from '../atoms/ImageStyled';
 
+const MenuLink = styled.a`
+  color: ${props => props.theme.colors.navBarText};
+  text-align: center;
+  padding: .875rem 1rem;
+  text-decoration: none;
+  float: left;
+  cursor: pointer;
+  height: 50px;
+
+  &:hover {
+    color: ${props => props.theme.colors.navBarHover};
+  }
+`
+
+const MenuItem = styled.div`
+  color: ${props => props.theme.colors.navBarText};
+  text-align: center;
+  padding: .875rem 1rem;
+  text-decoration: none;
+  float: left;
+  cursor: pointer;
+  height: 50px;
+  
+  &:hover {
+    color: ${props => props.theme.colors.navBarHover};
+  }
+`
 
 export default function NavBar({links, position}) {
   const [drawerClosing, setDrawerClosing] = useState(false);
   const [drawerOpen, setDrawer] = useState(false);
   const [user, setUser] = useState(null);
+  const { data: session, status } = useSession();
 
   const toggleDrawer = () => { setDrawer(!drawerOpen) };
   const callback = () => e => {
@@ -28,6 +60,26 @@ export default function NavBar({links, position}) {
       setDrawer(false);
       setDrawerClosing(false);
     }
+  }
+
+  const renderLoginButton = () => {
+    if (status === "loading") {
+      return (
+        <div className="auth-btn">
+          <div className="auth-info">
+            <ArrowPathIcon className="icon animate-spin"/>
+          </div>
+        </div>
+      );
+    }
+    if (status === "unauthenticated") {
+      return (
+        <MenuItem onClick={() => signIn()}>Login</MenuItem>
+      );
+    }
+    return (
+      <MenuItem onClick={() => signOut()}>Logout</MenuItem>
+    );
   }
 
   return (
@@ -46,7 +98,7 @@ export default function NavBar({links, position}) {
             {
               links.map((link, i) =>
               {
-                if(link.dropdown)
+                if(link.dropdown) {
                   return (
                     <div key={i} className="dropdown">
                       {link.text}
@@ -57,15 +109,17 @@ export default function NavBar({links, position}) {
                       </DropDownMenu>
                     </div>
                   )
-                else
+                }
+                else {
                   return (
-                    <Link key={i} href={link.url}>{link.text}</Link>
+                    <Link href={link.url} key={i} passHref><MenuLink>{link.text}</MenuLink></Link>
                   )
+                }
               })
             }
           </Flex>
         </div>
-        <div style={{flexBasis: 'auto'}}/>
+        {renderLoginButton()}
       </TopNav>
 
       <Drawer onClick={() => setDrawerClosing(true)} open={drawerOpen} closing={drawerClosing}>
@@ -85,9 +139,9 @@ export default function NavBar({links, position}) {
             </Link>
           </DrawerHeader>
           {
-            links.map(link =>
+            links.map((link, index) =>
               link.dropdown ?
-                <DrawerDropdown>
+                <DrawerDropdown key={index}>
                   {link.text}
                   <DrawerDropdownMenu>
                     {link.urls.map((dlink, di) =>
@@ -96,12 +150,13 @@ export default function NavBar({links, position}) {
                         </DrawerItem>
                     )}
                   </DrawerDropdownMenu>
-                </DrawerDropdown> :
+                </DrawerDropdown>
+                :
               <Link
                 href={link.url}
                 style={{height: '50px', padding: '0'}}
-                key={link.text}
                 passHref
+                key={link.url}
               >
                 <DrawerItem>
                   {link.text}

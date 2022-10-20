@@ -73,11 +73,8 @@ const FooterColumn = styled(Flex)`
 
 
 const SocialIcons = styled(Flex) `
-  * + * {
-    //margin: .5em;
-  }
   * {
-    margin: .2em;
+    margin: 0 1em;
   }
 `
 
@@ -105,16 +102,18 @@ const FooterContent = ({links}) => {
         <FootWrapper>
           <FooterColumn>
             <FooterHeader>Twin Silver</FooterHeader>
-            <SocialIcons>
-              <a href='https://www.facebook.com/twinsilverdesign'><Image height={20} width={20} src={fbLogoImg} alt='Facebook logo'/></a>
-              <a href='https://twitter.com/twinsilverweb'><Image height={20} width={20} src={twitterLogoImg} alt='Twitter logo'/></a>
-              <a href='components/templates/FooterContent'><Image height={20} width={20} src={instaLogoImg} alt='Instagram logo'/></a>
+            <SocialIcons className="flex flex-nowrap items-center">
+              <a href='https://www.facebook.com/twinsilverdesign'><Image height={40} width={40} src={fbLogoImg} alt='Facebook logo'/></a>
+              <a href='https://twitter.com/twinsilverweb'><Image height={40} width={40} src={twitterLogoImg} alt='Twitter logo'/></a>
+              <a href='components/templates/FooterContent'><Image height={40} width={40} src={instaLogoImg} alt='Instagram logo'/></a>
+
             </SocialIcons>
+
           </FooterColumn>
           <FooterColumn>
             <FooterHeader>Site</FooterHeader>
             {links.map(link =>
-              <>{!link.dropdown && <p key={link.text}><a href={link.url}>{link.text}</a></p>}</>
+              <span key={link.text}>{!link.dropdown && <p><a href={link.url}>{link.text}</a></p>}</span>
             )}
           </FooterColumn>
           <FooterColumn>

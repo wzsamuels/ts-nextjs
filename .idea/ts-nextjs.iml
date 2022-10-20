@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="embed_report_card" level="application" />
+    <orderEntry type="library" name="jvh7mox" level="application" />
   </component>
 </module>
