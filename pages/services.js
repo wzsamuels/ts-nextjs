@@ -19,9 +19,9 @@ import Head from 'next/head';
 import FlexColumn from "../components/atoms/FlexColumn";
 import {Fade} from "react-awesome-reveal";
 
-const Features = () => {
+const Services = () => {
   return (
-    <FlexColumn center>
+    <div className="flex flex-col items-center">
       <Head>
         <title>Features | Twin Silver</title>
       </Head>
@@ -43,7 +43,7 @@ const Features = () => {
           </div>
         )}
       </Flex>
-    </FlexColumn>
+    </div>
   )
 }
 
@@ -147,4 +147,4 @@ const featureList = [
   },
 ]
 
-export default Features
+export default Services

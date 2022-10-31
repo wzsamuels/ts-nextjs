@@ -18,7 +18,14 @@ module.exports = {
     fontFamily: {
       serif: ['spartacus', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        'textbox': '1030px',
+      },
+      maxWidth: {
+        'textbox': '1030px',
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

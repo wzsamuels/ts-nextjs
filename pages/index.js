@@ -8,18 +8,18 @@ import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
 import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
 import {H1} from '../components/atoms/Typography';
-import medical from '../public/assets/images/medical_screenshot.png'
-import pizza from '../public/assets/images/pizza_screenshot.png'
-import shop from '../public/assets/images/shop_screenshot.png'
-import law from '../public/assets/images/law_screenshot.png'
-import artImage2 from '../public/assets/images/art.jpeg'
-import businessImage from '../public/assets/images/business.jpg'
-import secureImage from '../public/assets/images/secure.jpg'
-import heroImage from '../public/assets/images/manAtComputer.jpg'
-import optimizeImage from '../public/assets/images/optimize.jpg'
-import changePlatformImg from '../public/assets/images/changePlatforms.svg'
-import newSiteImg from '../public/assets/images/newsite.svg'
-import refineSiteImg from '../public/assets/images/refineImg.svg'
+import medical from '../public/assets/images/index/medical_screenshot.png'
+import pizza from '../public/assets/images/index/pizza_screenshot.png'
+import shop from '../public/assets/images/index/shop_screenshot.png'
+import law from '../public/assets/images/index/law_screenshot.png'
+import artImage2 from '../public/assets/images/index/art.jpeg'
+import businessImage from '../public/assets/images/index/business.jpg'
+import secureImage from '../public/assets/images/index/secure.jpg'
+import heroImage from '../public/assets/images/index/manAtComputer.jpg'
+import optimizeImage from '../public/assets/images/index/optimize.jpg'
+import changePlatformImg from '../public/assets/images/index/changePlatforms.svg'
+import newSiteImg from '../public/assets/images/index/newsite.svg'
+import refineSiteImg from '../public/assets/images/index/refineImg.svg'
 import logoImage from '../public/assets/images/logos/twinsilver.svg'
 import Divider from "../components/atoms/Divider";
 import Modal from '../components/molecules/Modal';
@@ -252,9 +252,9 @@ export default function Home() {
             <Image src={logoImage} alt="Twin Silver Logo"/>
           </LogoWrapper>
           <h1 className="font-serif text-4xl md:text-5xl m-0">Go Beyond the Basic</h1>
-
+          <h2 className="font-serif text-3xl md:text-4xl">Helping to Grow Local Businesses in the NC Raleigh/Durham Area</h2>
           <Link layout="fixed" href='getstarted' passHref><ButtonLink>Get Started for Free</ButtonLink></Link>
-          <h2 className="font-serif text-3xl md:text-4xl">Building destinations, not just websites.</h2>
+
         </HeroText>
       </HeroWrapper>
 

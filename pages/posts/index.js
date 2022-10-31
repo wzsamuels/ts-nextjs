@@ -61,7 +61,6 @@ export default function PostsIndex( {allPostsData}) {
         <h2 className="header-larger">Coming Soon!</h2>
         {allPostsData.map(({id, date, title, image, published}) => (
           <>
-
             { published &&
               <Link key={id} href={`/posts/${id}`}>
                 <a className="py-4 w-full my-4 mx-0 flex flex-col items-center">

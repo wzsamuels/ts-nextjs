@@ -24,8 +24,7 @@ export default function SeoCustomPage() {
 
   const onSubmit = e => {
     e.preventDefault();
-    const endpoint =
-      "https://alcrku7ym1.execute-api.us-east-1.amazonaws.com/default/seo-form";
+    const endpoint = "https://alcrku7ym1.execute-api.us-east-1.amazonaws.com/default/seo-form";
 
     const formData = JSON.stringify(form);
     console.log(formData)
@@ -33,24 +32,30 @@ export default function SeoCustomPage() {
 
     const requestOptions = {
       method: "POST",
-      body
+      body,
     };
 
-    //console.log(body)
+    console.log(body)
 
     fetch(endpoint, requestOptions)
       .then((response) => {
         if (!response.ok) {
+          console.log(response)
           throw new Error("Error in fetch");
         }
         return response.text();
       }).then(data => {
         //console.log(data.replace(/<script type="text\/javascript">.*?<\/script>/g, ""));
         //console.log(data)
+        // Retrieve SEO Report URL from result
+      console.log(data)
         const d1 = data.split("<div id=\"message\">").pop().split("</div>")[0];
         const d2 = d1.split('<a href="').pop().split('">here</a>')[0];
+        const d3 = d2.split("report?url=")[1];
+        console.log(d1)
         console.log(d2)
-        setResult(d2)
+        console.log(d3)
+        setResult(d3)
       })
   }
 
@@ -62,7 +67,8 @@ export default function SeoCustomPage() {
           <div>
             <p>
               Thank you for submitting your website to our SEO Report Card tool! It will take about 10 min. to complete. You can see your report in progress:
-              <a href={result}>{result}</a>
+              <br/>
+              <a href={`http://twinsilverdesign.com/account/seo-report?url=${result}`}>http://twinsilverdesign.com/account/seo-report?url={result}</a>
             </p>
           </div>
           :

@@ -10,20 +10,21 @@ export default function SeoPage() {
   useEffect(() => {
 
     const htmlString2 = `
-    <script>
-  embedConfig = {
-    embedCode: '6cba125319972d37ee7f31d98265628ebb4fe501',
-    output: true,
-    orientation: 'landscape',
-    frameStyle: {
-      border: '0px',
-      height: '660px',
-      color: "white"
-    }
-  }
-</script>
-<script src="//app.optimizedmarketing.co/javascripts/embed_report_card.js"></script>
+      <script>
+        embedConfig = {
+          embedCode: '6cba125319972d37ee7f31d98265628ebb4fe501',
+          output: true,
+          orientation: 'landscape',
+          frameStyle: {
+            border: '0px',
+            height: '660px',
+            color: "white"
+          }
+        }
+      </script>
+      <script src="//app.optimizedmarketing.co/javascripts/embed_report_card.js"></script>
     `
+
     const fragment = document.createRange().createContextualFragment(htmlString2);
     divRef.current.append(fragment);
 

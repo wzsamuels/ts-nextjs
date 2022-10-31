@@ -48,13 +48,17 @@ export default function Post({ postData }) {
           <ImageStyled width={600} height={400} src={postData.image}/>
         </ImageWrapper>
       </div>
-          <PostGrid>
-        <article className="prose-invert prose-lg md:prose-xl prose-list-style:inside prose-h2:text-center px-4 lg:pl-[130px] lg:pr-4"
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-            <div className="justify-self-center">
-              Prev
-            </div>
-      </PostGrid>
+      {/*Replace with PostGrid when there's sidebar content*/}
+        {/*lg:pl-[130px]*/}
+        <article
+          className="max-w-textbox w-full prose-invert prose-lg md:prose-xl prose-list-style:inside prose-h2:text-center px-4  prose-img:rounded-2xl lg:pr-4"
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+        {/*
+        <div className="justify-self-center">
+          Prev Posts
+        </div>
+        */}
     </FlexColumn>
   );
 }

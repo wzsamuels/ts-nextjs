@@ -4,18 +4,14 @@ const links = [
     url: '/getstarted'
   },
   {
-    text: 'Features',
-    url: '/features'
+    text: 'Services',
+    url: '/services'
   },
-  {
-    text: 'Contact',
-    url: '/contact'
-  },
-  /*
   {
     text: 'Blog',
     url: '/posts'
   },
+  /*
   {
     text: 'SEO',
     url: '/seo'
@@ -38,6 +34,14 @@ const links = [
       }
     ]
   },
+  {
+    text: 'Contact',
+    url: '/contact'
+  },
+  {
+    text: 'About',
+    url: '/about'
+  }
 ]
 
 export default  links
