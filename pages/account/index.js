@@ -42,7 +42,7 @@ export default function AccountPage() {
     <>
     <div className="w-full h-[50px] bg-darkerShade">
       {accountLinks.map(link =>
-        <a href={link.url}>{link.text}</a>
+        <a key={link.text} href={link.url}>{link.text}</a>
       )}
     </div>
       <div className="max-w-screen-xl my-2 mx-auto px-2">
