@@ -2,6 +2,8 @@
 title: 'What is Web Hosting?'
 date: '2022-08-30'
 image: '/assets/images/blog/hosting.svg'
+imageLink: 'https://www.freepik.com/free-vector/computer-technology-isometric-icon-server-room-digital-device-set-element-design-pc-laptop_4103157.htm#query=mobile%20data&position=9&from_view=keyword'
+imageSubtitle: 'Image by fullvector on Freepik'
 published: true
 ---
 
