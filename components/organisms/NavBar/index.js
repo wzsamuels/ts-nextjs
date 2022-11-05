@@ -27,7 +27,7 @@ const TopNav = styled.nav`
     height: 50px;
   }
   
-  .dropdown:hover > ul {
+  .dropdown:hover > ul, .dropdown:focus > ul, .dropdown:focus-within > ul {
     visibility: visible;
     opacity: 1;
     display: block;
@@ -113,7 +113,7 @@ export const DropDownMenu = styled.ul`
   list-style: none;
   background-color: ${(props) => props.theme.colors.navBar};
   
-  &:hover {
+  &:hover, &:focus {
     visibility: visible;
     opacity: 1;
     display: block;

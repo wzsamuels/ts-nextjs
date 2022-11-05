@@ -100,7 +100,7 @@ export default function NavBar({links, position}) {
               {
                 if(link.dropdown) {
                   return (
-                    <div key={i} className="dropdown">
+                    <div key={i} className="dropdown" tabIndex={0}>
                       {link.text}
                       <DropDownMenu>
                         {link.urls.map((dlink, di) =>
