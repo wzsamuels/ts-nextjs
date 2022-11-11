@@ -24,7 +24,13 @@ module.exports = {
       },
       maxWidth: {
         'textbox': '1030px',
-      }
+      },
+      height: {
+        'navbar': '50px',
+      },
+      width: {
+        drawer: '220px',
+      },
     },
   },
   plugins: [

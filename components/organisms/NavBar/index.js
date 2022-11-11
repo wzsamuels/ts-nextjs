@@ -3,16 +3,7 @@ import styled from 'styled-components';
 const TopNav = styled.nav`
   background-color: ${(props) => props.theme.colors.navBar};
   color: ${(props) => props.theme.colors.navBarText};
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  ${props => props.position === "top" && `top: 0`};
-  ${props => props.position === "bottom" && `bottom: 0`};
-  width: 100%;
   height: ${props => props.theme.layout.navBarHeight};
-  transition: all 0.5s;
   -webkit-box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 

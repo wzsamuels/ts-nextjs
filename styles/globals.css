@@ -2,14 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.header-largest {
-  @apply text-3xl md:text-4xl lg:text-[40px] ;
+@layer base {
+  .header-largest {
+    @apply text-3xl md:text-4xl lg:text-[40px] ;
+  }
+
+  .header-larger {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .header-large {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
 }
 
-.header-larger {
-  @apply text-2xl md:text-3xl lg:text-4xl;
-}
-
-.header-large {
-  @apply text-xl md:text-2xl lg:text-3xl;
+@layer components {
+  .menu-item {
+    @apply text-center py-3.5 px-4 float-left cursor-pointer h-navbar no-underline text-light hover:text-lightAccent
+  }
 }

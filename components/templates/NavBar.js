@@ -16,25 +16,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import {signIn, signOut, useSession} from "next-auth/react";
-import {ArrowPathIcon, ChevronDownIcon} from "@heroicons/react/24/solid";
+import {ArrowPathIcon} from "@heroicons/react/24/solid";
 import styled from 'styled-components';
-import ImageStyled from '../atoms/ImageStyled';
 
-const MenuLink = styled.a`
-  color: ${props => props.theme.colors.navBarText};
-  text-align: center;
-  padding: .875rem 1rem;
-  text-decoration: none;
-  float: left;
-  cursor: pointer;
-  height: 50px;
-
-  &:hover {
-    color: ${props => props.theme.colors.navBarHover};
-  }
-`
-
-const MenuItem = styled.div`
+const MenuButton = styled.button`
   color: ${props => props.theme.colors.navBarText};
   text-align: center;
   padding: .875rem 1rem;
@@ -51,7 +36,6 @@ const MenuItem = styled.div`
 export default function NavBar({links, position}) {
   const [drawerClosing, setDrawerClosing] = useState(false);
   const [drawerOpen, setDrawer] = useState(false);
-  const [user, setUser] = useState(null);
   const { data: session, status } = useSession();
 
   const toggleDrawer = () => { setDrawer(!drawerOpen) };
@@ -63,6 +47,8 @@ export default function NavBar({links, position}) {
   }
 
   const renderLoginButton = () => {
+
+
     if (status === "loading") {
       return (
         <div className="auth-btn">
@@ -74,17 +60,17 @@ export default function NavBar({links, position}) {
     }
     if (status === "unauthenticated") {
       return (
-        <MenuItem onClick={() => signIn()}>Login</MenuItem>
+        <MenuButton onClick={() => signIn()}>Login</MenuButton>
       );
     }
     return (
-      <MenuItem onClick={() => signOut()}>Logout</MenuItem>
+      <MenuButton onClick={() => signOut()}>Logout</MenuButton>
     );
   }
 
   return (
     <>
-      <TopNav position={position}>
+      <TopNav className="flex fixed justify-between top-0 m-0 p-0 w-full transition-all duration-500" position={position}>
         <Flex>
           <button aria-label="Open Menu" onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
           <Link href='/' passHref style={{height: '50px', padding: '0'}}>
@@ -93,7 +79,7 @@ export default function NavBar({links, position}) {
             </Flex>
           </Link>
         </Flex>
-        <div className ='hide'>
+        <div className='hide'>
           <Flex style={{flexWrap:'no-wrap'}}>
             {
               links.map((link, i) =>
@@ -112,14 +98,19 @@ export default function NavBar({links, position}) {
                 }
                 else {
                   return (
-                    <Link href={link.url} key={i} passHref><MenuLink>{link.text}</MenuLink></Link>
+                    <Link className="menu-item" href={link.url} key={i}>{link.text}</Link>
                   )
                 }
               })
             }
           </Flex>
         </div>
-        {renderLoginButton()}
+        <Link className="menu-item dropdown" href="/account" passHref tabIndex={0}>
+          Account
+          <DropDownMenu>
+            {renderLoginButton()}
+          </DropDownMenu>
+        </Link>
       </TopNav>
 
       <Drawer onClick={() => setDrawerClosing(true)} open={drawerOpen} closing={drawerClosing}>
@@ -165,7 +156,7 @@ export default function NavBar({links, position}) {
             )
           }
           <DrawerFooter>
-            <div>© 2022 Twin Silver Web Design LLC</div>
+            <div>© Twin Silver Web Design LLC</div>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
