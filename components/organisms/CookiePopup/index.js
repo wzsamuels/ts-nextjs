@@ -1,6 +1,4 @@
 import BannerPopup from '../../molecules/BannerPopup';
-import Flex from '../../atoms/FlexColumn';
-import Button from '../../atoms/Button';
 import GroupContainer from '../../atoms/GroupContainer';
 
 const CookiePopup = ({children, onAccept = f => f, onDecline = f => f, props}) => {
@@ -11,8 +9,8 @@ const CookiePopup = ({children, onAccept = f => f, onDecline = f => f, props}) =
           {children}
         </div>
         <GroupContainer>
-          <Button onClick={onAccept}>Accept</Button>
-          <Button onClick={onDecline}>Decline</Button>
+          <button className="button" onClick={onAccept}>Accept</button>
+          <button className="button" onClick={onDecline}>Decline</button>
         </GroupContainer>
       </div>
     </BannerPopup>

@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Flex from '../atoms/Flex';
 import {
   Drawer,
   DrawerContent,
   DrawerDropdown,
   DrawerDropdownMenu,
-  DrawerFooter,
   DrawerHeader,
   DrawerItem
 } from '../organisms/Drawer';
@@ -38,11 +37,18 @@ export default function NavBar({links, position}) {
   const [drawerOpen, setDrawer] = useState(false);
   const { data: session, status } = useSession();
 
-  const callback = () => e => {
-    if(e.animationName === 'SlideOut') {
+
+
+  useEffect(() => {
+    console.log(drawerOpen)
+  }, [drawerOpen])
+
+  const handleDrawerClose = () => {
+    setTimeout(() => {
       setDrawer(false);
       setDrawerClosing(false);
-    }
+    }, 500);
+
   }
 
   const renderLoginButton = () => {
@@ -110,10 +116,11 @@ export default function NavBar({links, position}) {
         </Link>
       </TopNav>
 
-      <Drawer onClick={() => setDrawerClosing(true)} className={`${drawerOpen ? 'block' : 'hidden'}`} closing={drawerClosing}>
-        <DrawerContent onClick={() => setDrawerClosing(true)}
-                       className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
-                       onAnimationEnd={callback()}>
+      <Drawer onClick={handleDrawerClose} className={`${drawerOpen ? 'block' : 'hidden'}`} closing={drawerClosing}>
+        <DrawerContent
+          onClick={() => setDrawerClosing(true)}
+          className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
+        >
           <DrawerHeader>
             <button onClick={() => setDrawerClosing(true)} aria-label="Close Menu">
               <Icon height={18} icon="ic:baseline-menu" />
@@ -154,9 +161,9 @@ export default function NavBar({links, position}) {
               </Link>
             )
           }
-          <DrawerFooter>
+          <div className="absolute w-full bottom-[5px] p-4 text-xs">
             <div>© Twin Silver Web Design LLC</div>
-          </DrawerFooter>
+          </div>
         </DrawerContent>
       </Drawer>
     </>

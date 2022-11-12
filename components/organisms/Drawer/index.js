@@ -29,18 +29,14 @@ export const DrawerContent = styled.ul`
   width:  ${props => props.theme.layout.drawerWidth};
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  transition: all 1s ease;
-
-  //animation-fill-mode: forwards;
+  transition: all .5s ease;
 
   &.OpenDrawer {
-    -webkit-animation: SlideIn 0.4s;
-    animation: SlideIn 0.4s;
+    animation: SlideIn 0.5s;
   }
 
   &.ClosedDrawer {
-    -webkit-animation: SlideOut 0.4s;
-    animation: SlideOut 0.4s;
+    left: -300px;
   }
 
   @-webkit-keyframes SlideIn {
@@ -52,22 +48,10 @@ export const DrawerContent = styled.ul`
     from {left:-300px; opacity:0}
     to {left:0; opacity:1}
   }
-
-  @-webkit-keyframes SlideOut {
-    from {left: 0; opacity:1}
-    to {left:-300px; opacity:0}
-  }
-
-  @keyframes SlideOut {
-    from {left: 0; opacity:1}
-    to {left:-300px; opacity:0; display: none}
-  }
 `;
 
 const DrawerHeader = styled.div`
-  //position: absolute;
   display: flex;
-  //justify-content: space-between;
   margin: 0;
   padding: 0;
   top: 0;
@@ -111,14 +95,6 @@ const DrawerItem = styled.a`
     
 `
 
-const DrawerFooter = styled.div`
-  position: absolute;
-  width:100%;
-  bottom: 5px;
-  padding: 1em;
-  font-size: .75em;
-`
-
 const DrawerDropdown  = styled.div`
   float:left;
   width:100%;
@@ -139,4 +115,4 @@ export const DrawerDropdownMenu = styled.ul`
   align-items: center;
 `
 
-export {DrawerItem, DrawerFooter, DrawerDropdown, DrawerHeader}
+export {DrawerItem, DrawerDropdown, DrawerHeader}
