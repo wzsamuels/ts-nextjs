@@ -1,8 +1,6 @@
-import {H1, H2} from '../components/atoms/Typography';
-import FlexColumn from '../components/atoms/FlexColumn';
 import Head from 'next/head';
 import headShot from '../public/assets/images/face.png'
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const About = () => {
   return (

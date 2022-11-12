@@ -1,19 +1,12 @@
-import Footer from '../atoms/Footer';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import fbLogoImg from '../../public/assets/images/logos/facebook.svg'
 import twitterLogoImg from '../../public/assets/images/logos/twitter.svg'
 import instaLogoImg from '../../public/assets/images/logos/instagram.png'
-import Button from '../atoms/Button';
-import Image from 'next/image'
+import Image from "next/image";
 import FlexColumn from '../atoms/FlexColumn';
 import Flex from '../atoms/Flex';
 import Input from '../atoms/Input';
-
-const FooterHeader = styled.div`
-  font-weight: bold;
-  margin-bottom: 1em;
-`
 
 const InputStyled = styled(Input)`
   margin: 1em 0 0 0;
@@ -45,7 +38,7 @@ const FooterColumn = styled(Flex)`
     flex-direction: row;
   }
   
-  ${Button} {
+  button {
     margin: 1em;
   }
 
@@ -70,14 +63,6 @@ const FooterColumn = styled(Flex)`
   }
 `
 
-
-
-const SocialIcons = styled(Flex) `
-  * {
-    margin: 0 1em;
-  }
-`
-
 const FootWrapper = styled(Flex)`
   flex-wrap: wrap;
   
@@ -85,11 +70,12 @@ const FootWrapper = styled(Flex)`
     flex-direction: row;
   }
 `
-
+const FooterHeader = styled.div`
+  font-weight: bold;
+  margin-bottom: 1em;
+`
 const FooterContent = ({links}) => {
-
   const [emailForm, setEmailForm] = useState('')
-
   const handleSubmit = async e => {
     e.preventDefault()
    // const response = await API.graphql(graphqlOperation(mutations.createEmail, {input: {email: emailForm, marketing: true, sales: true, newsletter: true}}))
@@ -97,18 +83,16 @@ const FooterContent = ({links}) => {
   }
 
   return (
-    <Footer>
-      <FlexColumn style={{marginTop: '1em'}}>
+    <footer className="absolute bottom-0 w-full pt-1 pb-0 px-4 bg-darkerShade text-light shadow-footer">
+      <div className="flex flex-col mt-4">
         <FootWrapper>
           <FooterColumn>
             <FooterHeader>Twin Silver</FooterHeader>
-            <SocialIcons className="flex flex-nowrap items-center">
-              <a href='https://www.facebook.com/twinsilverdesign'><Image height={40} width={40} src={fbLogoImg} alt='Facebook logo'/></a>
-              <a href='https://twitter.com/twinsilverweb'><Image height={40} width={40} src={twitterLogoImg} alt='Twitter logo'/></a>
-              <a href='components/templates/FooterContent'><Image height={40} width={40} src={instaLogoImg} alt='Instagram logo'/></a>
-
-            </SocialIcons>
-
+            <div className="flex flex-nowrap items-center [&>*]:my-0 [&>*]:mx-4">
+              <a href='https://www.facebook.com/twinsilverdesign'><Image className="min-h-[30px] min-w-[30px] w-[40px] h-[40px]"  width={40} src={fbLogoImg} alt='Facebook logo'/></a>
+              <a href='https://twitter.com/twinsilverweb'><Image className="min-h-[30px] min-w-[30px] w-[40px] h-[40px]" src={twitterLogoImg} alt='Twitter logo'/></a>
+              <a href='components/templates/FooterContent'><Image className="min-h-[30px] min-w-[30px] w-[40px] h-[40px]" src={instaLogoImg} alt='Instagram logo'/></a>
+            </div>
           </FooterColumn>
           <FooterColumn>
             <FooterHeader>Site</FooterHeader>
@@ -124,21 +108,21 @@ const FooterContent = ({links}) => {
           <FooterColumn>
             <FooterHeader style={{marginBottom:'0'}}>Sign Up for Updates</FooterHeader>
             <form onSubmit={handleSubmit}>
-              <FlexColumn className='center-on-mobile'>
+              <div className='center-on-mobile'>
                 <InputStyled
                   type='email'
                   placeholder='Please enter your email'
                   value={emailForm}
                   onChange={e => setEmailForm(e.target.value)}
                 />
-                <Button className="justify-self-center" type='submit'>Sign Up</Button>
-              </FlexColumn>
+                <button className="button justify-self-center" type='submit'>Sign Up</button>
+              </div>
             </form>
           </FooterColumn>
         </FootWrapper>
-        <small style={{marginBottom: '1em'}}>Copyright 2021 Twin Silver Web Design, LLC</small>
-      </FlexColumn>
-    </Footer>
+        <small style={{marginBottom: '1em'}}>Copyright Twin Silver Web Design, LLC</small>
+      </div>
+    </footer>
   )
 }
 

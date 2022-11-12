@@ -1,7 +1,7 @@
 import { getSortedPostsData } from '../../lib/posts';
 import Link from "next/link";
 import Date from "../../components/atoms/Date";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styled from "styled-components";
 import Card from "../../components/atoms/Card";
 import ImageStyled, {ImageWrapper} from "../../components/atoms/ImageStyled";

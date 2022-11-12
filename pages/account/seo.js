@@ -1,12 +1,10 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import Flex from "../../components/atoms/Flex";
 import InputLabelContainer from "../../components/atoms/InputLabelContainer";
 import Input from "../../components/atoms/Input";
 import Card from "../../components/atoms/Card";
-import Label from "../../components/atoms/Label";
 import GroupContainer from "../../components/atoms/GroupContainer";
 import Button from "../../components/atoms/Button";
-import axios from "axios";
 import AccountPage from "./index";
 
 const emptyFields = {name: "", email: "", phone: "", url: "", keyword: "", competitor: ""}
@@ -80,7 +78,7 @@ export default function SeoCustomPage() {
           <Flex className='w-full'>
           <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
           <InputLabelContainer>
-          <Label className="my-2" htmlFor="name">Name</Label>
+          <label className="my-2" htmlFor="name">Name</label>
           <Input
           type="text"
           name="name"
@@ -90,7 +88,7 @@ export default function SeoCustomPage() {
           </InputLabelContainer>
 
           <InputLabelContainer>
-          <Label className="my-2" htmlFor="email_address">Email Address</Label>
+          <label className="my-2" htmlFor="email_address">Email Address</label>
           <Input
           type="text"
           name="email"
@@ -100,7 +98,7 @@ export default function SeoCustomPage() {
           </InputLabelContainer>
 
           <InputLabelContainer className="field">
-          <Label className="my-2"  htmlFor="phone">Phone Number</Label>
+          <label className="my-2"  htmlFor="phone">Phone Number</label>
           <Input
           type="text"
           name="phone"
@@ -112,7 +110,7 @@ export default function SeoCustomPage() {
 
           <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
           <InputLabelContainer className="field">
-          <Label className="my-2"  htmlFor="url">Website</Label>
+          <label className="my-2"  htmlFor="url">Website</label>
           <Input
           type="text"
           name="url"
@@ -122,7 +120,7 @@ export default function SeoCustomPage() {
           </InputLabelContainer>
 
           <InputLabelContainer className="field">
-          <Label className="my-2" htmlFor="keyword">Main Keyword</Label>
+          <label className="my-2" htmlFor="keyword">Main Keyword</label>
           <Input
           type="text"
           name="keyword"
@@ -132,7 +130,7 @@ export default function SeoCustomPage() {
           </InputLabelContainer>
 
           <InputLabelContainer className="field">
-          <Label className="my-2"  htmlFor="competitor">Competitor Domain <small>(optional)</small></Label>
+          <label className="my-2"  htmlFor="competitor">Competitor Domain <small>(optional)</small></label>
           <Input
           type="text"
           name="competitor"

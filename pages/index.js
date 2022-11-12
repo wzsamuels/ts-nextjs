@@ -1,11 +1,10 @@
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import Link from 'next/link'
 import styled from 'styled-components';
 import Card from '../components/atoms/Card';
 import Button, {ButtonLink} from '../components/atoms/Button';
 import Flex from '../components/atoms/Flex';
 import ImageStyled, {ImageWrapper} from '../components/atoms/ImageStyled';
-import {BackgroundImage} from '../components/atoms/BackgroundImage';
 import React, {useState} from 'react';
 import {H1} from '../components/atoms/Typography';
 import medical from '../public/assets/images/index/medical_screenshot.png'
@@ -53,13 +52,7 @@ const HomeCard = styled(Card)`
   }
 
   @media screen and (min-width: 500px) {
-
-    
     flex-direction: row;
-  }
-  
-  @media screen and (min-width: 750px) {
-  
   }
 
   @media screen and (min-width: 900px) {
@@ -71,31 +64,6 @@ const HomeCard = styled(Card)`
   @media screen and (min-width: 1080px) {
     border-radius: .5em;
   }
-`
-
-const HeroWrapper = styled.div`
-  position: relative;
-
-  height: 50vh;
-
-  @media screen and (min-width: 500px) {
-    height: 50vh;
-  }
-
-  @media screen and (max-height: 1000px) {
-    height: 70vh;
-  }
-`
-
-const HeroBlack = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.75;
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
 `
 
 const HeroText = styled.header`
@@ -205,17 +173,7 @@ const HomePageDivider = styled.div`
   }
 `
 
-const LogoWrapper = styled.div`
-  width: 95%;
-  max-width: 800px;
-  box-shadow: none;
-  background-color: transparent;
-  
-  @media screen and (min-width: 1000px) {
-    width: 75vw;
-  }
-  margin: 0;
-`
+
 
 const homeCards = [
   {direction: "left", title: "Personalized", text: "Don't settle for templates and cookie-cutter designs. You deserve a website as unique as your business.", image: artImage2, alt: "Paint"},
@@ -241,22 +199,22 @@ export default function Home() {
       <Head>
         <meta/>
       </Head>
-      <HeroWrapper>
-        <BackgroundImage>
+      <div className="relative h-[50vh] min-[500px]:h-[50vh] min-[1000px]:h-[70vh]">
+        <div className="relative top-0 left-0 h-full w-full z-0">
           <Image priority objectFit='cover' placeholder="blur" layout="fill" src={heroImage} alt="Happy man at laptop"/>
-        </BackgroundImage>
-        <HeroBlack/>
+        </div>
+        <div className="absolute top-0 left-0 opacity-75 bg-black h-full w-full"/>
 
         <HeroText>
-          <LogoWrapper>
+          <div className="w-[95%] max-w-[800px] shadow-none bg-transparent min-[1000px]:w-[75vw] m-0">
             <Image src={logoImage} alt="Twin Silver Logo"/>
-          </LogoWrapper>
+          </div>
           <h1 className="font-serif text-4xl md:text-5xl m-0">Go Beyond the Basic</h1>
           <h2 className="font-serif text-3xl md:text-4xl">Helping to Grow Local Businesses in the NC Raleigh/Durham Area</h2>
           <Link layout="fixed" href='getstarted' passHref><ButtonLink>Get Started for Free</ButtonLink></Link>
 
         </HeroText>
-      </HeroWrapper>
+      </div>
 
       <HomeOptions style={{justifyContent:'center'}}>
         <Flex>

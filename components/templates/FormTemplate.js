@@ -3,7 +3,6 @@ import {useState} from "react";
 import Form from '../atoms/Form';
 import GroupContainer from '../atoms/GroupContainer';
 import InputLabelContainer from '../atoms/InputLabelContainer';
-import Label from '../atoms/Label';
 import TextArea from '../atoms/TextArea';
 import Input from '../atoms/Input';
 import {handleFormUpdate} from '../../lib/form';
@@ -21,7 +20,7 @@ const FormTemplate = ({formFields, handleSubmit = f => f, submitButton='Submit',
     <FormComp onSubmit={e => handleSubmit(e, formState)} style={{...style}} {...props}>
       { formFields.map((field) =>
         <InputLabelContainer key={field.key}>
-          <Label>{field.label}</Label>
+          <label>{field.label}</label>
           { field.type === 'textarea' ?
             <TextArea
               name={field.key}
@@ -42,7 +41,7 @@ const FormTemplate = ({formFields, handleSubmit = f => f, submitButton='Submit',
       )
       }
       <GroupContainer>
-        <Button type='submit'>{submitButton}</Button>
+        <button className="button" type='submit'>{submitButton}</button>
       </GroupContainer>
     </FormComp>
   )

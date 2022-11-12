@@ -58,7 +58,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps} }) {
         <title>Twin Silver Web Design | Web Services for Small Businesses in the North Carolina Raleigh/Durham Area</title>
         <meta charSet="utf-8"/>
         <link rel="icon" href="/assets/images/logos/ts_icon.svg"/>
-        <link rel="stylesheet" href="https://use.typekit.net/jvh7mox.css"/>
+        {/*<link rel="stylesheet" href="https://use.typekit.net/jvh7mox.css"/>*/}
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="theme-color" content="#000000"/>
         <meta

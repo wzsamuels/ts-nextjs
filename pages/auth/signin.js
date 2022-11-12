@@ -1,11 +1,8 @@
 import { getProviders, signIn } from "next-auth/react";
-import { getCsrfToken } from "next-auth/react";
 import googleSignIn from '../../public/assets/images/auth/btn_google_signin_dark_normal_web@2x.png'
 import facebookLogo from '../../public/assets/images/auth/f_logo_RGB-White_58.png'
-import Image from 'next/image';
-import Label from "../../components/atoms/Label";
+import Image from "next/legacy/image";
 import Input from "../../components/atoms/Input";
-import Button from "../../components/atoms/Button";
 import React, {useState} from "react";
 import Form from "../../components/atoms/Form";
 
@@ -64,15 +61,15 @@ export default function SignIn({ providers }) {
       )}
 
       <Form onSubmit={onSubmit} className="mt-8">
-        <Label>
+        <label>
           Email address:&nbsp;
           <Input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             name="email" />
-        </Label>
-        <Button type="submit">Sign in with Email</Button>
+        </label>
+        <button className="button" type="submit">Sign in with Email</button>
       </Form>
     </div>
   )

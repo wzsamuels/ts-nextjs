@@ -1,9 +1,7 @@
-import {H1, H2} from '../components/atoms/Typography';
 import Button from '../components/atoms/Button';
 import Head from 'next/head';
 import Form from '../components/atoms/Form';
 import Input from '../components/atoms/Input';
-import Label from '../components/atoms/Label';
 import GroupContainer from '../components/atoms/GroupContainer';
 import InputLabelContainer from '../components/atoms/InputLabelContainer';
 
@@ -28,13 +26,13 @@ const Settings = () => {
       <Head>
         <title>Settings | Twin Silver</title>
       </Head>
-      <div style={{margin:'0 1em'}}>
-        <H1>Email Settings</H1>
-        <H2>Select which communicates you&rsquo;d like to receive:</H2>
+      <div className="my-0 mx-4">
+        <h1 className="header-largest">Email Settings</h1>
+        <h2 className="header-larger">Select which communicates you&rsquo;d like to receive:</h2>
         <Form>
           <InputLabelContainer>
             <Input type='checkbox'/>
-            <Label>Newsletters</Label>
+            <label>Newsletters</label>
           </InputLabelContainer>
           <GroupContainer>
             <Button>Select All</Button>

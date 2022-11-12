@@ -20,4 +20,8 @@
   .menu-item {
     @apply text-center py-3.5 px-4 float-left cursor-pointer h-navbar no-underline text-light hover:text-lightAccent
   }
+
+  .button {
+    @apply appearance-none no-underline cursor-pointer py-2.5 px-4 rounded-2xl bg-darkAccent hover:opacity-80 disabled:opacity-30 disabled:cursor-default
+  }
 }

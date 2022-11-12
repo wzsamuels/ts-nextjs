@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Flex from '../atoms/Flex';
 import {
   Drawer,
@@ -13,7 +13,7 @@ import {Icon} from '@iconify/react';
 import tsImage from '../../public/assets/images/logos/ts-text.svg'
 import TopNav, {DropDownItem, DropDownMenu} from '../organisms/NavBar';
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 
 import {signIn, signOut, useSession} from "next-auth/react";
 import {ArrowPathIcon} from "@heroicons/react/24/solid";
@@ -38,7 +38,6 @@ export default function NavBar({links, position}) {
   const [drawerOpen, setDrawer] = useState(false);
   const { data: session, status } = useSession();
 
-  const toggleDrawer = () => { setDrawer(!drawerOpen) };
   const callback = () => e => {
     if(e.animationName === 'SlideOut') {
       setDrawer(false);
@@ -47,8 +46,6 @@ export default function NavBar({links, position}) {
   }
 
   const renderLoginButton = () => {
-
-
     if (status === "loading") {
       return (
         <div className="auth-btn">
@@ -72,7 +69,7 @@ export default function NavBar({links, position}) {
     <>
       <TopNav className="flex fixed justify-between top-0 m-0 p-0 w-full transition-all duration-500" position={position}>
         <Flex>
-          <button aria-label="Open Menu" onClick={toggleDrawer} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
+          <button aria-label="Open Menu" onClick={() => setDrawer(true)} className="icon menu"><Icon height={18} icon="ic:baseline-menu" /></button>
           <Link href='/' passHref style={{height: '50px', padding: '0'}}>
             <Flex className='logo' height='100%'>
               <Image height={50} width={150} style={{padding: '2px 1em'}} src={tsImage} alt='Twin Silver Logo'/>
@@ -113,12 +110,14 @@ export default function NavBar({links, position}) {
         </Link>
       </TopNav>
 
-      <Drawer onClick={() => setDrawerClosing(true)} open={drawerOpen} closing={drawerClosing}>
+      <Drawer onClick={() => setDrawerClosing(true)} className={`${drawerOpen ? 'block' : 'hidden'}`} closing={drawerClosing}>
         <DrawerContent onClick={() => setDrawerClosing(true)}
                        className = {`${drawerClosing ? 'ClosedDrawer' : 'OpenDrawer'}`}
                        onAnimationEnd={callback()}>
           <DrawerHeader>
-            <button onClick={() => setDrawerClosing(true)} aria-label="Close Menu"><Icon height={18} icon="ic:baseline-menu" /></button>
+            <button onClick={() => setDrawerClosing(true)} aria-label="Close Menu">
+              <Icon height={18} icon="ic:baseline-menu" />
+            </button>
             <Link
               href='/'
               passHref
@@ -163,10 +162,3 @@ export default function NavBar({links, position}) {
     </>
   );
 }
-
-/*
-<div>
-              <Link t>Terms</Link>
-              <Link>Privacy Policy</Link>
-            </div>
- */

@@ -1,4 +1,3 @@
-import {H1, H2, P} from '../components/atoms/Typography';
 import Card from '../components/atoms/Card';
 import InputLabelContainer from '../components/atoms/InputLabelContainer';
 import GroupContainer from '../components/atoms/GroupContainer';
@@ -14,7 +13,6 @@ import Alert from "../components/molecules/Alert";
 import Image, {ImageWrapper} from "../components/atoms/ImageStyled";
 import getStartedImg from '../public/assets/images/getstarted.svg'
 import Head from 'next/head';
-import Label from '../components/atoms/Label';
 
 const emptyNewForm = {name: '', email: '', url: ''}
 const emptyOldForm = {name: '', email: '', url: ''}
@@ -167,7 +165,7 @@ const Getstarted = ({initialFormType}) => {
             onClick={() => switchForm('newForm')} className={`flex justify-center items-center ${form.formType === newForm ? 'active' : 'not-active'}`}>
             <h2 className="header-larger text-center">I need a new website</h2>
           </Card>
-          <H2>⇆</H2>
+          <div className="header-larger">⇆</div>
           <Card
             onClick={() => switchForm('oldForm')}
             className={`flex justify-center items-center ${form.formType === oldForm ? 'active' : 'not-active'}`}
@@ -182,7 +180,7 @@ const Getstarted = ({initialFormType}) => {
             <Form onSubmit={handleSubmit}>
               { form.formType.map((field) =>
                   <InputLabelContainer key={field.key}>
-                    <Label>{field.label} {field.required ? '' : <small>(optional)</small>}</Label>
+                    <label>{field.label} {field.required ? '' : <small>(optional)</small>}</label>
                     { field.type === 'textarea' ?
                       <TextArea
                         name={field.key}

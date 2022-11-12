@@ -1,6 +1,6 @@
 import FlexColumn from '../components/atoms/FlexColumn';
 import Flex from '../components/atoms/Flex';
-import {H1, H2} from '../components/atoms/Typography';
+import {H2} from '../components/atoms/Typography';
 import React, {useState} from 'react';
 import Form from '../components/templates/FormTemplate';
 import Card from '../components/atoms/Card';

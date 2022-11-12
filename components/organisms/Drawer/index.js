@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Drawer = styled.div`
-  display: ${props => props.open ? 'block' : 'none'};
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
 
@@ -61,7 +60,7 @@ export const DrawerContent = styled.ul`
 
   @keyframes SlideOut {
     from {left: 0; opacity:1}
-    to {left:-300px; opacity:0}
+    to {left:-300px; opacity:0; display: none}
   }
 `;
 
