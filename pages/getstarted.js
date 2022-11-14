@@ -1,18 +1,9 @@
-import Card from '../components/atoms/Card';
-import InputLabelContainer from '../components/atoms/InputLabelContainer';
-import GroupContainer from '../components/atoms/GroupContainer';
-import Form from '../components/atoms/Form';
-import Input from '../components/atoms/Input';
-import TextArea from '../components/atoms/TextArea';
-import Button from "../components/atoms/Button";
 import {useState} from "react";
-import FlexColumn from '../components/atoms/FlexColumn';
 import {emailForm} from "../lib/emailForm";
-import styled, {useTheme} from 'styled-components';
-import Alert from "../components/molecules/Alert";
-import Image, {ImageWrapper} from "../components/atoms/ImageStyled";
+import Alert from "../components/Alert";
 import getStartedImg from '../public/assets/images/getstarted.svg'
 import Head from 'next/head';
+import Image from "next/image";
 
 const emptyNewForm = {name: '', email: '', url: ''}
 const emptyOldForm = {name: '', email: '', url: ''}
@@ -88,33 +79,8 @@ const oldForm = [
   }
 ]
 
-const FormSwitcherWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: 1fr;
-  justify-items: center;
-  align-items: center;
-  
-  & ${Card} {
-    flex: 1;
-    height: 127px;
-    //margin: .5em;
-  }
-`
-
-const FormWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  justify-items: center;
-  align-items: center;
-  width: 100%;
-`
-
 const Getstarted = ({initialFormType}) => {
   const [message, setMessage] = useState('')
-  const theme = useTheme()
-
   const [form, setForm] = useState(() => {
     if(initialFormType === 'oldForm') {
       return {formDescription: oldFormDescription, formType: oldForm, formState: emptyOldForm}
@@ -152,64 +118,65 @@ const Getstarted = ({initialFormType}) => {
       <Head>
         <title>Get Started | Twin Silver</title>
       </Head>
-      <FlexColumn className='center'>
+      <div className='flex flex-col justify-center items-center'>
         <h1 className="my-8 header-largest font-light">Get Started Today</h1>
-        <ImageWrapper className="my-4"  style={{width: '500px', maxWidth:'95vw'}}>
-          <Image src={getStartedImg} alt="Rocket launch"/>
-        </ImageWrapper>
-        <Card className="my-4 max-w-[500px]" style={{backgroundColor: theme.colors.accordion, padding: '2em'}}>
+        <Image className="max-w-[500px] w-[95vw] my-4 rounded-lg" src={getStartedImg} alt="Business Startup - Rocket launch"/>
+        <div className="my-4 w-full w-[95vw] max-w-[500px] rounded-lg bg-primary p-8">
           <h2 className='text-center font-bold header-larger'>Special pricing available for small businesses and non-profits in the NC triangle area!</h2>
-        </Card>
-        <FormSwitcherWrapper className="my-4">
-          <Card
-            onClick={() => switchForm('newForm')} className={`flex justify-center items-center ${form.formType === newForm ? 'active' : 'not-active'}`}>
+        </div>
+        <div className="flex my-4 justify-center items-center max-w-[600px] w-[95vw]">
+          <div
+            className={`flex justify-center items-center flex-1 h-[127px] rounded bg-darkerShade cursor-pointer p-4 shadow-2xl ${form.formType === newForm ? 'opacity-100 border-4 border-light' : 'opacity-50'}`}
+            onClick={() => switchForm('newForm')} >
             <h2 className="header-larger text-center">I need a new website</h2>
-          </Card>
-          <div className="header-larger">⇆</div>
-          <Card
+          </div>
+          <div className="header-larger mx-2">⇆</div>
+          <div
             onClick={() => switchForm('oldForm')}
-            className={`flex justify-center items-center ${form.formType === oldForm ? 'active' : 'not-active'}`}
+            className={`flex justify-center items-center flex-1 h-[127px] rounded bg-darkerShade cursor-pointer p-4 shadow-2xl ${form.formType === oldForm ? 'opacity-100 border-4 border-light' : 'opacity-50'}`}
           >
               <h2 className="header-larger text-center">I already have a website</h2>
-          </Card>
-        </FormSwitcherWrapper>
-        <FormWrapper className="my-4">
-          <Card style={{margin:'0 0 1em 0', maxWidth:'850px'}}>
-            { form.formType === newForm }
-            <p className="py-4">{form.formDescription}</p>
-            <Form onSubmit={handleSubmit}>
-              { form.formType.map((field) =>
-                  <InputLabelContainer key={field.key}>
-                    <label>{field.label} {field.required ? '' : <small>(optional)</small>}</label>
-                    { field.type === 'textarea' ?
-                      <TextArea
-                        name={field.key}
-                        value={form.formState[field.key] || ''}
-                        onChange={e => handleFormUpdate(e)}
-                        required={field.required}
-                      />
-                      :
-                      <Input
-                        name={field.key}
-                        type={field.type}
-                        value={form.formState[field.key] || ''}
-                        onChange={e => handleFormUpdate(e)}
-                        required={field.required}
-                      />
-                    }
-                  </InputLabelContainer>
-                )
-              }
-              <GroupContainer>
-                <Button>Submit</Button>
-              </GroupContainer>
-            </Form>
-            { message &&
-              <Alert style={{marginTop:'2em'}}>{message}</Alert>
-            }
-          </Card>
-        </FormWrapper>
-      </FlexColumn>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center my-4 rounded p-4 shadow-xl w-[850px] max-w-[97%] bg-darkerShade">
+          <p className="py-4">{form.formDescription}</p>
+          <form className="flex flex-col max-w-full not-last:mb-6" onSubmit={handleSubmit}>
+            { form.formType.map((field) =>
+              <div className="flex items-center" key={field.key}>
+                <label htmlFor={field.key} className="basis-56 mr-1">
+                  {field.label} {field.required ? '' : <small>(optional)</small>}
+                </label>
+                { field.type === 'textarea' ?
+                  <textarea
+                    className="input"
+                    name={field.key}
+                    id={field.key}
+                    value={form.formState[field.key] || ''}
+                    onChange={e => handleFormUpdate(e)}
+                    required={field.required}
+                  />
+                  :
+                  <input
+                    className="input"
+                    name={field.key}
+                    id={field.key}
+                    type={field.type}
+                    value={form.formState[field.key] || ''}
+                    onChange={e => handleFormUpdate(e)}
+                    required={field.required}
+                  />
+                }
+              </div>
+              )}
+            <div className="flex items-center justify-center">
+              <button className="button">Submit</button>
+            </div>
+          </form>
+          { message &&
+            <Alert className="mt-8">{message}</Alert>
+          }
+        </div>
+      </div>
     </>
   )
 }

@@ -1,11 +1,7 @@
-import FlexColumn from '../components/atoms/FlexColumn';
-import Flex from '../components/atoms/Flex';
-import {H2} from '../components/atoms/Typography';
 import React, {useState} from 'react';
-import Form from '../components/templates/FormTemplate';
-import Card from '../components/atoms/Card';
+import Form from '../components/FormTemplate';
 import {emailForm} from '../lib/emailForm';
-import Alert from '../components/molecules/Alert';
+import Alert from '../components/Alert';
 import Head from 'next/head';
 
 const formFields = [
@@ -48,23 +44,23 @@ const Contact = () => {
         <title>Contact | Twin Silver</title>
       </Head>
 
-      <FlexColumn className='center h-full'>
+      <div className='flex flex-col items-center h-full'>
         <h1 className="my-8 header-largest font-light">We&rsquo;d Love to Hear From You</h1>
-        <Card className="my-4" style={{maxWidth: '500px'}}>
-          <Flex className='align-center'>
+        <div className="my-4 max-w-[500px] rounded-md bg-darkerShade p-4">
+          <div className='flex align-center'>
             { message ?
               <Alert>{message}</Alert>
               :
               <Form handleSubmit={handleSubmit} style={{width:'500px'}} formFields={formFields}/>
             }
-          </Flex>
-        </Card>
-        <H2 className="py-8">Reach Out Directly</H2>
-        <address className="flex flex-col h-full ">
+          </div>
+        </div>
+        <h2 className="py-8 header-larger">Reach Out Directly</h2>
+        <address className="flex flex-col h-full">
           <p className="my-4" style={{marginBlockEnd: 0}}>Email: <a href='mailto:contact@twinsilverdesign.com'>contact@twinsilverdesign.com</a></p>
           <p className="my-4">Phone: <a href='tel:14348782240'>(434)-878-2240</a></p>
         </address>
-      </FlexColumn>
+      </div>
     </>
   )
 }

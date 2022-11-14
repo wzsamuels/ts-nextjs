@@ -1,10 +1,7 @@
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from "next/head";
-import Date from "../../components/atoms/Date";
-import styles from "../../styles/post.module.scss"
-import ImageStyled, {ImageWrapper} from "../../components/atoms/ImageStyled";
-import styled from "styled-components";
-import FlexColumn from "../../components/atoms/FlexColumn";
+import Date from "../../components/Date";
+import Image from "next/image";
 
 export async function getStaticProps({ params }) {
 
@@ -24,18 +21,9 @@ export async function getStaticPaths() {
   };
 }
 
-const PostGrid = styled.div`
-  display: grid;
-  @media (min-width: 1024px) {
-    grid-template-columns: 3fr 1fr;
-    justify-content: center;  
-  }
-  grid-auto-columns: auto;
-`
-
 export default function Post({ postData }) {
   return (
-    <FlexColumn center>
+    <div className="flex flex-col items-center">
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -44,9 +32,9 @@ export default function Post({ postData }) {
           <h1 className="text-3xl md:text-4xl lg:text-[40px] my-6 text-center">{postData.title}</h1>
           <Date className="my-6 text-center" dateString={postData.date} />
         </div>
-        <ImageWrapper className="my-6 flex justify-center">
-          <ImageStyled width={600} height={400} src={postData.image}/>
-        </ImageWrapper>
+        <div className="my-6 flex justify-center w-full max-w-[800px]">
+          <Image className="rounded shadow" width={600} height={400} src={postData.image}/>
+        </div>
       </div>
       {/*Replace with PostGrid when there's sidebar content*/}
         {/*lg:pl-[130px]*/}
@@ -59,6 +47,6 @@ export default function Post({ postData }) {
           Prev Posts
         </div>
         */}
-    </FlexColumn>
+    </div>
   );
 }

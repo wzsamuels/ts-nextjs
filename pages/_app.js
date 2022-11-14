@@ -1,17 +1,10 @@
 import Script from 'next/script';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import '../styles/normalize.css'
 import '../styles/globals.css'
-import darkTheme from '../styles/darkTheme';
-import GlobalStyles from '../styles/GlobalStyles';
-import {ThemeProvider} from 'styled-components';
-import PageWrapper from '../components/atoms/PageContainer';
-import ContentWrapper from '../components/atoms/ContentContainer';
-const NavBar = dynamic(() => import('../components/templates/NavBar'))
-const FooterContent = dynamic(() => import('../components/templates/FooterContent'))
+const NavBar = dynamic(() => import('../components/NavBar'))
+const FooterContent = dynamic(() => import('../components/FooterContent'))
 import {useEffect, useState} from 'react';
-import CookiePopup from '../components/organisms/CookiePopup';
 import {useCookies} from 'react-cookie';
 import links from '../data/links';
 import {SessionProvider, useSession} from "next-auth/react";
@@ -71,10 +64,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps} }) {
         strategy="lazyOnload"
       />
       <SessionProvider session={session}>
-        <ThemeProvider theme={darkTheme}>
-          <GlobalStyles/>
-          <PageWrapper>
-            <ContentWrapper>
+          <div className="relative min-h-screen max-w-[100vw] overflow-hidden">
+            <div className="pt-[3.125rem] pb-[38rem] md:pb-[18rem] w-full">
               <NavBar position="top" links={links}/>
               {Component.auth ? (
                 <Auth>
@@ -83,15 +74,23 @@ function MyApp({ Component, pageProps: { session, ...pageProps} }) {
               ) : (
                 <Component {...pageProps} />
               )}
-            </ContentWrapper>
+            </div>
             <FooterContent links={links}/>
-          </PageWrapper>
+          </div>
           { cookiePopup &&
-            <CookiePopup onAccept={handleAccept} onDecline={handleDecline}>
-              We use cookies to provide an improved user experience and better understand our customers.
-            </CookiePopup>
+            <div
+              className="bg-darkShade w-[800px] border-black border fixed bottom-0 left-0 w-full max-w-full z-50 animate-[fromBottom_1s] md:left-1/2 md:translate-x-[-50%]">
+              <div className="flex flex-col sm:flex-row justify-between">
+                <div style={{margin:'1em 1em 0 1em'}}>
+                  We use cookies to provide an improved user experience and better understand our customers.
+                </div>
+                <div className="flex  justify-center items-center m-4 ">
+                  <button className="button" onClick={handleAccept}>Accept</button>
+                  <button className="button ml-6" onClick={handleDecline}>Decline</button>
+                </div>
+              </div>
+            </div>
           }
-        </ThemeProvider>
       </SessionProvider>
     </>
   )

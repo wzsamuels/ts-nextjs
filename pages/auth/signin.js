@@ -2,9 +2,7 @@ import { getProviders, signIn } from "next-auth/react";
 import googleSignIn from '../../public/assets/images/auth/btn_google_signin_dark_normal_web@2x.png'
 import facebookLogo from '../../public/assets/images/auth/f_logo_RGB-White_58.png'
 import Image from "next/legacy/image";
-import Input from "../../components/atoms/Input";
 import React, {useState} from "react";
-import Form from "../../components/atoms/Form";
 
 const authLogos = {google: googleSignIn, facebook: facebookLogo}
 
@@ -27,6 +25,7 @@ export default function SignIn({ providers }) {
             <Image
               onClick={() => signIn(provider.id, {callbackUrl: '/account'})}
               src={authLogos[provider.id]}
+              alt={"Login in with your Google account"}
             />
           </div>
         )
@@ -41,6 +40,7 @@ export default function SignIn({ providers }) {
                 onClick={() => signIn(provider.id, {callbackUrl: '/account'})}
                 src={authLogos[provider.id]}
                 style={{flexBasis: '70px'}}
+                alt={"Login in with your Facebook account"}
               />
             </div>
             <div className="text-2xl" style={{flex: 'auto'}}>
@@ -60,17 +60,18 @@ export default function SignIn({ providers }) {
         provider && renderProvider(provider)
       )}
 
-      <Form onSubmit={onSubmit} className="mt-8">
+      <form onSubmit={onSubmit} className="mt-8 flex flex-col max-w-full not-last:mb-6">
         <label>
           Email address:&nbsp;
-          <Input
+          <input
+            className="input"
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             name="email" />
         </label>
         <button className="button" type="submit">Sign in with Email</button>
-      </Form>
+      </form>
     </div>
   )
 }

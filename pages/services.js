@@ -1,7 +1,6 @@
 import React from 'react';
-import Flex from "../components/atoms/Flex";
-import Card from '../components/atoms/Card';
-import styled from 'styled-components';
+import Head from 'next/head';
+import Image from "next/image";
 import analysisImg from '../public/assets/images/features/analysis_icon.svg'
 import copywriteImg from '../public/assets/images/features/content_icon.svg'
 import navigationImg from '../public/assets/images/features/navigation_icon.svg'
@@ -14,10 +13,6 @@ import engagementImg from '../public/assets/images/features/review_icon.svg'
 import accountImg from '../public/assets/images/features/accounts_icon.svg'
 import securityImg from '../public/assets/images/features/security_icon.svg'
 import chatbotImg from '../public/assets/images/features/chatbot_icon.svg'
-import ImageStyled from '../components/atoms/ImageStyled';
-import Head from 'next/head';
-import FlexColumn from "../components/atoms/FlexColumn";
-import {Fade} from "react-awesome-reveal";
 
 const Services = () => {
   return (
@@ -28,61 +23,24 @@ const Services = () => {
       <h1 className="header-largest my-8 font-light">
         What can we do for you?
       </h1>
-      <Flex className="justify-center">
-        { featureList.map((feature, index) =>
+      <div className="flex justify-center flex-wrap">
+        { featureList.map((feature) =>
           <div key={feature.title} className={`flex`}>
-            <FeatureCard>
-              <Flex className="m-4 relative justify-center p-4 h-full w-full max-w-[150px] max-h-[150px] min-h-[120px] md:min-h-[150px]">
-                <ImageStyled layout='fill' objectFit='contain' src={feature.img} alt={feature.title}/>
-              </Flex>
-              <div style={{flex: 1}}>
+            <div className="break-words rounded-none sm:rounded-lg flex sm:flex-row flex-col items-center justify-center p-2 w-full max-w-[500px] my-4 md:m-4 h-auto bg-darkerShade" >
+              <div className="flex m-4 relative justify-center p-4 h-full w-full max-w-[150px] max-h-[150px] min-h-[120px] md:min-h-[150px]">
+                <Image src={feature.img} alt={feature.title}/>
+              </div>
+              <div className="flex-auto">
                 <h2 className='text-center header-larger'>{feature.title}</h2>
                 <p className="p-4 break-words">{feature.text}</p>
               </div>
-            </FeatureCard>
+            </div>
           </div>
         )}
-      </Flex>
+      </div>
     </div>
   )
 }
-
-const FeatureCard = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 .5em;
-  width: 100%;
-  max-width: 500px;
-  margin: 1em 0;
-  height: auto;
-  border-radius: 0;
-  
-   h2 {
-      margin-top: 0;
-    }
-  
-  & > * {
-
-  }
-  
-  div:last-child {
-    flex: auto;
-  }
-
-  // Separate 
-  @media screen and (min-width: 500px) {
-    border-radius: 6px;
-    margin: 1em;
-    flex-direction: row;
-    h2 {
-          margin-top: 1em;
-          margin-bottom: 0;
-          }
-   
-  }
-`
 
 const featureList = [
   {

@@ -1,10 +1,4 @@
 import {useState} from "react";
-import Flex from "../../components/atoms/Flex";
-import InputLabelContainer from "../../components/atoms/InputLabelContainer";
-import Input from "../../components/atoms/Input";
-import Card from "../../components/atoms/Card";
-import GroupContainer from "../../components/atoms/GroupContainer";
-import Button from "../../components/atoms/Button";
 import AccountPage from "./index";
 
 const emptyFields = {name: "", email: "", phone: "", url: "", keyword: "", competitor: ""}
@@ -60,7 +54,7 @@ export default function SeoCustomPage() {
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="header-largest my-8">What’s Your SEO Report Card Score?</h1>
-      <Card className="flex justify-center flex-col items-center max-w-[900px]">
+      <div className="flex justify-center flex-col items-center max-w-[900px] w-full bg-darkerShade rounded">
         {result ?
           <div>
             <p>
@@ -71,84 +65,89 @@ export default function SeoCustomPage() {
           </div>
           :
           <div>
-          <h2 className="header-larger my-4">Get your website analyzed in minutes!</h2>
-          <p><span className="text-red-500">*</span> required field</p>
+            <h2 className="header-larger my-4">Get your website analyzed in minutes!</h2>
+            <p><span className="text-red-500">*</span> required field</p>
 
-          <form onSubmit={onSubmit} method='post' acceptCharset="UTF-8">
-          <Flex className='w-full'>
-          <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
-          <InputLabelContainer>
-          <label className="my-2" htmlFor="name">Name</label>
-          <Input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
+            <form onSubmit={onSubmit} method='post' acceptCharset="UTF-8">
+            <div className='flex w-full'>
+              <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
+                <div className="flex items-center">
+                  <label className="my-2" htmlFor="name">Name</label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleFormUpdate}
+                  />
+                </div>
 
-          <InputLabelContainer>
-          <label className="my-2" htmlFor="email_address">Email Address</label>
-          <Input
-          type="text"
-          name="email"
-          value={form.email}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
+                <div className="flex items-center">
+                  <label className="my-2" htmlFor="email_address">Email Address</label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="email"
+                    value={form.email}
+                    onChange={handleFormUpdate}
+                  />
+                </div>
 
-          <InputLabelContainer className="field">
-          <label className="my-2"  htmlFor="phone">Phone Number</label>
-          <Input
-          type="text"
-          name="phone"
-          value={form.phone}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
-          </div>
+                <div className="flex items-center">
+                  <label className="my-2"  htmlFor="phone">Phone Number</label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleFormUpdate}
+                  />
+                </div>
+              </div>
 
-          <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
-          <InputLabelContainer className="field">
-          <label className="my-2"  htmlFor="url">Website</label>
-          <Input
-          type="text"
-          name="url"
-          value={form.url}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
+              <div className="flex flex-col justify-center [&>*]:m-4 m-2 w-[45%]">
+                <div className="flex items-center">
+                  <label className="my-2"  htmlFor="url">Website</label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="url"
+                    value={form.url}
+                    onChange={handleFormUpdate}
+                  />
+                </div>
 
-          <InputLabelContainer className="field">
-          <label className="my-2" htmlFor="keyword">Main Keyword</label>
-          <Input
-          type="text"
-          name="keyword"
-          value={form.keyword}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
+                <div className="flex items-center">
+                  <label className="my-2" htmlFor="keyword">Main Keyword</label>
+                  <input
+                    className="input"
+                    type="text"
+                    name="keyword"
+                    value={form.keyword}
+                    onChange={handleFormUpdate}
+                    />
+                </div>
 
-          <InputLabelContainer className="field">
-          <label className="my-2"  htmlFor="competitor">Competitor Domain <small>(optional)</small></label>
-          <Input
-          type="text"
-          name="competitor"
-          value={form.competitor}
-          onChange={handleFormUpdate}
-          />
-          </InputLabelContainer>
-          </div>
+                <div className="flex items-center">
+                <label className="my-2"  htmlFor="competitor">Competitor Domain <small>(optional)</small></label>
+                  <input
+                    className="input"
+                name="competitor"
+                value={form.competitor}
+                onChange={handleFormUpdate}
+                />
+                </div>
+            </div>
 
 
-          </Flex>
-          <GroupContainer className="field">
-          <Button type="submit">Coming Soon!</Button>
-          </GroupContainer>
-          </form>
+            </div>
+              <div className="flex items-center justify-center">
+              <button className="" type="submit">Coming Soon!</button>
+              </div>
+            </form>
           </div>
         }
-      </Card>
+      </div>
       </div>
   )
 }

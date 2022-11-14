@@ -14,6 +14,10 @@
   .header-large {
     @apply text-xl md:text-2xl lg:text-3xl;
   }
+
+  body {
+    @apply text-light bg-darkestShade
+  }
 }
 
 @layer components {
@@ -23,5 +27,9 @@
 
   .button {
     @apply appearance-none no-underline cursor-pointer py-2.5 px-4 rounded-2xl bg-darkAccent hover:opacity-80 disabled:opacity-30 disabled:cursor-default
+  }
+
+  .input {
+    @apply p-2 max-w-full w-full bg-transparent border-darkShade border rounded-sm shadow-[0_5px_15px_0_#0B0B19] focus:outline-none focus:border-primary
   }
 }
