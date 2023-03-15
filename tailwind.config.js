@@ -5,6 +5,11 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
+  variants: {
+    extend: {
+      visibility: ["group-hover"],
+    },
+  },
   theme: {
     fontFamily: {
       serif: ['spartacus', 'sans-serif'],
@@ -45,6 +50,10 @@ module.exports = {
         fromLeft: {
           'from': {left: '-300px', opacity:0},
           'to': {left:0, opacity:1}
+        },
+        fadeIn: {
+          'from': {opacity: 0},
+          'to': {opacity: 1}
         }
       }
     },
