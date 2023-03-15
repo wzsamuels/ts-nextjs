@@ -7,11 +7,11 @@ const links = [
     text: 'Services',
     url: '/services'
   },
+  /*
   {
     text: 'Blog',
     url: '/posts'
   },
-  /*
   {
     text: 'SEO',
     url: '/seo'
@@ -20,6 +20,14 @@ const links = [
     text: 'Clients',
     dropdown: true,
     urls: [
+      {
+        text: "Nina Hair Braiding",
+        url: 'https://ninaakouhairanddesign.com/'
+      },
+      {
+        text: "Martin & Stella",
+        url: "https://www.martinandstella.com/"
+      },
       {
         text: 'Martin Woodworks',
         url: 'https://www.martinwoodworksnc.com/'
