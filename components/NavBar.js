@@ -41,9 +41,9 @@ export default function NavBar({links}) {
 
   return (
     <>
-      <nav className="flex fixed justify-between top-0 m-0 p-0 w-full transition-all duration-500 z-30 h-navbar
+      <nav className="flex fixed justify-between top-0 m-0 p-0 w-full transition-all duration-500 z-30 h-navbar h-navbar
       bg-darkerShade shadow-[0_3px_1px_2px_rgb(0,0,0,.20)_0_2px_2px_0_rgb(0,0,0,.14)_0_1px_5px_0_rgb(0,0,0,.12)]">
-        <div className="flex">
+        <div className="flex h-full">
           <button
             aria-label="Open Menu"
             onClick={() => setDrawer(true)}
@@ -52,7 +52,7 @@ export default function NavBar({links}) {
             <Icon height={18} icon="ic:baseline-menu" />
           </button>
           <Link href='/'>
-              <Image height={50} width={150} src={tsImage} alt='Twin Silver Logo'/>
+              <Image width={150} src={tsImage} alt='Twin Silver Logo'/>
           </Link>
         </div>
         <div className='hidden lg:block flex'>
@@ -64,7 +64,7 @@ export default function NavBar({links}) {
                   <div key={i} className="menu-item group" tabIndex={0}>
                     {link.text}
                     <div
-                      className="opacity-0 absolute duration-500 mt-3 bg-darkerShade group-hover:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100">
+                      className="absolute animate-[fadeIn_0.5s] mt-3 bg-darkerShade hidden group-hover:block group-focus:block group-focus-within:block">
                       {link.urls.map((dlink, di) =>
                         <a className="menu-item clear-both" href={dlink.url} key={di}>{dlink.text}</a>
                       )}
