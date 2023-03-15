@@ -18,7 +18,7 @@ const Services = () => {
   return (
     <div className="flex flex-col items-center">
       <Head>
-        <title>Features | Twin Silver</title>
+        <title>Services | Twin Silver</title>
       </Head>
       <h1 className="header-largest my-8 font-light">
         What can we do for you?
@@ -27,9 +27,7 @@ const Services = () => {
         { featureList.map((feature) =>
           <div key={feature.title} className={`flex`}>
             <div className="break-words rounded-none sm:rounded-lg flex sm:flex-row flex-col items-center justify-center p-2 w-full max-w-[500px] my-4 md:m-4 h-auto bg-darkerShade" >
-              <div className="flex m-4 relative justify-center p-4 h-full w-full max-w-[150px] max-h-[150px] min-h-[120px] md:min-h-[150px]">
-                <Image src={feature.img} alt={feature.title}/>
-              </div>
+              <Image className="m-4" width={150} height={150} src={feature.img} alt={feature.title}/>
               <div className="flex-auto">
                 <h2 className='text-center header-larger'>{feature.title}</h2>
                 <p className="p-4 break-words">{feature.text}</p>
