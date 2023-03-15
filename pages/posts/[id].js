@@ -33,7 +33,7 @@ export default function Post({ postData }) {
           <Date className="my-6 text-center" dateString={postData.date} />
         </div>
         <div className="my-6 flex justify-center w-full max-w-[800px]">
-          <Image className="rounded shadow" width={600} height={400} src={postData.image}/>
+          <Image priority className="rounded shadow" width={600} height={400} src={postData.image} alt={postData.title}/>
         </div>
       </div>
       {/*Replace with PostGrid when there's sidebar content*/}

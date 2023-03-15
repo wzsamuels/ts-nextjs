@@ -120,7 +120,7 @@ const Getstarted = ({initialFormType}) => {
       </Head>
       <div className='flex flex-col justify-center items-center'>
         <h1 className="my-8 header-largest font-light">Get Started Today</h1>
-        <Image className="max-w-[500px] w-[95vw] my-4 rounded-lg" src={getStartedImg} alt="Business Startup - Rocket launch"/>
+        <Image priority className="max-w-[500px] w-[95vw] my-4 rounded-lg" src={getStartedImg} alt="Business Startup - Rocket launch"/>
         <div className="my-4 w-full w-[95vw] max-w-[500px] rounded-lg bg-primary p-8">
           <h2 className='text-center font-bold header-larger'>Special pricing available for small businesses and non-profits in the NC triangle area!</h2>
         </div>
