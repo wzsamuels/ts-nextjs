@@ -1,14 +1,17 @@
 import Head from 'next/head';
 
 const faqs = [
-  { title: ""}
+  {
+    title: "What are you prices?",
+    body: `When don't post This is sort of like asking`
+  },
 ]
 
 const Faq = () => {
   return (
     <>
       <Head>
-        <title>About Us | Twin Silver</title>
+        <title>FAQ | Twin Silver</title>
       </Head>
       <div className="flex flex-col items-center">
         <h1 className="header-largest">FAQ</h1>

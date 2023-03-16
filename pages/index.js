@@ -1,11 +1,15 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Head from "next/head";
 import Link from 'next/link'
 import React, {useState} from 'react';
+import Modal from '../components/Modal';
+import {Fade} from "react-awesome-reveal";
 import medical from '../public/assets/images/index/medical_screenshot.png'
 import pizza from '../public/assets/images/index/pizza_screenshot.png'
 import shop from '../public/assets/images/index/shop_screenshot.png'
 import law from '../public/assets/images/index/law_screenshot.png'
+import martinstella_screenshot from '../public/assets/images/index/martinandstella_screenshot2.png'
+import nina_screenshot from '../public/assets/images/index/nina_screenshot.png'
 import artImage2 from '../public/assets/images/index/art.jpeg'
 import businessImage from '../public/assets/images/index/business.jpg'
 import secureImage from '../public/assets/images/index/secure.jpg'
@@ -15,31 +19,6 @@ import changePlatformImg from '../public/assets/images/index/changePlatforms.svg
 import newSiteImg from '../public/assets/images/index/newsite.svg'
 import refineSiteImg from '../public/assets/images/index/refineImg.svg'
 import logoImage from '../public/assets/images/logos/twinsilver.svg'
-import Modal from '../components/Modal';
-import {Fade} from "react-awesome-reveal";
-
-const homeCards = [
-  {
-    direction: "left",
-    title: "Personalized",
-    text: "Don't settle for templates and cookie-cutter designs. You deserve a website as unique as your business.",
-    image: artImage2,
-    alt: "Paint"
-  },
-  {
-    direction: "right", title: "Optimized Everywhere", text: "Provide users with seamless experience, whether on mobile, desktop, or tablet.", image: optimizeImage, alt: "Person holding phone"},
-  {
-    direction: "left", title: "Secure", text: "Backed by Amazon Web Services, your users' data is protected by tested technology.", image: secureImage, alt: "Locked electronics"},
-  {
-    direction: "right", title: "Business Driven", text: "How can we grow your business? Need better customer outreach? Help tracking inventory? We'll find the solution for you.", image: businessImage, alt: "Business meeting"},
-]
-
-const demoPages = [
-  {link: "https://medical.twinsilverdesign.com", image: medical},
-  {link: "https://pizza.twinsilverdesign.com", image: pizza},
-  {link: "https://shop.twinsilverdesign.com", image: shop},
-  {link: "https://law.twinsilverdesign.com", image: law}
-]
 
 export default function Home() {
   const [newSiteModal, setNewSiteModal] = useState(false)
@@ -51,16 +30,14 @@ export default function Home() {
       <Head>
         <meta/>
       </Head>
-      <div className="relative h-[50vh] min-[500px]:h-[50vh] min-[1000px]:h-[70vh]">
+      <div className="relative md:h-[50vh] h-[70vh]">
         <div className="relative top-0 left-0 h-full w-full z-0">
-          <Image priority objectFit='cover' placeholder="blur" layout="fill" src={heroImage} alt="Happy man at laptop"/>
+          <Image priority className="md:h-[50vh] h-[70vh] object-cover" placeholder="blur"  src={heroImage} alt="Happy man at laptop"/>
         </div>
         <div className="absolute top-0 left-0 opacity-75 bg-black h-full w-full z-10"/>
 
         <header className="text-center absolute flex flex-col items-center top-0 justify-evenly w-full h-full text-xl p-1 z-20">
-          <div className="w-[95%] max-w-[800px] lg:w-[75vw] m-0">
-            <Image src={logoImage} alt="Twin Silver Logo"/>
-          </div>
+          <Image className="w-[95%] max-w-[600px] lg:max-w-[700px]" src={logoImage} alt="Twin Silver Logo"/>
           <h1 className="font-serif text-4xl md:text-5xl m-0">Go Beyond the Basic</h1>
           <h2 className="font-serif text-3xl md:text-4xl">Helping to Grow Local Businesses in the NC Raleigh/Durham Area</h2>
           <Link className="button" href='/getstarted'>Get Started for Free</Link>
@@ -85,7 +62,7 @@ export default function Home() {
         </div>
       </div>
 
-      <h2 className="header-largest text-center my-8 ">Four Reasons to Build With Us</h2>
+      <h2 className="header-largest text-center my-12">Four Reasons to Build With Us</h2>
 
       { homeCards.map(card =>
         <Fade key={card.title} direction={card.direction} triggerOnce="true">
@@ -101,26 +78,37 @@ export default function Home() {
         </Fade>
       )}
 
-      <h2 className="header-larger">Quality Your Business Can Depend On</h2>
+      <Fade>
+        <h2 className="header-largest text-center my-12">Quality Your Business Can Depend On</h2>
+        <div className="flex flex-wrap sm:flex-row justify-center items-center mt-4 [&>*]:mx-4 [&>*]:my-4">
+          {upCityBadges.map(badge =>
+            <a key={badge.alt} href={badge.link} className="max-w-[50vw] m-4">
+              <Image src={badge.image} alt={badge.alt} width="250" height="250"/>
+            </a>
+          )}
+        </div>
+      </Fade>
 
-      <div className="flex justify-center mt-4 [&>*]:mx-4">
-        <a href="http://upcity.com/web-design/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
-          <img src="https://upcity-marketplace.s3.amazonaws.com/badge/159/full_color/04f57ddb4230a7fe40b649702bad1893.png" width="250px" height="250px" alt="TOP WEB DESIGNER" />
-        </a>
-        <a href="http://upcity.com/ecommerce-development/shopify/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham">
-          <img src="https://upcity-marketplace.s3.amazonaws.com/badge/225/full_color/889798d7b0e8fb92e303da7efb5bfa26.png" width="250px" height="250px" alt="TOP SHOPIFY DEVELOPER" />
-        </a>
-        <a href="http://upcity.com/digital-marketing/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham"><img src="https://upcity-marketplace.s3.amazonaws.com/badge/167/full_color/45daf4bdf38c88b7ce8ee2b1e3346411.png" width="250px" height="250px" alt="TOP DIGITAL AGENCY" /></a>
+      <h2 className="header-largest text-center my-12 ">Businesses We&rsquo;ve Helped</h2>
+      <div className="flex justify-center flex-wrap">
+        { clientPages.map(page =>
+          <Fade key={page.url} className="w-full">
+            <a href={page.url}>
+              <div className="my-4 mx-auto w-full max-w-[800px]">
+                <Image className="rounded-md" placeholder="blur" src={page.image} alt={page.alt}/>
+              </div>
+            </a>
+          </Fade>
+        )}
       </div>
 
-      <h2 className="header-larger self-center">Explore Our Demo Websites</h2>
-
+      <h2 className="header-largest text-center my-12 ">Explore Our Demo Websites</h2>
       <div className="flex justify-center flex-wrap">
         { demoPages.map(page =>
-          <Fade key={page.link} className="w-full">
-            <a href={page.link}>
+          <Fade key={page.url} className="w-full">
+            <a href={page.url}>
               <div className="my-4 mx-auto w-full max-w-[800px]">
-                <Image className="rounded-md" placeholder="blur" layout="responsive" src={page.image}/>
+                <Image className="rounded-md" placeholder="blur" src={page.image} alt={page.alt}/>
               </div>
             </a>
           </Fade>
@@ -186,3 +174,103 @@ export default function Home() {
       </>
   )
 }
+
+const homeCards = [
+  {
+    direction: "left",
+    title: "Personalized",
+    text: "Don't settle for templates and cookie-cutter designs. You deserve a website as unique as your business.",
+    image: artImage2,
+    alt: "Paint"
+  },
+  {
+    direction: "right",
+    title: "Optimized Everywhere",
+    text: "Provide users with seamless experience, whether on mobile, desktop, or tablet.",
+    image: optimizeImage,
+    alt: "Person holding phone"
+  },
+  {
+    direction: "left",
+    title: "Secure",
+    text: "Backed by Amazon Web Services, your users' data is protected by tested technology.",
+    image: secureImage,
+    alt: "Locked electronics"
+  },
+  {
+    direction: "right",
+    title: "Business Driven",
+    text: "How can we grow your business? Need better customer outreach? Help tracking inventory? We'll find the solution for you.",
+    image: businessImage,
+    alt: "Business meeting"
+  },
+]
+
+const clientPages = [
+  {
+    alt: "Nina Hair Braiding",
+    url: 'https://ninaakouhairanddesign.com/',
+    image: nina_screenshot,
+  },
+  {
+    alt: "Martin & Stella",
+    url: "https://www.martinandstella.com/",
+    image: martinstella_screenshot
+  },
+  /*
+  {
+    text: 'Martin Woodworks',
+    alt: 'https://www.martinwoodworksnc.com/'
+  },
+  {
+    text: 'Surly Squirrel',
+    alt: 'https://surly-squirrel.com/'
+  },
+  {
+    text: 'Hemp Generation',
+    alt: 'https://hempgeneration.com/'
+  }
+
+   */
+]
+
+const demoPages = [
+  {
+    url: "https://medical.twinsilverdesign.com",
+    image: medical,
+    alt: "Medical Demo Site"
+  },
+  {
+    url: "https://pizza.twinsilverdesign.com",
+    image: pizza,
+    alt: "Pizza Demo Site"
+  },
+  {
+    url: "https://shop.twinsilverdesign.com",
+    image: shop,
+    alt: "Store Demo Site"
+  },
+  {
+    url: "https://law.twinsilverdesign.com",
+    image: law,
+    alt: "Law Demo Site"
+  }
+]
+
+const upCityBadges = [
+  {
+    link: "http://upcity.com/web-design/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham",
+    image: "https://upcity-marketplace.s3.amazonaws.com/badge/159/full_color/04f57ddb4230a7fe40b649702bad1893.png",
+    alt: "TOP WEB DESIGNER"
+  },
+  {
+    link: "http://upcity.com/ecommerce-development/shopify/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham",
+    image: "https://upcity-marketplace.s3.amazonaws.com/badge/225/full_color/889798d7b0e8fb92e303da7efb5bfa26.png",
+    alt: "TOP SHOPIFY DEVELOPER"
+  },
+  {
+    link: "http://upcity.com/digital-marketing/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham",
+    image: "https://upcity-marketplace.s3.amazonaws.com/badge/167/full_color/45daf4bdf38c88b7ce8ee2b1e3346411.png",
+    alt: "TOP DIGITAL AGENCY"
+  },
+]
