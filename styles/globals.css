@@ -32,4 +32,8 @@
   .input {
     @apply p-2 max-w-full w-full bg-transparent border-darkShade border rounded-sm shadow-[0_5px_15px_0_#0B0B19] focus:outline-none focus:border-primary
   }
+
+  .lines-around {
+    @apply before:my-0 before:mr-[0.6666em] before:ml-[calc(-100%_-_0.6666em)] before:w-full before:inline-block before:align-middle before:clear-both before:h-0 before:overflow-hidden before:border before:border-t-light after:my-0 after:ml-[0.6666em] after:mr-[calc(-100%_-_0.6666em)] after:w-full after:inline-block after:align-middle after:clear-both after:h-0 after:overflow-hidden after:border after:border-t-light
+  }
 }
