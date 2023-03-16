@@ -1,9 +1,4 @@
-import Button from '../components/atoms/Button';
 import Head from 'next/head';
-import Form from '../components/atoms/Form';
-import Input from '../components/atoms/Input';
-import GroupContainer from '../components/atoms/GroupContainer';
-import InputLabelContainer from '../components/atoms/InputLabelContainer';
 
 const formFields = [
   {
@@ -24,22 +19,22 @@ const Settings = () => {
   return (
     <>
       <Head>
-        <title>Settings | Twin Silver</title>
+        <title>Communication Settings | Twin Silver</title>
       </Head>
       <div className="my-0 mx-4">
         <h1 className="header-largest">Email Settings</h1>
-        <h2 className="header-larger">Select which communicates you&rsquo;d like to receive:</h2>
-        <Form>
-          <InputLabelContainer>
-            <Input type='checkbox'/>
+        <h2 className="header-larger">Select which of our communications you&rsquo;d like to receive:</h2>
+        <form>
+          <div className={'flex'}>
+            <input type='checkbox'/>
             <label>Newsletters</label>
-          </InputLabelContainer>
-          <GroupContainer>
-            <Button>Select All</Button>
-            <Button>Unselect All</Button>
-            <Button>Submit</Button>
-          </GroupContainer>
-        </Form>
+          </div>
+          <div className={'flex'}>
+            <button className={'button'}>Select All</button>
+            <button className={'button'}>Unselect All</button>
+            <button className={'button'}>Submit</button>
+          </div>
+        </form>
       </div>
     </>
   )
