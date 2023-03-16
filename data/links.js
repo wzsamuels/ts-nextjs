@@ -46,10 +46,13 @@ const links = [
     text: 'Contact',
     url: '/contact'
   },
+  /*
   {
     text: 'About',
     url: '/about'
   }
+
+   */
 ]
 
 export default  links
