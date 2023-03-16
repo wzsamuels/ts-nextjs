@@ -80,12 +80,15 @@ export default function NavBar({links}) {
             })
           }
         </div>
+        <div/>
+        {/*
         <Link className="menu-item group" href="/account" passHref tabIndex={0}>
           Account
           <div className="opacity-0 absolute duration-500 mt-3 bg-darkerShade group-hover:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100">
             {renderLoginButton()}
           </div>
         </Link>
+        */}
       </nav>
 
       {/* Side Drawer */}
