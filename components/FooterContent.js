@@ -54,7 +54,7 @@ const FooterContent = ({links}) => {
             </form>
           </div>
         </div>
-        <small style={{marginBottom: '1em'}}>Copyright Twin Silver Web Design, LLC</small>
+        <small style={{marginBottom: '1em'}}>© {new Date().getFullYear()} Twin Silver Web Design, LLC</small>
       </div>
     </footer>
   )
