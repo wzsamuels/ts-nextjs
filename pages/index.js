@@ -4,15 +4,23 @@ import Link from 'next/link'
 import React, {useState} from 'react';
 import Modal from '../components/Modal';
 import {Fade} from "react-awesome-reveal";
-import medical from '../public/assets/images/index/medical_screenshot.png'
-import pizza from '../public/assets/images/index/pizza_screenshot.png'
-import shop from '../public/assets/images/index/shop_screenshot.png'
-import law from '../public/assets/images/index/law_screenshot.png'
-import martinstella_screenshot from '../public/assets/images/index/martinandstella_screenshot2.png'
-import nina_screenshot from '../public/assets/images/index/nina_screenshot.png'
-import upcity_designer_badge from '../public/assets/images/index/upcity_designer_badge.png'
-import upcity_developer_badge from '../public/assets/images/index/upcity_developer_badge.png'
-import upcity_agency_badge from '../public/assets/images/index/upcity_agency_badge.png'
+
+import medical_demo_screenshot from '../public/assets/images/demo-screenshots/medical_screenshot.png'
+import pizza_demo_screenshot from '../public/assets/images/demo-screenshots/pizza_screenshot.png'
+import shop_demo_screenshot from '../public/assets/images/demo-screenshots/shop_screenshot.png'
+import law from '../public/assets/images/demo-screenshots/law_screenshot.png'
+
+import martinstella_screenshot from '../public/assets/images/client-screenshots/martinandstella_screenshot.png'
+import nina_screenshot from '../public/assets/images/client-screenshots/nina_screenshot.png'
+import bestamerican_screenshot from '../public/assets/images/client-screenshots/bestamerican_screenshot.png'
+import hempgeneration_screenshot from '../public/assets/images/client-screenshots/hempgeneration_screenshot.png'
+import martinwoodworks_screenshot from '../public/assets/images/client-screenshots/martinwoodworks_screenshot.png'
+import surlysquirrel_screenshot from '../public/assets/images/client-screenshots/surlysquirrel_screenshot.png'
+
+import upcity_designer_badge from '../public/assets/images/upcity/upcity_designer_badge.png'
+import upcity_developer_badge from '../public/assets/images/upcity/upcity_developer_badge.png'
+import upcity_agency_badge from '../public/assets/images/upcity/upcity_agency_badge.png'
+
 import artImage2 from '../public/assets/images/index/art.jpeg'
 import businessImage from '../public/assets/images/index/business.jpg'
 import secureImage from '../public/assets/images/index/secure.jpg'
@@ -65,7 +73,7 @@ export default function Home() {
         </div>
       </div>
 
-      <h2 className="header-largest text-center my-12 lines-around">
+      <h2 className="header-largest text-center my-12 md:lines-around">
         Four Reasons to Build With Us
       </h2>
 
@@ -84,7 +92,7 @@ export default function Home() {
       )}
 
       <Fade>
-        <h2 className="header-largest text-center my-12 lines-around">Quality Your Business Can Depend On</h2>
+        <h2 className="header-largest text-center my-12 md:lines-around">Quality Your Business Can Depend On</h2>
         <div className="flex flex-wrap sm:flex-row justify-center items-center mt-4 [&>*]:mx-4 [&>*]:my-4">
           {upCityBadges.map(badge =>
             <a key={badge.alt} href={badge.link} className="max-w-[50vw] m-4">
@@ -94,7 +102,7 @@ export default function Home() {
         </div>
       </Fade>
 
-      <h2 className="header-largest text-center my-12 lines-around">Businesses We&rsquo;ve Helped</h2>
+      <h2 className="header-largest text-center my-12 md:lines-around">Businesses We&rsquo;ve Helped</h2>
       <div className="flex justify-center flex-wrap">
         { clientPages.map(page =>
           <Fade key={page.url} className="w-full">
@@ -107,7 +115,7 @@ export default function Home() {
         )}
       </div>
 
-      <h2 className="header-largest text-center my-12 lines-around">Explore Our Demo Websites</h2>
+      <h2 className="header-largest text-center my-12 md:lines-around">Explore Our Demo Websites</h2>
       <div className="flex justify-center flex-wrap">
         { demoPages.map(page =>
           <Fade key={page.url} className="w-full">
@@ -220,39 +228,44 @@ const clientPages = [
   {
     alt: "Martin & Stella",
     url: "https://www.martinandstella.com/",
-    image: martinstella_screenshot
-  },
-  /*
-  {
-    text: 'Martin Woodworks',
-    alt: 'https://www.martinwoodworksnc.com/'
+    image: martinstella_screenshot,
   },
   {
-    text: 'Surly Squirrel',
-    alt: 'https://surly-squirrel.com/'
+    alt: "Best American Medical Supplies",
+    url: "https://bestamerican-ms.com",
+    image: bestamerican_screenshot,
   },
   {
-    text: 'Hemp Generation',
-    alt: 'https://hempgeneration.com/'
+    alt: 'Martin Woodworks',
+    url: 'https://www.martinwoodworksnc.com/',
+    image: martinwoodworks_screenshot,
+  },
+  {
+    alt: 'Surly Squirrel',
+    url: 'https://surly-squirrel.com/',
+    image: surlysquirrel_screenshot,
+  },
+  {
+    alt: 'Hemp Generation',
+    url: 'https://hempgeneration.com/',
+    image: hempgeneration_screenshot,
   }
-
-   */
 ]
 
 const demoPages = [
   {
     url: "https://medical.twinsilverdesign.com",
-    image: medical,
+    image: medical_demo_screenshot,
     alt: "Medical Demo Site"
   },
   {
     url: "https://pizza.twinsilverdesign.com",
-    image: pizza,
+    image: pizza_demo_screenshot,
     alt: "Pizza Demo Site"
   },
   {
     url: "https://shop.twinsilverdesign.com",
-    image: shop,
+    image: shop_demo_screenshot,
     alt: "Store Demo Site"
   },
   {
@@ -275,7 +288,7 @@ const upCityBadges = [
   },
   {
     link: "http://upcity.com/digital-marketing/raleigh?spotlight=profiles%2Ftwin-silver-web-design%2Fdurham",
-    image: upcity_designer_badge,
+    image: upcity_agency_badge,
     alt: "TOP DIGITAL AGENCY"
   },
 ]
