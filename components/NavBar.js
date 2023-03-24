@@ -141,7 +141,7 @@ export default function NavBar({links}) {
             )
           }
           <div className="absolute w-full bottom-[5px] p-4 text-xs">
-            <div>© Twin Silver Web Design LLC</div>
+            <div>© {new Date().getFullYear()} Twin Silver Web Design LLC</div>
           </div>
         </div>
       </div>
