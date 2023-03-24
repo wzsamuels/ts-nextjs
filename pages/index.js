@@ -73,9 +73,11 @@ export default function Home() {
         </div>
       </div>
 
-      <h2 className="header-largest text-center my-12 md:lines-around">
-        Four Reasons to Build With Us
-      </h2>
+      <div className={'flex justify-center '}>
+        <h2 className="header-largest text-center my-12 sm:lines-around ">
+          Four Reasons to Build With Us
+        </h2>
+      </div>
 
       { homeCards.map(card =>
         <Fade key={card.title} direction={card.direction} triggerOnce="true">
@@ -91,8 +93,8 @@ export default function Home() {
         </Fade>
       )}
 
-      <Fade>
-        <h2 className="header-largest text-center my-12 md:lines-around">Quality Your Business Can Depend On</h2>
+      <Fade className={'flex justify-center'}>
+        <h2 className="header-largest text-center my-12 sm:lines-around">Quality Your Business Can Depend On</h2>
         <div className="flex flex-wrap sm:flex-row justify-center items-center mt-4 [&>*]:mx-4 [&>*]:my-4">
           {upCityBadges.map(badge =>
             <a key={badge.alt} href={badge.link} className="max-w-[50vw] m-4">
@@ -102,7 +104,10 @@ export default function Home() {
         </div>
       </Fade>
 
-      <h2 className="header-largest text-center my-12 md:lines-around">Businesses We&rsquo;ve Helped</h2>
+      <div className={'flex justify-center'}>
+        <h2 className="header-largest text-center my-12 sm:lines-around">Businesses We&rsquo;ve Helped</h2>
+      </div>
+
       <div className="flex justify-center flex-wrap">
         { clientPages.map(page =>
           <Fade key={page.url} className="w-full">
@@ -115,7 +120,10 @@ export default function Home() {
         )}
       </div>
 
-      <h2 className="header-largest text-center my-12 md:lines-around">Explore Our Demo Websites</h2>
+      <div className={'flex justify-center'}>
+        <h2 className="header-largest text-center my-12 sm:lines-around">Explore Our Demo Websites</h2>
+      </div>
+
       <div className="flex justify-center flex-wrap">
         { demoPages.map(page =>
           <Fade key={page.url} className="w-full">

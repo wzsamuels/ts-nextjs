@@ -34,6 +34,6 @@
   }
 
   .lines-around {
-    @apply before:my-0 before:mr-[0.6666em] before:ml-[calc(-100%_-_0.6666em)] before:w-full before:inline-block before:align-middle before:clear-both before:h-0 before:overflow-hidden before:border before:border-t-light after:my-0 after:ml-[0.6666em] after:mr-[calc(-100%_-_0.6666em)] after:w-full after:inline-block after:align-middle after:clear-both after:h-0 after:overflow-hidden after:border after:border-t-light
+    @apply before:inline-block before:my-0 before:mr-[0.6666em] before:max-w-[250px] before:min-w-[250px] before:ml-[calc(-100%_-_0.6666em)]  before:w-1/2 before:inline-block before:align-middle before:clear-both before:h-0 before:overflow-hidden before:border before:border-t-light after:max-w-[250px] after:min-w-[250px] after:my-0 after:ml-[0.6666em] after:mr-[calc(-100%_-_0.6666em)] after:w-1/2 after:inline-block after:align-middle after:clear-both after:h-0 after:overflow-hidden after:border after:border-t-light
   }
 }
