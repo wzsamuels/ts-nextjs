@@ -271,11 +271,14 @@ const demoPages = [
     image: pizza_demo_screenshot,
     alt: "Pizza Demo Site"
   },
+  /*
   {
     url: "https://shop.twinsilverdesign.com",
     image: shop_demo_screenshot,
     alt: "Store Demo Site"
   },
+
+   */
   {
     url: "https://law.twinsilverdesign.com",
     image: law,

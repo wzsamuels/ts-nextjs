@@ -21,8 +21,12 @@ const links = [
     dropdown: true,
     urls: [
       {
-        text: "Nina Hair Braiding",
-        url: 'https://ninaakouhairanddesign.com/'
+        text: 'Best American Medical Supplies',
+        url: 'https://bestamerican-ms.com/'
+      },
+      {
+        text: 'Hemp Generation',
+        url: 'https://hempgeneration.com/'
       },
       {
         text: "Martin & Stella",
@@ -33,13 +37,14 @@ const links = [
         url: 'https://www.martinwoodworksnc.com/'
       },
       {
+        text: "Nina Hair Braiding",
+        url: 'https://ninaakouhairanddesign.com/'
+      },
+      {
         text: 'Surly Squirrel',
         url: 'https://surly-squirrel.com/'
       },
-      {
-        text: 'Hemp Generation',
-        url: 'https://hempgeneration.com/'
-      }
+
     ]
   },
   {
