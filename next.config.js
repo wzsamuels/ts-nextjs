@@ -11,5 +11,3 @@ module.exports = withPWA({
     domains: ['lh3.googleusercontent.com', 'upcity-marketplace.s3.amazonaws.com'],
   },
 })
-
-module.exports = nextConfig
