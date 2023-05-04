@@ -9,6 +9,7 @@ import medical_demo_screenshot from '../public/assets/images/demo-screenshots/me
 import pizza_demo_screenshot from '../public/assets/images/demo-screenshots/pizza_screenshot.png'
 import shop_demo_screenshot from '../public/assets/images/demo-screenshots/shop_screenshot.png'
 import law from '../public/assets/images/demo-screenshots/law_screenshot.png'
+import skybnb_demo_screenshot from '../public/assets/images/demo-screenshots/skybnb_screenshot.png'
 
 import martinstella_screenshot from '../public/assets/images/client-screenshots/martinandstella_screenshot.png'
 import nina_screenshot from '../public/assets/images/client-screenshots/nina_screenshot.png'
@@ -261,6 +262,11 @@ const clientPages = [
 ]
 
 const demoPages = [
+  {
+    url: "https://skybnb.twinsilverdesign.com/",
+    image:skybnb_demo_screenshot,
+    alt: "SkyBnb Demo Site"
+  },
   {
     url: "https://medical.twinsilverdesign.com",
     image: medical_demo_screenshot,
