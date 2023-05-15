@@ -17,6 +17,7 @@ import bestamerican_screenshot from '../public/assets/images/client-screenshots/
 import hempgeneration_screenshot from '../public/assets/images/client-screenshots/hempgeneration_screenshot.png'
 import martinwoodworks_screenshot from '../public/assets/images/client-screenshots/martinwoodworks_screenshot.png'
 import surlysquirrel_screenshot from '../public/assets/images/client-screenshots/surlysquirrel_screenshot.png'
+import tobechi_screenshot from '../public/assets/images/client-screenshots/tobechi_screenshot.png'
 
 import upcity_designer_badge from '../public/assets/images/upcity/upcity_designer_badge.png'
 import upcity_developer_badge from '../public/assets/images/upcity/upcity_developer_badge.png'
@@ -230,14 +231,14 @@ const homeCards = [
 
 const clientPages = [
   {
-    alt: "Nina Hair Braiding",
-    url: 'https://ninaakouhairanddesign.com/',
-    image: nina_screenshot,
+    alt: 'Surly Squirrel',
+    url: 'https://surly-squirrel.com/',
+    image: surlysquirrel_screenshot,
   },
   {
-    alt: "Martin & Stella",
-    url: "https://www.martinandstella.com/",
-    image: martinstella_screenshot,
+    alt: 'Hemp Generation',
+    url: 'https://hempgeneration.com/',
+    image: hempgeneration_screenshot,
   },
   {
     alt: "Best American Medical Supplies",
@@ -250,15 +251,20 @@ const clientPages = [
     image: martinwoodworks_screenshot,
   },
   {
-    alt: 'Surly Squirrel',
-    url: 'https://surly-squirrel.com/',
-    image: surlysquirrel_screenshot,
+    alt: "Tobechi Essentials",
+    url: "https://tobechiessentials.com/",
+    image: tobechi_screenshot
   },
   {
-    alt: 'Hemp Generation',
-    url: 'https://hempgeneration.com/',
-    image: hempgeneration_screenshot,
-  }
+    alt: "Nina Hair Braiding",
+    url: 'https://ninaakouhairanddesign.com/',
+    image: nina_screenshot,
+  },
+  {
+    alt: "Martin & Stella",
+    url: "https://www.martinandstella.com/",
+    image: martinstella_screenshot,
+  },
 ]
 
 const demoPages = [
