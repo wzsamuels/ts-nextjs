@@ -66,7 +66,7 @@ export default function NavBar({links}) {
                     <div
                       className="absolute animate-[fadeIn_0.5s] mt-3 bg-darkerShade hidden group-hover:block group-focus:block group-focus-within:block">
                       {link.urls.map((dlink, di) =>
-                        <a className="menu-item clear-both" href={dlink.url} key={di}>{dlink.text}</a>
+                        <a className="menu-item clear-both" target="_blank" rel="noopener noreferrer" href={dlink.url} key={di}>{dlink.text}</a>
                       )}
                     </div>
                   </div>
@@ -124,6 +124,7 @@ export default function NavBar({links}) {
                       <a
                         key={di}
                         href={dlink.url}
+                        target="_blank" rel="noopener noreferrer"
                         className="ml-4 w-[calc(100% - 1rem)] px-4 py-3 hover:bg-primary">
                         {dlink.text}
                       </a>

@@ -113,7 +113,7 @@ export default function Home() {
       <div className="flex justify-center flex-wrap">
         { clientPages.map(page =>
           <Fade key={page.url} className="w-full">
-            <a href={page.url}>
+            <a href={page.url} target="_blank" rel="noopener noreferrer">
               <div className="my-4 mx-auto w-full max-w-[800px]">
                 <Image className="rounded-md" placeholder="blur" src={page.image} alt={page.alt}/>
               </div>
@@ -129,7 +129,7 @@ export default function Home() {
       <div className="flex justify-center flex-wrap">
         { demoPages.map(page =>
           <Fade key={page.url} className="w-full">
-            <a href={page.url}>
+            <a href={page.url} target="_blank" rel="noopener noreferrer">
               <div className="my-4 mx-auto w-full max-w-[800px]">
                 <Image className="rounded-md" placeholder="blur" src={page.image} alt={page.alt}/>
               </div>
