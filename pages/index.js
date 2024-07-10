@@ -18,6 +18,8 @@ import hempgeneration_screenshot from '../public/assets/images/client-screenshot
 import martinwoodworks_screenshot from '../public/assets/images/client-screenshots/martinwoodworks_screenshot.png'
 import surlysquirrel_screenshot from '../public/assets/images/client-screenshots/surlysquirrel_screenshot.png'
 import tobechi_screenshot from '../public/assets/images/client-screenshots/tobechi_screenshot.png'
+import dps365_screenshot from '../public/assets/images/client-screenshots/dpsoccer360_screenshot.png'
+import eventfriends_screenshot from '../public/assets/images/client-screenshots/eventfriends_screenshot.png'
 
 import upcity_designer_badge from '../public/assets/images/upcity/upcity_designer_badge.png'
 import upcity_developer_badge from '../public/assets/images/upcity/upcity_developer_badge.png'
@@ -256,9 +258,14 @@ const clientPages = [
     image: tobechi_screenshot
   },
   {
-    alt: "Nina Hair Braiding",
-    url: 'https://ninaakouhairanddesign.com/',
-    image: nina_screenshot,
+    alt: "Differentials Planet Soccer 360",
+    url: 'https://www.dpsoccer360.com/',
+    image: dps365_screenshot,
+  },
+  {
+    alt: "Event Friends",
+    url: 'https://www.eventfriends.app/',
+    image: eventfriends_screenshot,
   },
   {
     alt: "Martin & Stella",
