@@ -25,6 +25,14 @@ const links = [
         url: 'https://bestamerican-ms.com/'
       },
       {
+        text: 'Differentials Planet Soccer 360',
+        url: 'https://www.dpsoccer360.com/'
+      },
+      {
+        text: 'Event Friends',
+        url: 'https://www.eventfriends.app/'
+      },
+      {
         text: 'Hemp Generation',
         url: 'https://hempgeneration.com/'
       },
