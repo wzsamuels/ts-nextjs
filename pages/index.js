@@ -243,11 +243,6 @@ const clientPages = [
     image: hempgeneration_screenshot,
   },
   {
-    alt: "Best American Medical Supplies",
-    url: "https://bestamerican-ms.com",
-    image: bestamerican_screenshot,
-  },
-  {
     alt: 'Martin Woodworks',
     url: 'https://www.martinwoodworksnc.com/',
     image: martinwoodworks_screenshot,
@@ -261,17 +256,7 @@ const clientPages = [
     alt: "Differentials Planet Soccer 360",
     url: 'https://www.dpsoccer360.com/',
     image: dps365_screenshot,
-  },
-  {
-    alt: "Event Friends",
-    url: 'https://www.eventfriends.app/',
-    image: eventfriends_screenshot,
-  },
-  {
-    alt: "Martin & Stella",
-    url: "https://www.martinandstella.com/",
-    image: martinstella_screenshot,
-  },
+  }
 ]
 
 const demoPages = [

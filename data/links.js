@@ -21,32 +21,16 @@ const links = [
     dropdown: true,
     urls: [
       {
-        text: 'Best American Medical Supplies',
-        url: 'https://bestamerican-ms.com/'
-      },
-      {
         text: 'Differentials Planet Soccer 360',
         url: 'https://www.dpsoccer360.com/'
-      },
-      {
-        text: 'Event Friends',
-        url: 'https://www.eventfriends.app/'
       },
       {
         text: 'Hemp Generation',
         url: 'https://hempgeneration.com/'
       },
       {
-        text: "Martin & Stella",
-        url: "https://www.martinandstella.com/"
-      },
-      {
         text: 'Martin Woodworks',
         url: 'https://www.martinwoodworksnc.com/'
-      },
-      {
-        text: "Nina Hair Braiding",
-        url: 'https://ninaakouhairanddesign.com/'
       },
       {
         text: 'Surly Squirrel',
